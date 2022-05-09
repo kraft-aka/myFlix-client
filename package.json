@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "description": "This is a client-side of myFlix App",
   "main": "index.js",
-  "default": "src/index.html",
+  "source": "src/index.html",
   "scripts": {
+    "start": "parcel",
+    "build": "parcel build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "kubat aiupov",
