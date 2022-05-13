@@ -1,4 +1,6 @@
 import React from "react";
+import axios from "axios";
+
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 
@@ -7,33 +9,24 @@ export class MainView extends React.Component {
   constructor() {
     super();
     this.state = {
-      // list of movies
-      movies: [
-        {
-          _id: 1,
-          Title: "Bad Boys",
-          Description: "desc1...",
-          ImagePath: "...",
-          Genre: 'Comedy',
-        },
-        {
-          _id: 2,
-          Title: "The Matrix Reloaded",
-          Description: "desc2...",
-          ImagePath: "...",
-          Genre: 'Action',
-        },
-        {
-          _id: 3,
-          Title: "The Lord of the Rings: The Two Towers",
-          Description: "desc3...",
-          ImagePath: "...",
-          Genre: 'Fantasy',
-        },
-      ],
+  // list of movies
+      movies: [],
   // default flag for sekected movie
       selectedMovie: null,
     };
+  }
+
+  // query movies from myFlix API
+  componentDidMount() {
+    axios.get('https://movie-api-1112.herokuapp.com/movies')
+      .then(response => {
+        this.setState({
+          movies: response.data
+        });
+      })
+      .catch(error => {
+        console.log(error);
+      })
   }
 
   // method to update the state of movie
@@ -46,8 +39,7 @@ export class MainView extends React.Component {
   render() {
     const { movies, selectedMovie } = this.state;
 
-    if (movies.length === 0)
-      return <div className="main-view">The list is empty!</div>;
+    if (movies.length === 0) return <div className="main-view"/>;
 
     return (
       <div className="main-view">
@@ -63,8 +55,8 @@ export class MainView extends React.Component {
             <MovieCard
               key={movie._id}
               movie={movie}
-              onMovieClick={(movie) => {
-                this.setSelectedMovie(movie);
+              onMovieClick={(newSelectedMovie) => {
+                this.setSelectedMovie(newSelectedMovie);
               }}
             />
           ))
