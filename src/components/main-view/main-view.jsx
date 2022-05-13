@@ -18,7 +18,7 @@ export class MainView extends React.Component {
 
   // query movies from myFlix API
   componentDidMount() {
-    axios.get('https://movie-api-1112.herokuapp.com/movies')
+    axios.get('https://movie-api-1112.herokuapp.com/movies/')
       .then(response => {
         this.setState({
           movies: response.data
@@ -55,8 +55,8 @@ export class MainView extends React.Component {
             <MovieCard
               key={movie._id}
               movie={movie}
-              onMovieClick={(newSelectedMovie) => {
-                this.setSelectedMovie(newSelectedMovie);
+              onMovieClick={(movie) => {
+                this.setSelectedMovie(movie);
               }}
             />
           ))
