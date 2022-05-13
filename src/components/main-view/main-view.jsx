@@ -1,6 +1,9 @@
 import React from "react";
 import axios from "axios";
 
+// import views to the main-view
+import { RegistartionView } from "../registration-view/registration-view";
+import { LoginView } from "../login-view/login-view";
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 
@@ -9,37 +12,69 @@ export class MainView extends React.Component {
   constructor() {
     super();
     this.state = {
-  // list of movies
+      // list of movies,will be fetched from API
       movies: [],
-  // default flag for sekected movie
+      // default flag for selected movie
       selectedMovie: null,
+      user: null,
+      registered: true, // should be switched to false
     };
   }
 
   // query movies from myFlix API
   componentDidMount() {
-    axios.get('https://movie-api-1112.herokuapp.com/movies/')
-      .then(response => {
+    axios
+      .get("https://movie-api-1112.herokuapp.com/movies/")
+      .then((response) => {
         this.setState({
-          movies: response.data
+          movies: response.data,
         });
       })
-      .catch(error => {
+      .catch((error) => {
         console.log(error);
-      })
+      });
   }
 
   // method to update the state of movie
   setSelectedMovie(newSelectedMovie) {
     this.setState({
-      selectedMovie: newSelectedMovie
+      selectedMovie: newSelectedMovie,
+    });
+  }
+
+  // user veryfication and set user to current user
+  onLoggedIn(user) {
+    this.setState({
+      user,
+    });
+  }
+
+  // user register
+  onRegisteredIn(registered) {
+    this.setState({
+      registered,
     });
   }
 
   render() {
-    const { movies, selectedMovie } = this.state;
+    const { movies, selectedMovie, user, registered } = this.state;
 
-    if (movies.length === 0) return <div className="main-view"/>;
+    if (!registered)
+      return (
+        <RegistartionView
+          onRegisteredIn={(bool) => this.onRegisteredIn(bool)}
+        />
+      );
+
+    if (!user)
+      return (
+        <LoginView
+          onLoggedIn={(user) => this.onLoggedIn(user)}
+          onRegisteredIn={(bool) => this.onRegisteredIn(bool)}
+        />
+      );
+
+    if (movies.length === 0) return <div className="main-view" />;
 
     return (
       <div className="main-view">
