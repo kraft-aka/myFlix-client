@@ -25096,6 +25096,7 @@ class MainView extends _reactDefault.default.Component {
     constructor(){
         super();
         this.state = {
+            // list of movies
             movies: [
                 {
                     _id: 1,
@@ -25119,9 +25120,11 @@ class MainView extends _reactDefault.default.Component {
                     Genre: 'Fantasy'
                 }, 
             ],
-            selectedMovies: null
+            // default flag for sekected movie
+            selectedMovie: null
         };
     }
+    // method to update the state of movie
     setSelectedMovie(newSelectedMovie) {
         this.setState({
             selectedMovie: newSelectedMovie
@@ -25134,7 +25137,7 @@ class MainView extends _reactDefault.default.Component {
             children: "The list is empty!"
         }, void 0, false, {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 47,
+            lineNumber: 50,
             columnNumber: 14
         }, this);
         return /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
@@ -25146,7 +25149,7 @@ class MainView extends _reactDefault.default.Component {
                 }
             }, void 0, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 52,
+                lineNumber: 55,
                 columnNumber: 11
             }, this) : movies.map((movie1)=>/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_movieCard.MovieCard, {
                     movie: movie1,
@@ -25155,13 +25158,13 @@ class MainView extends _reactDefault.default.Component {
                     }
                 }, movie1._id, false, {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 60,
+                    lineNumber: 63,
                     columnNumber: 13
                 }, this)
             )
         }, void 0, false, {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 50,
+            lineNumber: 53,
             columnNumber: 7
         }, this);
     }

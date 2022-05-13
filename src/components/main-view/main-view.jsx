@@ -7,6 +7,7 @@ export class MainView extends React.Component {
   constructor() {
     super();
     this.state = {
+      // list of movies
       movies: [
         {
           _id: 1,
@@ -30,13 +31,15 @@ export class MainView extends React.Component {
           Genre: 'Fantasy',
         },
       ],
-      selectedMovies: null,
+  // default flag for sekected movie
+      selectedMovie: null,
     };
   }
 
+  // method to update the state of movie
   setSelectedMovie(newSelectedMovie) {
     this.setState({
-      selectedMovie: newSelectedMovie,
+      selectedMovie: newSelectedMovie
     });
   }
 
