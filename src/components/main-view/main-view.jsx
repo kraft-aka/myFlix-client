@@ -19,7 +19,7 @@ export class MainView extends React.Component {
       // default flag for selected movie
       selectedMovie: null,
       user: null,
-      registered: true, // should be switched to false
+      registered: false, // should be switched to false
     };
   }
 
