@@ -10,6 +10,9 @@ import {
   Row,
 } from "react-bootstrap";
 
+import "./registration-view.scss"
+
+
 export function RegistartionView(props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -26,8 +29,8 @@ export function RegistartionView(props) {
     <Container>
       <Row>
         <Col>
-          <CardGroup>
-            <Card>
+          <CardGroup >
+            <Card style={{ width:'18rem'}}>
               <Card.Body>
               <Card.Title>Please Register</Card.Title>
               <Form>
@@ -65,14 +68,13 @@ export function RegistartionView(props) {
 
                 <Form.Group>
                   <Form.Label>Birthday:</Form.Label>
-                  Birthday:
                   <Form.Control
                     type="date"
                     value={birthday}
                     onChange={(e) => setBirthday(e.target.value)}
                   />
                 </Form.Group>
-                <Button variant="primary" type="submit" onClick={handleSubmit}>
+                <Button variant="success mt-3" size="lg"  type="submit" onClick={handleSubmit}>
                   Register
                 </Button>
               </Form>
