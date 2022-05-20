@@ -26,11 +26,11 @@ export function RegistartionView(props) {
   };
 
   return (
-    <Container>
+    <Container className="color-overlay flex justify-content-center align-items-center">
       <Row>
         <Col>
           <CardGroup >
-            <Card style={{ width:'18rem'}}>
+            <Card>
               <Card.Body>
               <Card.Title>Please Register</Card.Title>
               <Form>
@@ -74,7 +74,7 @@ export function RegistartionView(props) {
                     onChange={(e) => setBirthday(e.target.value)}
                   />
                 </Form.Group>
-                <Button variant="success mt-3" size="lg"  type="submit" onClick={handleSubmit}>
+                <Button variant="success mt-3" type="submit" onClick={handleSubmit}>
                   Register
                 </Button>
               </Form>
