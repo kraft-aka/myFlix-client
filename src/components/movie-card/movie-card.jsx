@@ -1,16 +1,19 @@
 import React from "react";
 import PropTypes from 'prop-types';
-import { Button } from 'react-bootstrap';
-import { Card } from 'react-bootstrap';
+import { Button, Card, Badge } from 'react-bootstrap';
+
 
 export class MovieCard extends React.Component {
   render() {
     const { movie, onMovieClick } = this.props;
     return (
-     <Card>
+     <Card className="h-100 shadow-sm bg-white rounded">
        <Card.Img variant="top" src={movie.ImagePath} />
+       <Badge bg="light" className="mb-1" variant="primary">
+          {movie.Genre.Name}
+       </Badge>
        <Card.Body>
-         <Card.Title>{movie.Title}</Card.Title>
+         <Card.Title className="text-main">{movie.Title}</Card.Title>
          <Card.Text>{movie.Description}</Card.Text>
          <Button onClick={()=> onMovieClick(movie)} variant="success">Open</Button>  
        </Card.Body>
