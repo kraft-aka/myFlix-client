@@ -1,13 +1,9 @@
-$background-color: #3c096c;
-$navbar-color: #7b2cbf;
-
-
-* {
-  box-sizing: border-box;
+.form-label {
+  font-weight: 700;
 }
 
-body {
-  background-color: $background-color;
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
-
