@@ -1,5 +1,17 @@
-$color: steelblue;
 
-.my-flix {
-  color: $color;
+
+$primary-color: #aed9e0;
+$background-color: #faf3dd;
+$dark-color: #5e6472;
+
+
+* {
+  box-sizing: border-box;
 }
+
+body {
+  background-color: $background-color !important;
+  font-family: 'Montserrat', sans-serif !important;
+  color: white;
+}
+
