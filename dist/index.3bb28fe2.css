@@ -1,29 +1,28 @@
+.form-label {
+  font-weight: 700;
+}
+
+.container {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+
+
+.card-title {
+  font-size: 18px !important;
+  font-weight: 700 !important;
+}
+
 * {
   box-sizing: border-box;
 }
 
 body {
-  background-color: #3c096c;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-body {
-  background-color: #3c096c;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-body {
-  background-color: #3c096c;
-}
-
-.my-flix {
-  color: #4682b4;
+  color: #fff;
+  background-color: #faf3dd !important;
+  font-family: Montserrat, sans-serif !important;
 }
 
 /*# sourceMappingURL=index.3bb28fe2.css.map */
