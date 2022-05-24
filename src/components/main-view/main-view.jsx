@@ -39,6 +39,16 @@ export class MainView extends React.Component {
       });
   }
 
+  componentDidMount() {
+    let accessToken = localStorage.getItem('token');
+    if(accessToken !== null) {
+      this.setState({
+        user: localStorage.getItem('user')
+      });
+      this.getMovies(accessToken);
+    }
+  }
+
   // method to update the state of movie
   setSelectedMovie(newSelectedMovie) {
     this.setState({
@@ -47,10 +57,41 @@ export class MainView extends React.Component {
   }
 
   // user veryfication and set user to current user
-  onLoggedIn(user) {
+  onLoggedIn(authData) {
+    console.log(authData);
     this.setState({
-      user,
+      user: authData.user.Username
     });
+
+    localStorage.setItem('token', authData.token);
+    localStorage.setItem('user', authData.user.Username);
+    this.getMovies(authData.token);
+
+  }
+
+  // log out a user
+  onLoggedOut() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    this.setState({
+      user: null
+    });
+  }
+
+  // getMovies method
+  getMovies(token) {
+    axios.get("https://movie-api-1112.herokuapp.com/movies/",{
+      headers: { Authorization: `Bearer ${token}`}
+    })
+      .then(response=> {
+  // assign the result to the state
+        this.setState({
+          movies: response.data
+        });
+      })
+      .catch(function(error) {
+        console.log(error)
+      });
   }
 
   // user register
