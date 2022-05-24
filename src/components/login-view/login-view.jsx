@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
 
-import { Form, Button, Container, Card, CardGroup } from "react-bootstrap";
+import axios from "axios";
+import { Form, Button } from "react-bootstrap";
 
 import "./login-view.scss";
 
@@ -11,8 +11,18 @@ export function LoginView(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(username, password);
-    props.onLoggedIn(username);
+    // send a request to server for authentication
+    axios.post('https://movie-api-1112.herokuapp.com/login', {
+      Username: username,
+      Password: password
+    })
+      .then(response => {
+        const data = response.data;
+        props.onLoggedIn(data);
+      })
+      .catch(e => {
+        console.log('no such user')
+      });
   };
 
   return (
@@ -23,6 +33,8 @@ export function LoginView(props) {
           <Form.Label>Username:</Form.Label>
           <Form.Control
             type="text"
+            placeholder="Enter username"
+            value={ username }
             onChange={(e) => setUsername(e.target.value)}
           />
         </Form.Group>
@@ -32,6 +44,8 @@ export function LoginView(props) {
           <Form.Control
             className="mb-3"
             type="password"
+            placeholder="Enter password"
+            value={ password }
             onChange={(e) => setPassword(e.target.value)}
           />
         </Form.Group>
@@ -46,9 +60,3 @@ export function LoginView(props) {
     </div>
   );
 }
-
-LoginView.propTypes = {
-  name: PropTypes.string.isRequired,
-  password: PropTypes.string.isRequired,
-  onLoggedIn: PropTypes.func.isRequired,
-};
