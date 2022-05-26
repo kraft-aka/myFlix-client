@@ -7,7 +7,7 @@ import { LoginView } from "../login-view/login-view";
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 
-import { Col, Row } from "react-bootstrap";
+import { Col, Row, Button } from "react-bootstrap";
 
 import "./main-view.scss"
 
@@ -66,7 +66,6 @@ export class MainView extends React.Component {
     localStorage.setItem('token', authData.token);
     localStorage.setItem('user', authData.user.Username);
     this.getMovies(authData.token);
-
   }
 
   // log out a user
@@ -97,7 +96,7 @@ export class MainView extends React.Component {
   // user register
   onRegisteredIn(registered) {
     this.setState({
-      registered,
+      registered: true
     });
   }
 
@@ -122,7 +121,8 @@ export class MainView extends React.Component {
     if (movies.length === 0) return <div className="main-view" />;
 
     return (
-      <Row className="main-view justify-content-md-center">
+      <React.Fragment>
+        <Row className="main-view justify-content-md-center">
         {selectedMovie ? (
           <Col md={8}>
             <MovieView
@@ -145,7 +145,14 @@ export class MainView extends React.Component {
             </Col>
           ))
         )}
+         
       </Row>
+      <Button onClick={()=> {this.onLoggedOut() }}>LOGOUT</Button>
+      </React.Fragment>
+      
+      
+
     );
+   
   }
 }
