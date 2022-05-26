@@ -1,24 +1,38 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import { Navbar, Container, Nav, Button } from "react-bootstrap";
 
-export function Menubar() {
+
+export function MenuBar(props) {
+  
+  const { user } = props;
+
   const onLoggedOut = () => {
+    console.log('onLoggedOut');
     localStorage.clear();
     window.open("/", "_self");
   };
 
   const isAuth = () => {
+    console.log('isAuth')
     if (typeof window == "undefined") {
       return false;
     }
 
-    if (localStorage.getItem("token")) {
-      return localStorage.getItem("token");
-    } else {
-      return false;
-    }
+    // if (localStorage.getItem("token")) {
+    //   return localStorage.getItem("token");
+    // } else {
+    //   return false;
+    // } 
+    const token = localStorage.getItem('token');
+    if (!token) return false;
+    
+    return token;
   };
+useEffect(()=> {
+  console.log('+++++++')
+}, [])
+
 
   return (
     <Navbar
@@ -35,13 +49,13 @@ export function Menubar() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ml-auto">
-            {isAuth() && <Nav.Link href={`/users/&{user}`}>{user}</Nav.Link>}
+            {isAuth() && <Nav.Link href={`/users/${user}`}>{user}</Nav.Link>}
             {isAuth() && (
               <Button
                 variant="link"
-                onClick={() => {
-                  this.onLoggedOut();
-                }}
+                onClick={onLoggedOut}
+              
+            
               >
                 Logout
               </Button>
