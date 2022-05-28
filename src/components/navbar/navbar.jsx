@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 
 import { Navbar, Container, Nav, Button } from "react-bootstrap";
+import './navbar.scss' 
 
 
 export function MenuBar(props) {

@@ -5,13 +5,13 @@ $background-color: #faf3dd;
 $dark-color: #5e6472;
 
 
-* {
-  box-sizing: border-box;
-}
+//* {
+//  box-sizing: border-box;
+//}
 
 body {
-  background-color: $background-color !important;
-  font-family: 'Montserrat', sans-serif !important;
+  background-color: $background-color; //!important;
+  font-family: 'Montserrat', sans-serif; //!important;
   color: white;
 }
 
