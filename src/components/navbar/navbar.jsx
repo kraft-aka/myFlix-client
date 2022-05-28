@@ -14,7 +14,6 @@ export function MenuBar(props) {
   };
 
   const isAuth = () => {
-    console.log('isAuth')
     if (typeof window == "undefined") {
       return false;
     }
@@ -29,10 +28,6 @@ export function MenuBar(props) {
     
     return token;
   };
-useEffect(()=> {
-  console.log('+++++++')
-}, [])
-
 
   return (
     <Navbar
