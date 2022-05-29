@@ -16,6 +16,7 @@ import { LoginView } from "../login-view/login-view";
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 import { MenuBar } from "../navbar/navbar";
+import { GenreView } from "../genre-view/genre-view";
 
 import { Col, Row, Button, Container } from "react-bootstrap";
 
