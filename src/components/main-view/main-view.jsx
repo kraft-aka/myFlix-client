@@ -11,6 +11,7 @@ import {
 
 // import views to the main-view
 import { RegistartionView } from "../registration-view/registration-view";
+import { ProfileView } from "../profile-view/profile-view";
 import { LoginView } from "../login-view/login-view";
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";

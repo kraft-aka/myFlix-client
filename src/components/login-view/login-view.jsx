@@ -18,8 +18,8 @@ export function LoginView(props) {
     if (!username) {
       setUsernameErr("Username Required");
       isReq = false;
-    } else if (username.length < 2) {
-      setUsernameErr("Username must be 2 characters long");
+    } else if (username.length < 5) {
+      setUsernameErr("Username must be 5 characters long");
       isReq = false;
     }
     if (!password) {
@@ -81,8 +81,8 @@ export function LoginView(props) {
         </Button>
         <p className="text-center">
           Don't have an account?{" "}
-          <span className="btn btn-primary ml-3 mt-3">SIGN UP</span>
         </p>
+        <Button className="btn btn-primary">SIGN UP</Button>
       </Form>
     </div>
   );
