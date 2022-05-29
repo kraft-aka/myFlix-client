@@ -3,6 +3,7 @@ import { Form, Button, Card, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 import axios from "axios";
+import { UserDetailsView } from "./user-details-view";
 
 export class ProfileView extends React.Component {
   constructor() {
@@ -155,7 +156,7 @@ export class ProfileView extends React.Component {
               <Card.Body>
                 <Form className="update-user-form" onSubmit={(e)=> this.profileEdit(e, this.username,this.password, this.email, this.birthday)} >
                 <React.Fragment>
-                  <UserDatilsView />
+                  <UserDetailsView />
                   <Container className="flex-item">
                     <React.Fragment className="d-flex-column">
                       <Form.Control
