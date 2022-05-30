@@ -9,7 +9,7 @@ export class MovieCard extends React.Component {
     const { movie } = this.props;
 
     return (
-      <Card className="h-100 shadow-sm bg-white rounded">
+      <Card className="shadow-sm bg-white rounded">
         <Card.Img variant="top" src={movie.ImagePath} />
         <Badge bg="light" className="mb-1" variant="primary">
           {movie.Genre.Name}

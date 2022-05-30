@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 import axios from "axios";
 import { Form, Button } from "react-bootstrap";
 
 import "./login-view.scss";
+import { RegistartionView } from "../registration-view/registration-view";
 
 export function LoginView(props) {
   const [username, setUsername] = useState("");
@@ -82,7 +84,10 @@ export function LoginView(props) {
         <p className="text-center">
           Don't have an account?{" "}
         </p>
-        <Button className="btn btn-primary">SIGN UP</Button>
+        <Link to= "/register">
+          <Button className="btn btn-primary">SIGN UP</Button>
+        </Link> 
+        
       </Form>
     </div>
   );
