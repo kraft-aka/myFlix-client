@@ -33,6 +33,23 @@ export class MainView extends React.Component {
     };
   }
 
+   // getMovies method
+   getMovies(token) {
+    axios
+      .get("https://movie-api-1112.herokuapp.com/movies/", {
+        headers: { Authorization: `Bearer ${token}`}, // authenticated HTTP request to API
+      })
+      .then((response) => {
+        // assign the result to the state
+        this.setState({
+          movies: response.data,
+        });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
   // tell browser that the user is logged in
   componentDidMount() {
     let accessToken = localStorage.getItem("token");
@@ -57,22 +74,6 @@ export class MainView extends React.Component {
     this.getMovies(authData.token); // getMovies() called in once the user is logged in
   }
 
-  // getMovies method
-  getMovies(token) {
-    axios
-      .get("https://movie-api-1112.herokuapp.com/movies/", {
-        headers: { Authorization: `Bearer ${token}`}, // authenticated HTTP request to API
-      })
-      .then((response) => {
-        // assign the result to the state
-        this.setState({
-          movies: response.data,
-        });
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }
 
   render() {
     const { movies, user } = this.state;
@@ -151,8 +152,8 @@ export class MainView extends React.Component {
                 );
               }}
             />
-            <Route
-              path="/movie-director/:id"
+            {/* <Route
+              path="/movies/director/:id"
               render={({ match, history }) => {
                 if (!user)
                   return (
@@ -169,8 +170,8 @@ export class MainView extends React.Component {
                   </Col>
                 );
               }}
-            />
-            <Link to={`/users/${user}`}>{user}</Link>
+            /> */}
+            {/* <Link to={`/users/${user}`}>{user}</Link> */} 
             <Route
               path={`/users/${user}`}
               render={({ history }) => {
