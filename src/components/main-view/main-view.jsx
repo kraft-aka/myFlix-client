@@ -33,11 +33,11 @@ export class MainView extends React.Component {
     };
   }
 
-   // getMovies method
-   getMovies(token) {
+  // getMovies method
+  getMovies(token) {
     axios
       .get("https://movie-api-1112.herokuapp.com/movies/", {
-        headers: { Authorization: `Bearer ${token}`}, // authenticated HTTP request to API
+        headers: { Authorization: `Bearer ${token}` }, // authenticated HTTP request to API
       })
       .then((response) => {
         // assign the result to the state
@@ -53,7 +53,7 @@ export class MainView extends React.Component {
   // tell browser that the user is logged in
   componentDidMount() {
     let accessToken = localStorage.getItem("token");
-    let user = localStorage.getItem("user")
+    let user = localStorage.getItem("user");
     if (accessToken !== null) {
       this.setState({
         user: user,
@@ -63,7 +63,8 @@ export class MainView extends React.Component {
   }
 
   // user veryfication/updates state and sets user to current user
-  onLoggedIn(authData) {    //data comes from login-view
+  onLoggedIn(authData) {
+    //data comes from login-view
     console.log(authData);
     this.setState({
       user: authData.user.Username,
@@ -73,7 +74,6 @@ export class MainView extends React.Component {
     localStorage.setItem("user", authData.user.Username); // user is received from handleSubmit() is saved in localStorage
     this.getMovies(authData.token); // getMovies() called in once the user is logged in
   }
-
 
   render() {
     const { movies, user } = this.state;
@@ -91,8 +91,9 @@ export class MainView extends React.Component {
 
     return (
       <Router>
-        <MenuBar user={user} />
         <Container>
+          <Col>
+          <MenuBar user={user} />
           <Row className="main-view justify-content-md-center">
             <Route
               exact
@@ -171,7 +172,7 @@ export class MainView extends React.Component {
                 );
               }}
             /> */}
-            {/* <Link to={`/users/${user}`}>{user}</Link> */} 
+            {/* <Link to={`/users/${user}`}>{user}</Link> */}
             <Route
               path={`/users/${user}`}
               render={({ history }) => {
@@ -285,6 +286,8 @@ export class MainView extends React.Component {
               }}
             />
           </Row>
+          
+          </Col>
         </Container>
       </Router>
     );
