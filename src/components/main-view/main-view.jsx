@@ -33,33 +33,35 @@ export class MainView extends React.Component {
     };
   }
 
+  // tell browser that the user is logged in
   componentDidMount() {
     let accessToken = localStorage.getItem("token");
+    let user = localStorage.getItem("user")
     if (accessToken !== null) {
       this.setState({
-        user: localStorage.getItem("user"),
+        user: user,
       });
       this.getMovies(accessToken);
     }
   }
 
-  // user veryfication and set user to current user
-  onLoggedIn(authData) {
+  // user veryfication/updates state and sets user to current user
+  onLoggedIn(authData) {    //data comes from login-view
     console.log(authData);
     this.setState({
       user: authData.user.Username,
     });
 
-    localStorage.setItem("token", authData.token);
-    localStorage.setItem("user", authData.user.Username);
-    this.getMovies(authData.token);
+    localStorage.setItem("token", authData.token); // token is received from handleSubmit() is saved in localStorage
+    localStorage.setItem("user", authData.user.Username); // user is received from handleSubmit() is saved in localStorage
+    this.getMovies(authData.token); // getMovies() called in once the user is logged in
   }
 
   // getMovies method
   getMovies(token) {
     axios
       .get("https://movie-api-1112.herokuapp.com/movies/", {
-        headers: { Authorization: `Bearer ${token}` },
+        headers: { Authorization: `Bearer ${token}`}, // authenticated HTTP request to API
       })
       .then((response) => {
         // assign the result to the state
