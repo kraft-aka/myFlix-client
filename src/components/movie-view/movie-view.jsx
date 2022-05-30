@@ -11,10 +11,10 @@ export class MovieView extends React.Component {
     const { movie, onBackClick } = this.props;
 
     return (
-      <Card>
+      <Card className="shadow-sm bg-white rounded" >
         <div className="movie-view">
         <div className="movie-poster">
-          < Card.Img src={movie.ImagePath} />
+          < Card.Img className="card-img" src={movie.ImagePath} />
         </div>
         <div className="movie-title">
           <span className="label">Title: </span>

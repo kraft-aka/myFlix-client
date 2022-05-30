@@ -10,8 +10,8 @@ $dark-color: #5e6472;
 //}
 
 body {
-  background-color: $background-color; //!important;
-  font-family: 'Montserrat', sans-serif; //!important;
+  background-color: $dark-color !important;
+  font-family: 'Montserrat', sans-serif!important;
   color: white;
 }
 
