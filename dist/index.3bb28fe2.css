@@ -3,7 +3,7 @@
   position: relative;
 }
 
-.card-body {
+.card-body--register {
   box-shadow: 5px 5px 5px #0003;
 }
 
@@ -17,7 +17,13 @@
   display: flex;
 }
 
+.text-warning {
+  color: #bf0808;
+}
 
+.card-body--login {
+  box-shadow: 5px 5px 5px #0003;
+}
 
 .card:hover {
   box-shadow: 5px 1px 20px 1px #00000041 !important;

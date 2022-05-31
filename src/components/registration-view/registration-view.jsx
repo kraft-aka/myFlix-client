@@ -85,7 +85,7 @@ export function RegistartionView(props) {
         <Col>
           <CardGroup >
             <Card>
-              <Card.Body className="card-body" style={{width:'30rem'}}>
+              <Card.Body className="card-body--register" style={{width:'30rem'}}>
               <Card.Title className="text-main ml-3">Please Register</Card.Title>
               <Form className="rounded p-4 p-sm-3">
                 <Form.Group className="mb-3">
@@ -95,7 +95,7 @@ export function RegistartionView(props) {
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                     placeholder="Enter a username"
-                  />{ usernameErr && <p>{usernameErr}</p>}
+                  />{ usernameErr && <p className="text-warning">{usernameErr}</p>}
                 </Form.Group>
 
                 <Form.Group className="mb-3">
@@ -107,7 +107,7 @@ export function RegistartionView(props) {
                     required
                     minLength="8"
                     placeholder="Password must be 8 or more characters"
-                  /> { passwordErr && <p>{ passwordErr}</p>}
+                  /> { passwordErr && <p className="text-warning">{ passwordErr}</p>}
                 </Form.Group>
 
                 <Form.Group className="mb-3">
@@ -118,7 +118,7 @@ export function RegistartionView(props) {
                     onChange={(e) => setEmail(e.target.value)}
                     required
                     placeholder="user@gmail.com"
-                  /> { emailErr && <p>{ emailErr }</p>}
+                  /> { emailErr && <p className="text-warning">{ emailErr }</p>}
                 </Form.Group>
 
                 <Form.Group className="mb-3">
