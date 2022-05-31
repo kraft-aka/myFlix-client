@@ -1,3 +1,12 @@
+.main-cont {
+  min-height: 80vh;
+  position: relative;
+}
+
+.card-body {
+  box-shadow: 5px 5px 5px #0003;
+}
+
 .form-label {
   font-weight: 700;
 }

@@ -80,15 +80,15 @@ export function RegistartionView(props) {
   };
 
   return (
-    <Container className="color-overlay flex justify-content-center align-items-center">
+    <Container className="main-cont color-overlay d-flex justify-content-center align-items-center mt-3">
       <Row>
         <Col>
           <CardGroup >
             <Card>
-              <Card.Body>
-              <Card.Title>Please Register</Card.Title>
-              <Form>
-                <Form.Group>
+              <Card.Body className="card-body" style={{width:'30rem'}}>
+              <Card.Title className="text-main ml-3">Please Register</Card.Title>
+              <Form className="rounded p-4 p-sm-3">
+                <Form.Group className="mb-3">
                   <Form.Label>Username:</Form.Label>
                   <Form.Control
                     type="text"
@@ -98,7 +98,7 @@ export function RegistartionView(props) {
                   />{ usernameErr && <p>{usernameErr}</p>}
                 </Form.Group>
 
-                <Form.Group>
+                <Form.Group className="mb-3">
                   <Form.Label>Password:</Form.Label>
                   <Form.Control
                     type="password"
@@ -110,7 +110,7 @@ export function RegistartionView(props) {
                   /> { passwordErr && <p>{ passwordErr}</p>}
                 </Form.Group>
 
-                <Form.Group>
+                <Form.Group className="mb-3">
                   <Form.Label>Email:</Form.Label>
                   <Form.Control
                     type="email"
@@ -121,7 +121,7 @@ export function RegistartionView(props) {
                   /> { emailErr && <p>{ emailErr }</p>}
                 </Form.Group>
 
-                <Form.Group>
+                <Form.Group className="mb-3">
                   <Form.Label>Birthday:</Form.Label>
                   <Form.Control
                     type="date"
@@ -130,7 +130,7 @@ export function RegistartionView(props) {
                     required
                   />
                 </Form.Group>
-                <Button variant="success mt-3" type="submit" onClick={handleSubmit}>
+                <Button variant="outline-primary mt-3" type="submit" onClick={handleSubmit}>
                   Register
                 </Button>
               </Form>
