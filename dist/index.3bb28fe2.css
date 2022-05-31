@@ -48,9 +48,10 @@
 
 
 
-.navbar {
-  position: sticky;
-  top: 0;
+.main-view--navbar {
+  display: block;
+  left: 0;
+  right: 0;
 }
 
 .card-title {

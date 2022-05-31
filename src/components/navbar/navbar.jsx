@@ -32,13 +32,13 @@ export function MenuBar(props) {
 
   return (
     <Navbar
-      className="main-view"
+      className="main-view--navbar"
       sticky="top"
       bg="dark"
       expand="lg"
       variant="dark"
     >
-      <Container>
+      <Container className="fluid">
         <Navbar.Brand className="navbar-logo" href="/">
           myFlixCinema
         </Navbar.Brand>

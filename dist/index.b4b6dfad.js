@@ -38254,42 +38254,7 @@ try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "LoginView", ()=>LoginView
-) //     <Container className="main-cont color-overlay d-flex justify-content-center align-items-center">
- //       <Form className="rounded p-4 p-sm-3">
- //         <h2>LOGIN PAGE</h2>
- //         <Form.Group className="mb-3" controlId="formUsername">
- //           <Form.Label>Username:</Form.Label>
- //           <Form.Control
- //             type="text"
- //             placeholder="Enter username"
- //             value={username}
- //             onChange={(e) => setUsername(e.target.value)}
- //           /> {usernameErr && <p>{ usernameErr }</p>}
- //         </Form.Group>
- //         <Form.Group controlId="formPassword">
- //           <Form.Label>Password:</Form.Label>
- //           <Form.Control
- //             className="mb-3"
- //             type="password"
- //             placeholder="Enter password"
- //             value={password}
- //             onChange={(e) => setPassword(e.target.value)}
- //           /> { passwordErr && <p>{ passwordErr }</p>}
- //         </Form.Group>
- //         <Button variant="primary" type="submit" onClick={handleSubmit}>
- //           SIGN IN
- //         </Button>
- //         <p className="text-center">
- //           Don't have an account?{" "}
- //         </p>
- //         <Link to= "/register">
- //           <Button className="btn btn-primary">SIGN UP</Button>
- //         </Link> 
- //       </Form>
- //     </Container>
- //   );
- // }
-;
+);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
@@ -38864,12 +38829,13 @@ function MenuBar(props) {
         return token;
     };
     return /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Navbar, {
-        className: "main-view",
+        className: "main-view--navbar",
         sticky: "top",
         bg: "dark",
         expand: "lg",
         variant: "dark",
         children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Container, {
+            className: "fluid",
             children: [
                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Navbar.Brand, {
                     className: "navbar-logo",
