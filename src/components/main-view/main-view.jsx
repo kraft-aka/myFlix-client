@@ -101,7 +101,7 @@ export class MainView extends React.Component {
               render={() => {
                 if (!user)
                   return (
-                    <Col>
+                    <Col md={8}>
                       <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />
                     </Col>
                   );

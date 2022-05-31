@@ -14,17 +14,24 @@
   box-shadow: 5px 1px 20px 1px #00000041 !important;
 }
 
+.card {
+  box-sizing: border-box;
+}
+
 .card-body {
+  flex-wrap: wrap;
   padding: 1.5rem !important;
 }
 
-.card-text {
+.movie-description {
   text-align: center;
   white-space: nowrap;
   text-overflow: ellipsis;
   max-width: 70ch;
   overflow: hidden;
 }
+
+
 
 .navbar {
   position: sticky;
