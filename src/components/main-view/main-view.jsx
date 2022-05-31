@@ -17,6 +17,7 @@ import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 import { MenuBar } from "../navbar/navbar";
 import { GenreView } from "../genre-view/genre-view";
+import { DirectorView } from "../director-view/director-view";
 
 import { Col, Row, Button, Container } from "react-bootstrap";
 

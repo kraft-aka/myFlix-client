@@ -4,7 +4,9 @@ $primary-color: #aed9e0;
 $background-color: #faf3dd;
 $dark-color: #5e6472;
 
-
+.container {
+  max-width: 100% !important;
+}
 //* {
 //  box-sizing: border-box;
 //}

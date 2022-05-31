@@ -26,7 +26,7 @@ export class MovieView extends React.Component {
             <Card.Title className="text-center">Director: </Card.Title>
             <Card.Text className="text-center">{movie.Director.Name}</Card.Text>
             <div className="container d-flex justify-content space-around">
-              <Link to={`/genres/${movie.Director.Name}`}>
+              <Link to={`/directors/${movie.Director.Name}`}>
                 <Button variant="outline-info ml-3 mr-3">Director</Button>
               </Link>
               <Link to={`/genres/${movie.Genre.Name}`}>

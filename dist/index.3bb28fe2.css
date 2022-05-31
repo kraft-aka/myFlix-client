@@ -54,9 +54,17 @@
   right: 0;
 }
 
+.navbar-logo {
+  font-weight: 700;
+}
+
 .card-title {
   font-size: 18px !important;
   font-weight: 700 !important;
+}
+
+.container {
+  max-width: 100% !important;
 }
 
 body {
