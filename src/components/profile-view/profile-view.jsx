@@ -2,8 +2,11 @@ import React, { useState, useEffect } from "react";
 import { Button, Card, Container, Row, Col } from "react-bootstrap";
 
 import axios from "axios";
+
+import FavoriteMoviesView from './favorite-movies';
 import { UserUpdate } from "./user-details-view";
-import { FavoriteMoviesView } from "./favorite-movies";
+
+
 
 export function ProfileView(props) {
   const [user, setUser] = useState(props.user);
@@ -46,23 +49,23 @@ export function ProfileView(props) {
   return (
     <Container>
       <Row>
-        <h4>Your profile</h4>
+        <h4>{user} profile</h4>
       </Row>
       <Row>
-        <Col className="label">Username:</Col>
-        <Col className="value">{user.Username}</Col>
+        <Col >Username:</Col>
+        <Col >{user.Username}</Col>
       </Row>
       <Row className="mt-3">
-        <Col className="label">Password:</Col>
-        <Col className="value">******</Col>
+        <Col >Password:</Col>
+        <Col >******</Col>
       </Row>
       <Row className="mt-3">
-        <Col className="label">Email:</Col>
-        <Col className="value">{user.Email}</Col>
+        <Col>Email:</Col>
+        <Col>{user.Email}</Col>
       </Row>
       <Row className="mt-3">
-        <Col className="label">Birthday:</Col>
-        <Col className="value">{user.Birthday}</Col>
+        <Col>Birthday:</Col>
+        <Col>{user.Birthday}</Col>
       </Row>
       <Row className="mt-5">
         <h4>Your favorite movies</h4>
