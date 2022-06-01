@@ -70,6 +70,7 @@ export class ProfileView extends React.Component {
         favoriteMovies: this.state.favoriteMovies,
       })
       .then((response) => {
+        console.log(response.data)
         this.setState({
           username: response.data.username,
           password: response.data.password,
@@ -155,17 +156,17 @@ export class ProfileView extends React.Component {
             <Card>
               <Card.Body>
                 <Form className="update-user-form" onSubmit={(e)=> this.profileEdit(e, this.username,this.password, this.email, this.birthday)} >
-                <React.Fragment>
+                <Container>
                   <UserDetailsView />
                   <Container className="flex-item">
-                    <React.Fragment className="d-flex-column">
+                    <Container className="d-flex-column">
                       <Form.Control
                        type="text" name='username' placeholder="new username" onChange={this.setUsername} required/>
                      
                     <Form.Text>
                       Username must have at least 5 characters
                     </Form.Text> 
-                    </React.Fragment>
+                    </Container>
                     <React.Fragment className="d-flex-column">
                       <Form.Control 
                       type="password" name="password" placeholder="new password" onChange={(e)=> this.setPassword(e.target.value)}/>
@@ -188,7 +189,7 @@ export class ProfileView extends React.Component {
                       </Form.Text>  
                     </React.Fragment>
                   </Container>
-                </React.Fragment>
+                </Container>
                 <React.Fragment className="mt-2 text-center">
                   <Button variant="success" type="submit" onClick={this.profileEdit}>Update User's Profile</Button>
                 </React.Fragment>

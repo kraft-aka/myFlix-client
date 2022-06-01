@@ -4,8 +4,8 @@ import {Card, Container} from "react-bootstrap";
 import axios from "axios";
 
 export class UserDetailsView extends React.Component {
-  constructor() {
-    super(); 
+  constructor(props) {
+    super(props); 
   }
   getUser(token) {
     let user = localStorage.getItem("user");
