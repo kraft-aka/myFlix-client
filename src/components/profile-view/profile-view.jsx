@@ -15,7 +15,7 @@ export function ProfileView (props) {
 
   const getUser = () => {
     axios 
-      .get(`https://movie-api-1112.herokuapp.com/users/${loggedUser}`, {
+      .get(`https://movie-api-1112.herokuapp.com/users/${user}`, {
         headers: { Authorization: `Bearer ${token}`}, 
       })
       .then((response) => {
@@ -70,8 +70,6 @@ export function ProfileView (props) {
       <Container>
         <Button variant="outline-warning" onClick={handleDelete}>Delete Profile</Button>
       </Container>
-
-
     </Container>
   )
 }

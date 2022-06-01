@@ -38272,7 +38272,7 @@ function ProfileView(props) {
     const loggedUser = localStorage.getItem('user');
     const token = localStorage.getItem('token');
     const getUser = ()=>{
-        _axiosDefault.default.get(`https://movie-api-1112.herokuapp.com/users/${loggedUser}`, {
+        _axiosDefault.default.get(`https://movie-api-1112.herokuapp.com/users/${user}`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
