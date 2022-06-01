@@ -18,6 +18,8 @@ import { MovieView } from "../movie-view/movie-view";
 import { MenuBar } from "../navbar/navbar";
 import { GenreView } from "../genre-view/genre-view";
 import { DirectorView } from "../director-view/director-view";
+import { FavoriteMoviesView } from "../profile-view/favorite-movies";
+import { UserUpdate } from "../profile-view/user-details-view";
 
 import { Col, Row, Button, Container } from "react-bootstrap";
 

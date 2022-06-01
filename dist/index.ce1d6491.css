@@ -1,3 +1,13 @@
+.container {
+  max-width: 100% !important;
+}
+
+body {
+  color: #fff;
+  background-color: #5e6472 !important;
+  font-family: Montserrat, sans-serif !important;
+}
+
 .main-cont {
   min-height: 80vh;
   position: relative;
@@ -63,14 +73,4 @@
   font-weight: 700 !important;
 }
 
-.container {
-  max-width: 100% !important;
-}
-
-body {
-  color: #fff;
-  background-color: #5e6472 !important;
-  font-family: Montserrat, sans-serif !important;
-}
-
-/*# sourceMappingURL=index.3bb28fe2.css.map */
+/*# sourceMappingURL=index.ce1d6491.css.map */
