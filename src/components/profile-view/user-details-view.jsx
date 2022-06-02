@@ -60,7 +60,8 @@ export function UserUpdate (props) {
         .catch((error) => console.log(error));
   }
 
-  const editProfile = () => {
+  const editProfile = (e) => {
+    e.preventDefault();
     axios
       .put(`https://movie-api-1112.herokuapp.com/user-update/${loggedUser}`, {
         headers: { Authorization: `Bearer ${token}`}, 
@@ -72,6 +73,9 @@ export function UserUpdate (props) {
 
       .then((response)=> {
         console.log(response.data);
+        Username: response.data.Username;
+        Password: response.data.Password;
+        Email: response.data.Email
         alert(`${loggedUser}'s Profile Successfully Updated`);
       })
       .catch((error)=> console.log(error));
@@ -111,7 +115,6 @@ export function UserUpdate (props) {
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    required
                     minLength="4"
                     placeholder="*********"
                   /> { passwordErr && <p className="text-warning">{ passwordErr}</p>}
@@ -124,13 +127,12 @@ export function UserUpdate (props) {
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    required
                     placeholder= {user.Email}
                   /> { emailErr && <p className="text-warning">{ emailErr }</p>}
                   <p>Set new Email</p>
                 </Form.Group>
 
-                <Form.Group className="mb-3">
+                {/* <Form.Group className="mb-3">
                   <Form.Label>Birthday:</Form.Label>
                   <Form.Control
                     type="date"
@@ -140,7 +142,7 @@ export function UserUpdate (props) {
                     required
                   />
                   <p>Set new Birthday</p>
-                </Form.Group>
+                </Form.Group> */}
                 <div className="d-flex justify-content-md-center">
                 <Button variant="outline-primary mt-3" type="submit" onClick={editProfile} >
                   Update
