@@ -69,51 +69,44 @@ export function ProfileView(props) {
       <Row className="d-flex justify-content-md-center mt-3 mb-2">
         <Col sm={8} className="text-main">
           Username:
-        </Col> 
+        </Col>
         <Col sm={8} className="text-main">
-          {user.Username} 
+          {user.Username}
         </Col>
       </Row>
       <Row className="d-flex justify-content-md-center mt-3 mb-2">
         <Col sm={8} className="text-main">
-          Password: 
+          Password:
         </Col>
-        <Col sm={8}>
-          ************ 
-        </Col>
-
+        <Col sm={8}>************</Col>
       </Row>
       <Row className="d-flex justify-content-md-center mt-3 mb-2">
         <Col sm={8} className="text-main">
           Email:
         </Col>
-        <Col sm={8}>
-          {user.Email} 
-        </Col>
+        <Col sm={8}>{user.Email}</Col>
       </Row>
       <Row className="d-flex justify-content-md-center mt-3 mb-2">
         <Col sm={8} className="text-main">
-          Birthday: 
+          Birthday:
         </Col>
-        <Col sm={8}>
-          {user.Birthday} 
-        </Col>
+        <Col sm={8}>{user.Birthday}</Col>
       </Row>
       <Row className="d-flex justify-content-md-center mt-3 mb-2">
         <Col sm={8} className="text-main">
-          Favorite Movies: 
+          Favorite Movies:
         </Col>
-        <Col sm={8}>
-          {user.favoriteMovies} 
-        </Col>
+        <Col sm={8}>{user.favoriteMovies}</Col>
       </Row>
       <Row className="d-flex justify-content-md-center mt-3 mb-2">
         <Button variant="outline-warning" onClick={handleDelete}>
           Delete Profile
         </Button>
-        <Link to= {`/`}>
-            <Button className="btn" variant="outline-success ml-3" type="submit">Back to Home</Button>  
-          </Link> 
+        <Link to={`/`}>
+          <Button className="btn" variant="outline-success ml-3" type="submit">
+            Back to Home
+          </Button>
+        </Link>
       </Row>
     </Container>
   );
