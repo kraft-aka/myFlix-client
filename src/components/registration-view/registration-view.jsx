@@ -105,8 +105,8 @@ export function RegistartionView(props) {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
-                    minLength="8"
-                    placeholder="Password must be 8 or more characters"
+                    minLength="4"
+                    placeholder="Password must be 4 or more characters"
                   /> { passwordErr && <p className="text-warning">{ passwordErr}</p>}
                 </Form.Group>
 
