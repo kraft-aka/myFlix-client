@@ -18,6 +18,7 @@ import { MovieView } from "../movie-view/movie-view";
 import { MenuBar } from "../navbar/navbar";
 import { GenreView } from "../genre-view/genre-view";
 import { DirectorView } from "../director-view/director-view";
+import { UserUpdate } from "../profile-view/user-details-view";
 
 import { Col, Row, Button, Container } from "react-bootstrap";
 
@@ -141,7 +142,7 @@ export class MainView extends React.Component {
                 if (!user)
                   return (
                     <Col>
-                      <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />
+                      <Redirect to="/register" />
                     </Col>
                   );
                 return (
@@ -174,7 +175,7 @@ export class MainView extends React.Component {
               }}
             /> */}
             {/* <Link to={`/users/${user}`}>{user}</Link> */}
-            <Route
+            {/* <Route
               path={`/users/${user}`}
               render={({ history }) => {
                 if (!user) return;
@@ -188,32 +189,35 @@ export class MainView extends React.Component {
                   </Col>
                 );
 
-                // if (!user) return <Redirect to="/" />;
-                // return (
-                //   <Col>
-                //     <ProfileView
-                //       movies={movies}
-                //       user={user}
-                //       onBackClick={() => history.goBack()}
-                //     />
-                //   </Col>
-                // );
+                if (!user) return <Redirect to="/" />;
+                return (
+                  <Col>
+                    <ProfileView
+                      movies={movies}
+                      user={user}
+                      onBackClick={() => history.goBack()}
+                    />
+                  </Col>
+                );
               }}
-            />
+            /> */}
             <Route
-              path="/users/:username"
-              render={({ history, match }) => {
+              path={`/users/${user}`} 
+              render={({  match, history }) => {
                 if (!user)
                   return (
-                    <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />
+                    <Redirect to="/"/>
                   );
                 if (movies.length === 0) return <div className="main-view" />;
-                return (
-                  <ProfileView
-                    history={history}
+                return ( <Col>
+                <ProfileView
+                    // history={history}
                     movies={movies}
-                    user={user === match.params.username}
+                    user={user}
+                    onBackClick={()=> history.goBack()}
                   />
+                </Col>
+                  
                 );
               }}
             />
@@ -221,13 +225,7 @@ export class MainView extends React.Component {
             <Route
               path={`/user-update/${user}`}
               render={({ match, history }) => {
-                if (!user)
-                  return (
-                    <Col>
-                      <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />
-                    </Col>
-                  );
-                if (!user) return <Redirect to="/" />;
+                if (!user) return <Redirect to="/register" />;
                 return (
                   <Col>
                     <UserUpdate
