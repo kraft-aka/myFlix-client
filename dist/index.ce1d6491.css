@@ -3,7 +3,6 @@
 }
 
 body {
-  color: #fff;
   background-color: #5e6472 !important;
   font-family: Montserrat, sans-serif !important;
 }
@@ -54,6 +53,10 @@ body {
   text-overflow: ellipsis;
   max-width: 70ch;
   overflow: hidden;
+}
+
+h1, h2, h3, h4, h5, p {
+  color: #a9a9a9;
 }
 
 

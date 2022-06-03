@@ -6,85 +6,39 @@ import { Link } from "react-router-dom";
  
 
 export function UserUpdate (props) {
-  const [ user, setUser ] = useState('');
-  const [ username, setUsername ] = useState('');
-  const [ password, setPassword ] = useState('');
-  const [ email, setEmail ] = useState('');
-  const [ birthday, setBirthday ] = useState('');
-  const [ favoriteMovies, setFavoriteMovies ] = useState([]);
-  const [usernameErr, setUsernameErr] = useState("");
-  const [passwordErr, setPasswordErr] = useState("");
-  const [emailErr, setEmailErr] = useState("");
-
+  const [ user, setUser ] = useState(props.user);
+  const [ userUpdate, setUserUpdate ] = useState(props.user);
+  
+ 
   const loggedUser = localStorage.getItem('user');
   const token = localStorage.getItem('token');
 
-  // validate mathod
-  const validate = () => {
-    let isReq = true;
-    if(!username) {
-      setUsernameErr('Username Required!')
-      isReq = false
-    } else if (username.length < 2) {
-      setUsernameErr('Username must be more than 2 characters long')
-      isReq = false;
-    }
-
-    if(!password) {
-      setPasswordErr('Password Required!')
-      isReq = false;
-    } else if( password.length < 4) {
-      setPasswordErr('Password must at least 4 characters long')
-      isReq = false
-    }
-    
-    if(!email) {
-      setEmailErr('Email Required!')
-      isReq = false
-    } else if(email.indexOf("@") === -1) {
-      setEmailErr('Please Enter Valid Email')
-      isReq = false
-    }
-    return isReq;
-  }
-
-  const getUser = () => {
-    axios
-      .get(`https://movie-api-1112.herokuapp.com/users/${loggedUser}`, {
-        headers: { Authorization: `Bearer ${token}`}, 
-      })
-        .then((response) => {
-          console.log(response.data);
-          setUser(response.data)
-        })
-        .catch((error) => console.log(error));
-  }
 
   const editProfile = (e) => {
     e.preventDefault();
     axios
-      .put(`https://movie-api-1112.herokuapp.com/user-update/${loggedUser}`, {
-        headers: { Authorization: `Bearer ${token}`}, 
-        Username: username,
-        Password: password,
-        Email: email,
-        Birthday: birthday,
-      })
+      .put(`https://movie-api-1112.herokuapp.com/user-update/${user.Username}`,
+      { 
+        Username: userUpdate.Username,
+        Password: userUpdate.Password,
+        Email: userUpdate.Email,
+      }, {
+        headers: { Authorization: `Bearer ${token}`}, })
 
       .then((response)=> {
         console.log(response.data);
-        Username: response.data.Username;
-        Password: response.data.Password;
-        Email: response.data.Email
+        setUser(response.data);
+        localStorage.setItem('user', response.data.Username);
         alert(`${loggedUser}'s Profile Successfully Updated`);
+        window.open(`/users/${user}` , '_self')
       })
       .catch((error)=> console.log(error));
       alert('Could not update Profile')
   }
 
-  useEffect(()=> {
-    getUser();
-  },[])
+  // useEffect(()=> {
+  //   getUser();
+  // },[])
 
 
 
@@ -101,11 +55,11 @@ export function UserUpdate (props) {
                   <Form.Label>Username:</Form.Label>
                   <Form.Control
                     type="text"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
+                    value={userUpdate.Username}
+                    onChange={(e) => setUserUpdate(e.target.value)}
                     placeholder= {loggedUser}
                     
-                  />{ usernameErr && <p className="text-warning">{usernameErr}</p>}
+                  />
                   <p>Set new Username</p>
                 </Form.Group>
 
@@ -113,11 +67,11 @@ export function UserUpdate (props) {
                   <Form.Label>Password:</Form.Label>
                   <Form.Control
                     type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    value={userUpdate.Password}
+                    onChange={(e) => setUserUpdate(e.target.value)}
                     minLength="4"
                     placeholder="*********"
-                  /> { passwordErr && <p className="text-warning">{ passwordErr}</p>}
+                  /> 
                   <p>Set new Password</p>
                 </Form.Group>
 
@@ -125,10 +79,10 @@ export function UserUpdate (props) {
                   <Form.Label>Email:</Form.Label>
                   <Form.Control
                     type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    value={userUpdate.Email}
+                    onChange={(e) => setUserUpdate(e.target.value)}
                     placeholder= {user.Email}
-                  /> { emailErr && <p className="text-warning">{ emailErr }</p>}
+                  /> 
                   <p>Set new Email</p>
                 </Form.Group>
 
@@ -148,7 +102,7 @@ export function UserUpdate (props) {
                   Update
                 </Button>
                 <Link to={`/`}>
-                  <Button className="btn" variant="outline-success ml-3 mt-3" type="submit">
+                  <Button className="btn-submit" variant="outline-success ml-3 mt-3" type="submit">
                     Cancel
                   </Button>
                   </Link>
