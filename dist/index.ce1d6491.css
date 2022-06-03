@@ -26,6 +26,12 @@ body {
   display: flex;
 }
 
+body {
+  color: #fff;
+  max-width: 100% !important;
+  margin: 0 !important;
+}
+
 .text-warning {
   color: #bf0808;
 }
@@ -72,8 +78,13 @@ h1, h2, h3, h4, h5, p {
 }
 
 .card-title {
+  color: #000;
   font-size: 18px !important;
   font-weight: 700 !important;
+}
+
+.movie-description {
+  color: #000;
 }
 
 /*# sourceMappingURL=index.ce1d6491.css.map */
