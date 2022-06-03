@@ -16,12 +16,12 @@ import { Link } from "react-router-dom";
 
 export function ProfileView(props) {
   const [user, setUser] = useState("");
-  const [movies, setMovies] = useState(props.movies);
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [email, setEmail] = useState("");
-  const [birthday, setBirthday] = useState("");
-  const [favoriteMovies, setFavoriteMovies] = useState([]);
+  // const [movies, setMovies] = useState(props.movies);
+  // const [username, setUsername] = useState("");
+  // const [password, setPassword] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [birthday, setBirthday] = useState("");
+  // const [favoriteMovies, setFavoriteMovies] = useState([]);
 
   const loggedUser = localStorage.getItem("user");
   const token = localStorage.getItem("token");
@@ -71,54 +71,54 @@ export function ProfileView(props) {
       .catch((error) => console.log(error));
   };
 
-  const updateProfile = (e) => {
-    e.preventDefault();
-    axios
-      .put(
-        `https://movie-api-1112.herokuapp.com/user-update/${loggedUser}`,
-        {
-          Username: username,
-          Password: password,
-          Email: email,
-          Birthday: birthday,
-        },
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
-      )
+//   const updateProfile = (e) => {
+//     e.preventDefault();
+//     axios
+//       .put(
+//         `https://movie-api-1112.herokuapp.com/user-update/${loggedUser}`,
+//         {
+//           Username: username,
+//           Password: password,
+//           Email: email,
+//           Birthday: birthday,
+//         },
+//         {
+//           headers: { Authorization: `Bearer ${token}` },
+//         }
+//       )
 
-      .then((response) => {
-        console.log(response.data);
-        setUser(response.data);
-        localStorage.setItem("user", response.data.Username);
-        alert(`${loggedUser}'s Profile Successfully Updated`);
-        window.open('/', "_self");
-      })
-      .catch((error) => console.log(error));
-    alert("Could not update Profile");
-  };
+//       .then((response) => {
+//         console.log(response.data);
+//         setUser(response.data);
+//         localStorage.setItem("user", response.data.Username);
+//         alert(`${loggedUser}'s Profile Successfully Updated`);
+//         window.open('/', "_self");
+//       })
+//       .catch((error) => console.log(error));
+//     alert("Could not update Profile");
+//   };
 
-  const renderFavMovies = () => {
-    console.log(movies);
-    if (movies.length + 0) {
-      <Row>
-      {favoriteMovies.length === 0 ? (
-        <h4>No Movies in Favorites</h4>
-      ) : (
-        favoriteMovies.map((m_id) => (
-          <Col>
-            <MovieCard key={m_id} movie={movies.find((m) => m._id == m_id)} />
-          </Col>
-        ))
-      )}
-    </Row>;
-  };
-}
+//   const renderFavMovies = () => {
+//     console.log(movies);
+//     if (movies.length + 0) {
+//       <Row>
+//       {favoriteMovies.length === 0 ? (
+//         <h4>No Movies in Favorites</h4>
+//       ) : (
+//         favoriteMovies.map((m_id) => (
+//           <Col>
+//             <MovieCard key={m_id} movie={movies.find((m) => m._id == m_id)} />
+//           </Col>
+//         ))
+//       )}
+//     </Row>;
+//   };
+// }
     
 
   return (
     <Container fluid>
-      <Row>
+      {/* <Row>
         <Col>
           <Form className="rounded p-4 p-sm-3">
             <Form.Group className="mb-3">
@@ -195,8 +195,8 @@ export function ProfileView(props) {
             {renderFavMovies()}
           </Form>
         </Col>
-      </Row>
-      {/* <Row className="d-flex justify-content-md-center mt-3">
+      </Row> */}
+      <Row className="d-flex justify-content-md-center mt-3">
         <Col sm={6} lg={4}>
           <h2 className="text-main text-center mt-3 mb-3">
             {loggedUser.toUpperCase()}'s Profile
@@ -245,7 +245,7 @@ export function ProfileView(props) {
             Back to Home
           </Button>
         </Link>
-      </Row> */}
+      </Row>
     </Container>
   );
 }

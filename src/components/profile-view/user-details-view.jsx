@@ -6,8 +6,9 @@ import { Link } from "react-router-dom";
  
 
 export function UserUpdate (props) {
+  const [user, setUser ] = useState(props.user);
   const [ username, setUsername ] = useState('');
-  const [ passowrd, setPassword ] = useState('');
+  const [ password, setPassword ] = useState('');
   const [ email, setEmail ] = useState('');
   const [ birthday, setBirthday ] = useState('');
   
@@ -15,15 +16,28 @@ export function UserUpdate (props) {
   const loggedUser = localStorage.getItem('user');
   const token = localStorage.getItem('token');
 
+  const getUser = () => {
+    axios
+      .get(`https://movie-api-1112.herokuapp.com/users/${loggedUser}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((response) => {
+        console.log(response);
+        setUser(response.data);
+      })
+      .catch((error) => console.log(error));
+  };
+
 
   const editProfile = (e) => {
     e.preventDefault();
     axios
       .put(`https://movie-api-1112.herokuapp.com/user-update/${loggedUser}`,
       { 
-        Username: userUpdate.Username,
-        Password: userUpdate.Password,
-        Email: userUpdate.Email,
+        Username: username,
+        Password: password,
+        Email: email,
+        Birthday: birthday
       }, {
         headers: { Authorization: `Bearer ${token}`}, })
 
@@ -32,15 +46,15 @@ export function UserUpdate (props) {
         setUser(response.data);
         localStorage.setItem('user', response.data.Username);
         alert(`${loggedUser}'s Profile Successfully Updated`);
-        window.open(`/users/${user}` , '_self')
+        window.open('/' , '_self')
       })
       .catch((error)=> console.log(error));
       alert('Could not update Profile')
   }
 
-  // useEffect(()=> {
-  //   getUser();
-  // },[])
+  useEffect(()=> {
+    getUser();
+  },[])
 
 
 
@@ -57,9 +71,9 @@ export function UserUpdate (props) {
                   <Form.Label>Username:</Form.Label>
                   <Form.Control
                     type="text"
-                    value={userUpdate.Username}
-                    onChange={(e) => setUserUpdate(e.target.value)}
-                    placeholder= {loggedUser}
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    placeholder= {user.Username}
                     
                   />
                   <p>Set new Username</p>
@@ -69,8 +83,8 @@ export function UserUpdate (props) {
                   <Form.Label>Password:</Form.Label>
                   <Form.Control
                     type="password"
-                    value={userUpdate.Password}
-                    onChange={(e) => setUserUpdate(e.target.value)}
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                     minLength="4"
                     placeholder="*********"
                   /> 
@@ -81,14 +95,14 @@ export function UserUpdate (props) {
                   <Form.Label>Email:</Form.Label>
                   <Form.Control
                     type="email"
-                    value={userUpdate.Email}
-                    onChange={(e) => setUserUpdate(e.target.value)}
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     placeholder= {user.Email}
                   /> 
                   <p>Set new Email</p>
                 </Form.Group>
 
-                {/* <Form.Group className="mb-3">
+                <Form.Group className="mb-3">
                   <Form.Label>Birthday:</Form.Label>
                   <Form.Control
                     type="date"
@@ -98,7 +112,7 @@ export function UserUpdate (props) {
                     required
                   />
                   <p>Set new Birthday</p>
-                </Form.Group> */}
+                </Form.Group>
                 <div className="d-flex justify-content-md-center">
                 <Button variant="outline-primary mt-3" type="submit" onClick={editProfile} >
                   Update
