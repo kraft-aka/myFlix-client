@@ -211,7 +211,7 @@ export class MainView extends React.Component {
                 if (movies.length === 0) return <div className="main-view" />;
                 return ( <Col>
                 <ProfileView
-                    // history={history}
+                    history={history}
                     movies={movies}
                     user={user}
                     onBackClick={()=> history.goBack()}

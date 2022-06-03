@@ -6,8 +6,10 @@ import { Link } from "react-router-dom";
  
 
 export function UserUpdate (props) {
-  const [ user, setUser ] = useState(props.user);
-  const [ userUpdate, setUserUpdate ] = useState(props.user);
+  const [ username, setUsername ] = useState('');
+  const [ passowrd, setPassword ] = useState('');
+  const [ email, setEmail ] = useState('');
+  const [ birthday, setBirthday ] = useState('');
   
  
   const loggedUser = localStorage.getItem('user');
@@ -17,7 +19,7 @@ export function UserUpdate (props) {
   const editProfile = (e) => {
     e.preventDefault();
     axios
-      .put(`https://movie-api-1112.herokuapp.com/user-update/${user.Username}`,
+      .put(`https://movie-api-1112.herokuapp.com/user-update/${loggedUser}`,
       { 
         Username: userUpdate.Username,
         Password: userUpdate.Password,
