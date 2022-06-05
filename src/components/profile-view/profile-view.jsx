@@ -12,13 +12,13 @@ import {
   FormGroup,
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { FavoriteMovies } from "./favorite-movies";
 
 import './profile-view.scss';
 
 export function ProfileView(props) {
   const [user, setUser] = useState("");
   const [movies, setMovies] = useState(props.movies);
-  const [favoriteMovies, setFavoriteMovies] = useState([]);
 
   const loggedUser = localStorage.getItem("user");
   const token = localStorage.getItem("token");
@@ -73,19 +73,7 @@ export function ProfileView(props) {
       .catch((error) => console.log(error));
   };
 
-  // add movies to favorites 
-  const addMovie = (id) => {
-    setFavoriteMovies(()=> {
-      favoriteMovies.push(movies.id)
-    })
-    console.log(id)
-  }
-
-  // delete movie from favorites
-
-
-  // render the favoriteList
-  
+    
 
   return (
     <Container fluid>
@@ -126,6 +114,9 @@ export function ProfileView(props) {
       <Row className="d-flex justify-content-md-center mt-3 mb-2">
         <Col sm={8} className="text-main">
           Favorite Movies:
+          <Row>
+            <FavoriteMovies movies={movies}/>
+          </Row>
         </Col>
         <Col sm={8}>{user.favoriteMovies}</Col>
       </Row>

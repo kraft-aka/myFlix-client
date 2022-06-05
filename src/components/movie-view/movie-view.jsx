@@ -7,8 +7,21 @@ import { Card, Button, Container } from "react-bootstrap";
 import "./movie-view.scss";
 
 export class MovieView extends React.Component {
+
+  keypressCallback= (e)=> console.log(e.key);
+
+  componentDidMount() {
+    document.addEventListener('keypress', this.keypressCallback);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('keypress', this.keypressCallback)
+  }
+
+
+
   render() {
-    const { movie, onBackClick, addMovie } = this.props;
+    const { movie, onBackClick } = this.props;
 
     return (
       <Container className="d-flex flex-wrap">

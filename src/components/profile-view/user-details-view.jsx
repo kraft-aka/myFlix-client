@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
  
 
 export function UserUpdate (props) {
-  const [user, setUser ] = useState(props.user);
+  const {user} = (props);
   const [ username, setUsername ] = useState('');
   const [ password, setPassword ] = useState('');
   const [ email, setEmail ] = useState('');
@@ -16,17 +16,6 @@ export function UserUpdate (props) {
   const loggedUser = localStorage.getItem('user');
   const token = localStorage.getItem('token');
 
-  const getUser = () => {
-    axios
-      .get(`https://movie-api-1112.herokuapp.com/users/${loggedUser}`, {
-        headers: { Authorization: `Bearer ${token}` },
-      })
-      .then((response) => {
-        console.log(response);
-        setUser(response.data);
-      })
-      .catch((error) => console.log(error));
-  };
 
 
   const editProfile = (e) => {
@@ -43,19 +32,14 @@ export function UserUpdate (props) {
 
       .then((response)=> {
         console.log(response.data);
-        setUser(response.data);
-        localStorage.setItem('user', response.data.Username);
+        //setUser(response.data);
+        //localStorage.setItem('user', response.data.Username);
         alert(`${loggedUser}'s Profile Successfully Updated`);
         window.open('/' , '_self')
       })
       .catch((error)=> console.log(error));
       alert('Could not update Profile')
   }
-
-  useEffect(()=> {
-    getUser();
-  },[])
-
 
 
   return(
@@ -73,7 +57,7 @@ export function UserUpdate (props) {
                     type="text"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
-                    placeholder= {user.Username}
+                    placeholder= 'Username'
                     
                   />
                   <p>Set new Username</p>
@@ -97,7 +81,7 @@ export function UserUpdate (props) {
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    placeholder= {user.Email}
+                    placeholder= 'user@mail.com'
                   /> 
                   <p>Set new Email</p>
                 </Form.Group>
@@ -107,7 +91,7 @@ export function UserUpdate (props) {
                   <Form.Control
                     type="date"
                     value={birthday}
-                    placeholder={user.Birthday}
+                    placeholder='DD-MM-YYYY'
                     onChange={(e) => setBirthday(e.target.value)}
                     required
                   />

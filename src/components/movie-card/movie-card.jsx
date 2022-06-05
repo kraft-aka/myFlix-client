@@ -6,6 +6,9 @@ import { Link } from "react-router-dom";
 import "./movie-card.scss";
 
 export class MovieCard extends React.Component {
+
+
+  
   render() {
     const { movie } = this.props;
 
