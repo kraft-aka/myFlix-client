@@ -11,10 +11,11 @@ export function FavoriteMovies (props) {
   const {movies, favoriteMovies, loggedUser, token } = props;
   
   // create var holding an ID for each movie
-  const id = favoriteMovies.map(m=> m._id);
+  const id = (favoriteMovies && favoriteMovies.map(m=> m._id));
+
 
   // create a favorite movies array
-  const favoriteMoviesArray = movies.filter(m=> id.includes(m._id));
+  const favoriteMoviesArray =(movies && movies.filter(m=> id.includes(m._id)));
 
   const handleDeleteMovie = (movieId) => {
     axios.delete(`https://movie-api-1112.herokuapp.com/users/${loggedUser}/movies/${movieId}`, {
@@ -26,15 +27,6 @@ export function FavoriteMovies (props) {
     }).catch((error)=> console.log(error));
   }
 
-  const handleAddMovie = (movieId) => {
-    axios.post(`https://movie-api-1112.herokuapp.com/users/${loggedUser}/movies/${movieId}`, {
-      headers: { Authorization: `Bearer ${token}` }, 
-    }).then((response)=> {
-      console.log(response.data);
-      alert(`${id} has been added to Favorite Movies`)
-      favoriteMovies: response.data;
-    }).catch((error)=> console.log(error));
-  }
 
   return (
     <Container>

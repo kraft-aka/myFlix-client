@@ -47,7 +47,6 @@ export class MovieView extends React.Component {
               <Link to={`/genres/${movie.Genre.Name}`}>
                 <Button variant="outline-info ml-3 mr-3">Genre</Button>
               </Link>
-              <Button variant="outline-info ml-3 mr-3" onClick={addMovie}>Add to Favorite List</Button>
             </div>
           </Card.Body>
           <Button

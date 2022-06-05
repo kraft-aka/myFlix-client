@@ -1,14 +1,26 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Button, Card, Badge, Container } from "react-bootstrap";
+import axios from "axios";
 
 import { Link } from "react-router-dom";
 import "./movie-card.scss";
 
 export class MovieCard extends React.Component {
 
+  handleAddMovie(movieId) {
+    const loggedUser = localStorage.getItem('user');
+    const token = localStorage.getItem('token');
 
-  
+    axios.post(`https://movie-api-1112.herokuapp.com/users/${loggedUser}/movies/${movieId}`, {}, {
+      headers: { Authorization: `Bearer ${token}` }, 
+    }).then((response)=> {
+      console.log(response.data);
+      alert(`${movieId} has been added to Favorite Movies`)
+    }).catch((error)=> console.log(error));
+  }
+
+
   render() {
     const { movie } = this.props;
 
@@ -26,6 +38,10 @@ export class MovieCard extends React.Component {
           <Link to={`/movies/${movie._id}`}>
             <Button variant="outline-success">Open</Button>
           </Link>
+          <>  
+            <Button className="btn" variant="outline-info" onClick={()=> this.handleAddMovie(movie._id)}>Add</Button>
+          </>
+         
         </Card>
       </Container>
     );
