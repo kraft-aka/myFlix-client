@@ -115,7 +115,7 @@ export function ProfileView(props) {
         <Col sm={8} className="text-main">
           Favorite Movies:
           <Row>
-            <FavoriteMovies movies={movies}/>
+            <FavoriteMovies movies={movies._id}/>
           </Row>
         </Col>
         <Col sm={8}>{user.favoriteMovies}</Col>

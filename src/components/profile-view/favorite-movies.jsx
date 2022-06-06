@@ -8,15 +8,17 @@ import { Link } from "react-router-dom";
 
 export function FavoriteMovies (props) {
 
-  const {movies, favoriteMovies, loggedUser, token } = props;
+  
+
+  const {movies, loggedUser, token } = props;
   
   // create var holding an ID for each movie
   const id = (favoriteMovies && favoriteMovies.map(m=> m._id));
-
+  
 
   // create a favorite movies array
-  const favoriteMoviesArray =(movies && movies.filter(m=> id.includes(m._id)));
-
+  const favoriteMoviesArray =(movies && movies.filter(m=> m.includes(m._id)));
+  console.log(favoriteMoviesArray);
   const handleDeleteMovie = (movieId) => {
     axios.delete(`https://movie-api-1112.herokuapp.com/users/${loggedUser}/movies/${movieId}`, {
       headers: { Authorization: `Bearer ${token}` }, 
@@ -37,7 +39,7 @@ export function FavoriteMovies (props) {
         return (
           <Col>
             <Card id="movie-card">
-              <Link to={`movie/${movie._id}`}>
+              <Link to={`movies/${movie._id}`}>
                 <Card.Img variant="top" src={movie.ImagePath}/>
               </Link>
               <Card.Body>

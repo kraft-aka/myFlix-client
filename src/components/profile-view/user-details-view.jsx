@@ -21,7 +21,7 @@ export function UserUpdate (props) {
   const editProfile = (e) => {
     e.preventDefault();
     axios
-      .put(`https://movie-api-1112.herokuapp.com/user-update/${loggedUser}`,
+      .put(`https://movie-api-1112.herokuapp.com/users/${loggedUser}`,
       { 
         Username: username,
         Password: password,
@@ -33,7 +33,7 @@ export function UserUpdate (props) {
       .then((response)=> {
         console.log(response.data);
         //setUser(response.data);
-        //localStorage.setItem('user', response.data.Username);
+        localStorage.setItem('user', response.data.Username);
         alert(`${loggedUser}'s Profile Successfully Updated`);
         window.open('/' , '_self')
       })
