@@ -19,11 +19,11 @@ import './profile-view.scss';
 export function ProfileView(props) {
   const [user, setUser] = useState("");
   const [movies, setMovies] = useState(props.movies);
+  const [favoriteMovies, setFavoriteMovies] = useState([]);
 
   const loggedUser = localStorage.getItem("user");
   const token = localStorage.getItem("token");
 
-  let id = movies.map(m=> m._id);
 
   // Get a logged user
   const getUser = () => {
@@ -34,6 +34,7 @@ export function ProfileView(props) {
       .then((response) => {
         console.log(response);
         setUser(response.data);
+        setFavoriteMovies(response.data.FavoriteMovies);
       })
       .catch((error) => console.log(error));
   };
@@ -115,10 +116,9 @@ export function ProfileView(props) {
         <Col sm={8} className="text-main">
           Favorite Movies:
           <Row>
-            <FavoriteMovies movies={movies._id}/>
+            <FavoriteMovies movies={movies._id} favoriteMovies={favoriteMovies} loggedUser={loggedUser} token={token}/>
           </Row>
         </Col>
-        <Col sm={8}>{user.favoriteMovies}</Col>
       </Row>
       <Row className="d-flex justify-content-md-center mt-3 mb-2">
         <Button variant="outline-warning" onClick={handleDelete}>
