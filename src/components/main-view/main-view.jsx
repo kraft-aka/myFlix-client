@@ -204,6 +204,7 @@ export class MainView extends React.Component {
             <Route
               path={`/users/${user}`} 
               render={({  match, history }) => {
+                console.log(user, movies)
                 if (!user)
                   return (
                     <Redirect to="/"/>

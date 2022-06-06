@@ -38,7 +38,6 @@ export function UserUpdate (props) {
         window.open('/' , '_self')
       })
       .catch((error)=> console.log(error));
-      alert('Could not update Profile')
   }
 
 

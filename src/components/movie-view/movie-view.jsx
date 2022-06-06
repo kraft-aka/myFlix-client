@@ -22,7 +22,7 @@ export class MovieView extends React.Component {
 
   render() {
     const { movie, onBackClick } = this.props;
-
+    
     return (
       <Container className="d-flex flex-wrap">
         <Card className="shadow-sm bg-white rounded" style={{ width: "40rem" }}>

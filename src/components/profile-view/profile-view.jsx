@@ -116,7 +116,7 @@ export function ProfileView(props) {
         <Col sm={8} className="text-main">
           Favorite Movies:
           <Row>
-            <FavoriteMovies movies={movies._id} favoriteMovies={favoriteMovies} loggedUser={loggedUser} token={token}/>
+            <FavoriteMovies movies={movies} favoriteMovies={favoriteMovies} loggedUser={loggedUser} token={token}/>
           </Row>
         </Col>
       </Row>
