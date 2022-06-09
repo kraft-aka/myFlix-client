@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { Card, Button, Container } from "react-bootstrap";
 import "./movie-view.scss";
+
 export class MovieView extends React.Component {
   keypressCallback = (e) => console.log(e.key);
   componentDidMount() {
@@ -14,7 +15,7 @@ export class MovieView extends React.Component {
   render() {
     const { movie, onBackClick } = this.props;
     return (
-      <Container className="mt-5">
+      <Container className="movie-container mt-5">
         <Card
           className="shadow-sm bg-white rounded"
           style={{
@@ -50,7 +51,7 @@ export class MovieView extends React.Component {
                 <Button variant="outline-info ml-3 mr-3">Director</Button>
               </Link>
               <Link to={`/genres/${movie.Genre.Name}`}>
-                <Button variant="outline-info ml-3 mr-3">Genre</Button>
+                <Button variant="outline-info  mr-3">Genre</Button>
               </Link>
               <Button
                 variant="outline-success"

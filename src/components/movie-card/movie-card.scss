@@ -1,9 +1,7 @@
+$font-color: #0d1b2a;
+
 .card:hover {
   box-shadow: 5px 1px 20px 1px rgba(0,0,0,0.254) !important;
-}
-
-.card {
-  box-sizing: border-box;
 }
 
 .card-body {
@@ -20,9 +18,9 @@
 }
 
 h1, h2 , h3 ,h4 , h5 , p {
-  color: darkgrey;
+  color: $font-color !important;
 }
 
 .card.badge {
-  color: darkblue;
+  color: $font-color;
 }

@@ -9,7 +9,7 @@ export class DirectorView extends React.Component {
     console.log(director.Name)
 
     return (
-      <Container className="mt-5">
+      <Container className="director-container mt-5">
         <Card className='d-sm-flex-justify-content'>
           <Card.Body>
             <Card.Title className="director-view text-center m-3">{director.Name}</Card.Title>

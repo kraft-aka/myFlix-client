@@ -2,13 +2,19 @@ $primary-color: #aed9e0;
 $background-color: #faf3dd;
 $dark-color: #5e6472;
 $light-color: #fff;
+$font-color: #0d1b2a;
 
 .card-title {
   font-size: 18px !important;
   font-weight: 700 !important;
-  color: black;
+  color: $font-color !important;
 }
 
 .movie-description {
-  color: black;
+  color: $font-color;
 }
+
+.movie-container {
+    min-height: 80vh;
+    position: relative;
+  }

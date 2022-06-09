@@ -44,10 +44,6 @@ body {
   box-shadow: 5px 1px 20px 1px #00000041 !important;
 }
 
-.card {
-  box-sizing: border-box;
-}
-
 .card-body {
   flex-wrap: wrap;
   padding: 1.5rem !important;
@@ -62,11 +58,11 @@ body {
 }
 
 h1, h2, h3, h4, h5, p {
-  color: #a9a9a9;
+  color: #0d1b2a !important;
 }
 
 .card.badge {
-  color: #00008b;
+  color: #0d1b2a;
 }
 
 
@@ -82,13 +78,18 @@ h1, h2, h3, h4, h5, p {
 }
 
 .card-title {
-  color: #000;
+  color: #0d1b2a !important;
   font-size: 18px !important;
   font-weight: 700 !important;
 }
 
 .movie-description {
-  color: #000;
+  color: #0d1b2a;
+}
+
+.movie-container {
+  min-height: 80vh;
+  position: relative;
 }
 
 /*# sourceMappingURL=index.ce1d6491.css.map */
