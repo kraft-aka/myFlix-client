@@ -40,15 +40,15 @@ export function FavoriteMovies (props) {
       favoriteMoviesArray.map(movieId => {
         const movie = movies.find(m=> m._id ===movieId)
         return (
+          
           <Col md={3} lg={3} key={movie._id }>
             {/* <pre>{JSON.stringify(movie,null,2)}</pre> */}
             <Card id="movie-card" >
-              <Link to={`/movies/${movie._id}`}>
+              {/* <Link to={`/movies/${movie._id}`}> */}
                 <Card.Img variant="top" src={movie.ImagePath}/>
-              </Link>
+              {/* </Link> */}
               <Card.Body>
                 <Card.Title>{movie.Title}</Card.Title>  
-                <Card.Text>{movie.Description}</Card.Text> 
                 <Link to={`/movies/${movie._id}`}>
                   <Button className="btn mr-3"variant="outline-success">Open</Button>
                 </Link>

@@ -20,6 +20,7 @@ export function ProfileView(props) {
   const [user, setUser] = useState("");
   const [movies, setMovies] = useState(props.movies);
   const [favoriteMovies, setFavoriteMovies] = useState([]);
+  
 
   const loggedUser = localStorage.getItem("user");
   const token = localStorage.getItem("token");
@@ -87,7 +88,7 @@ export function ProfileView(props) {
       </Row>
 
       <Row className="d-flex justify-content-md-center mt-3 mb-2">
-        <Col sm={8} className="text-main">
+        <Col sm={8} className="h4 text-main">
           Username:
         </Col>
         <Col sm={8} className="text-main">
@@ -95,25 +96,13 @@ export function ProfileView(props) {
         </Col>
       </Row>
       <Row className="d-flex justify-content-md-center mt-3 mb-2">
-        <Col sm={8} className="text-main">
+        <Col sm={8} className="h4 text-main">
           Password:
         </Col>
         <Col sm={8}>************</Col>
       </Row>
       <Row className="d-flex justify-content-md-center mt-3 mb-2">
-        <Col sm={8} className="text-main">
-          Email:
-        </Col>
-        <Col sm={8}>{user.Email}</Col>
-      </Row>
-      <Row className="d-flex justify-content-md-center mt-3 mb-2">
-        <Col sm={8} className="text-main">
-          Birthday:
-        </Col>
-        <Col sm={8}>{user.Birthday}</Col>
-      </Row>
-      <Row className="d-flex justify-content-md-center mt-3 mb-2">
-        <Col sm={8} className="text-main">
+        <Col sm={8} className="h4 text-main">
           Favorite Movies:
           <Row>
             <FavoriteMovies movies={movies} favoriteMovies={favoriteMovies} loggedUser={loggedUser} token={token}/>
