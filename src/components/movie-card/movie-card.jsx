@@ -31,21 +31,21 @@ export class MovieCard extends React.Component {
           style={{ height: "800px" }}
         >
           <Card.Img variant="top" width={"10rem"} src={movie.ImagePath} />
-          <Badge bg="light" className="movie-card--badge" variant="primary">
+          <Badge bg="light" text="dark" className="movie-card--badge" variant="info">
             {movie.Genre.Name}
           </Badge>
           <Card.Body className="text-center">
-            <Card.Title className="card-title--main text-main">{movie.Title}</Card.Title>
+            <Card.Title className="movie-card--title text-main">{movie.Title}</Card.Title>
             <Card.Text className="movie-description">
               {movie.Description}
             </Card.Text>
           </Card.Body>
           <Container className="d-flex justify-content">
             <Link to={`/movies/${movie._id}`}>
-            <Button className="card-btn mr-3 mb-3" variant="outline-success">Open</Button>
+            <Button className="movie-card--btn mr-3 mb-3" variant="outline-success">Open</Button>
           </Link>
           <Button
-              className="card-btn ml-3 mb-3"
+              className="movie-card--btn ml-3 mb-3"
               variant="outline-info"
               onClick={() => this.handleAddMovie(movie._id)}
             >

@@ -9,22 +9,22 @@ export class DirectorView extends React.Component {
     console.log(director.Name)
 
     return (
-      <Container className="director-view d-flex justify-content mt-5">
+      <Container className="mt-5">
         <Card className='d-sm-flex-justify-content'>
-          <Card.Title className="director-view text-center m-3">{director.Name}</Card.Title>
-          <Card.Text className="director-bio ml-3">Bio:</Card.Text>
-          <p className="director-text--bio ml-3">{director.Bio}</p>
-          <Card.Text className="director-birth ml-3">Birth:</Card.Text>
-          <p className="director-birth--text ml-3">{director.Birth}</p>
-          <Card.Text className="director-death ml-3">Death:</Card.Text>
-          <p className="director-death--text ml-3">{director.Death }</p>
-        </Card>
-        <Container className="director-view">
+          <Card.Body>
+            <Card.Title className="director-view text-center m-3">{director.Name}</Card.Title>
+            <Card.Text className="director-bio ml-3">Bio:</Card.Text>
+            <p className="director-text--bio ml-3 text-main">{director.Bio}</p>
+            <Card.Text className="director-birth--text ml-3">Birth: <span className="text-main">{director.Birth}</span></Card.Text>
+            <Card.Text className="director-death ml-3">Death: <span className="text-main">{director.Death}</span></Card.Text>
+          </Card.Body>
+          <Container className="director-view">
           <Button className="btn" variant="outline-success m-3" type="submit" onClick={()=> onBackClick()}>Go back</Button>
           <Link to= {`/`}>
             <Button className="btn" variant="outline-success m-3" type="submit">Back to Home</Button>  
           </Link> 
         </Container>
+        </Card> 
       </Container>
     )
   }
