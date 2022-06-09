@@ -37,6 +37,7 @@ export function MenuBar(props) {
       bg="dark"
       expand="lg"
       variant="dark"
+      style={{width:'100%'}}
     >
       <Container className="fluid">
         <Navbar.Brand className="navbar-logo" href="/">
@@ -50,10 +51,7 @@ export function MenuBar(props) {
             {isAuth() && (
               <Button
                 variant="link"
-                onClick={onLoggedOut}
-              
-            
-              >
+                onClick={onLoggedOut}>
                 Logout
               </Button>
             )}

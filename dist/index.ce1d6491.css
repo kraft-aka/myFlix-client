@@ -67,14 +67,9 @@ h1, h2, h3, h4, h5, p {
 
 
 
-.main-view--navbar {
-  display: block;
-  left: 0;
-  right: 0;
-}
-
 .navbar-logo {
-  font-weight: 700;
+  font-size: 24px;
+  font-weight: bold;
 }
 
 .card-title {
