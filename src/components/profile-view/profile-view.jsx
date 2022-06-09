@@ -79,42 +79,31 @@ export function ProfileView(props) {
 
   return (
     <Container fluid>
-      <Row className="d-flex justify-content-md-center mt-3">
+      {/* <Row className="d-flex justify-content-md-center mt-3">
         <Col sm={6} lg={4}>
           <h2 className="text-main text-center mt-3 mb-3">
             {loggedUser.toUpperCase()}'s Profile
           </h2>
         </Col>
-      </Row>
+      </Row> */}
 
-      <Row className="d-flex justify-content-md-center mt-3 mb-2">
+      <Row className="d-flex justify-content-md-center mt-5 mb-2">
         <Col sm={8} className="h4 text-main">
           <Card>
             <Card.Body>
-              <Card.Title></Card.Title> 
-              <Card.Text className="user-name--text">Username: <span>{user.Username}</span></Card.Text>
-              <Card.Text className="user-name--text">Username: <span>{user.Username}</span></Card.Text>
+              <Card.Title>User Info</Card.Title> 
+              <Card.Text className="h5 user-name--text">Username: <span>{user.Username}</span></Card.Text>
+              <Card.Text className="h5 user-name--text">E-Mail: <span>{user.Email}</span></Card.Text>
             </Card.Body>
-
-          </Card>
-         
-        </Col>
-        <Col sm={8} className="text-main">
-          
+          </Card>   
         </Col>
       </Row>
       <Row className="d-flex justify-content-md-center mt-3 mb-2">
         <Col sm={8} className="h4 text-main">
-          Password:
-        </Col>
-        <Col sm={8}>************</Col>
-      </Row>
-      <Row className="d-flex justify-content-md-center mt-3 mb-2">
-        <Col sm={8} className="h4 text-main">
-          Favorite Movies:
-          <Row>
-            <FavoriteMovies movies={movies} favoriteMovies={favoriteMovies} loggedUser={loggedUser} token={token}/>
-          </Row>
+              <h5>Favorite Movies</h5> 
+              <Row>
+                <FavoriteMovies movies={movies} favoriteMovies={favoriteMovies} loggedUser={loggedUser} token={token}/>
+              </Row>
         </Col>
       </Row>
       <Row className="d-flex justify-content-md-center mt-3 mb-2">

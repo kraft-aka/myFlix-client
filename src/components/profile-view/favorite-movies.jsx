@@ -33,7 +33,7 @@ export function FavoriteMovies (props) {
     
 
   return (
-    <Container>
+    <Container className="fav-movie--container mt-3">
     { favoriteMoviesArray.length === 0 ? (
       <p>Your Favorite Movies List is empty.</p>
     ) : (
@@ -41,19 +41,26 @@ export function FavoriteMovies (props) {
         const movie = movies.find(m=> m._id ===movieId)
         return (
           
-          <Col md={3} lg={3} key={movie._id }>
+          <Col xs={12} md={3} lg={3} key={movie._id }>
             {/* <pre>{JSON.stringify(movie,null,2)}</pre> */}
-            <Card id="movie-card" >
+            <Card className ="fav-movie--card " 
+            style={{
+              height: "30vw",
+              display: "flex",
+              flexDirection: "column",
+            }}>
               {/* <Link to={`/movies/${movie._id}`}> */}
-                <Card.Img variant="top" src={movie.ImagePath}/>
+                <Card.Img variant="top" src={movie.ImagePath} style={{ width: "100%", height: "auto" }}/>
               {/* </Link> */}
               <Card.Body>
-                <Card.Title>{movie.Title}</Card.Title>  
-                <Link to={`/movies/${movie._id}`}>
-                  <Button className="btn mr-3"variant="outline-success">Open</Button>
-                </Link>
-                <Button className="btn ml-3" variant="outline-danger" onClick={()=>handleDeleteMovie(movie._id)}>Remove</Button>
+                <Card.Title className="text-center">{movie.Title}</Card.Title>     
               </Card.Body> 
+              <Container className="d-flex justify-content space-around"> 
+                <Link to={`/movies/${movie._id}`}>
+                  <Button className="movie-btn mr-3 mb-3"variant="outline-success">Open</Button>
+                </Link>
+                <Button className="movie-btn ml-3 mb-3" variant="outline-danger" onClick={()=>handleDeleteMovie(movie._id)}>Remove</Button>
+                </Container>
             </Card>
           </Col>
         )
