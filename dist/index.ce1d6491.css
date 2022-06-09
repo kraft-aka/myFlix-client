@@ -65,6 +65,10 @@ h1, h2, h3, h4, h5, p {
   color: #a9a9a9;
 }
 
+.card.badge {
+  color: #00008b;
+}
+
 
 
 .main-view--navbar {

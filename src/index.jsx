@@ -7,7 +7,7 @@ import { Container } from 'react-bootstrap';
 
 
 import './index.scss';
-
+import "react-bootstrap/dist/react-bootstrap.min.js";
 
 class MyFlixApplication extends React.Component {
   render() {

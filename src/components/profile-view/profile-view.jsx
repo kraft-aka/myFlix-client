@@ -89,10 +89,17 @@ export function ProfileView(props) {
 
       <Row className="d-flex justify-content-md-center mt-3 mb-2">
         <Col sm={8} className="h4 text-main">
-          Username:
+          <Card>
+            <Card.Body>
+              <Card.Title>Username: <span>{user.Username}</span></Card.Title> 
+              <Card.Text></Card.Text>
+            </Card.Body>
+
+          </Card>
+         
         </Col>
         <Col sm={8} className="text-main">
-          {user.Username}
+          
         </Col>
       </Row>
       <Row className="d-flex justify-content-md-center mt-3 mb-2">

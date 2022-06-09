@@ -93,7 +93,7 @@ export class MainView extends React.Component {
 
     return (
       <Router>
-        <Container>
+        {/* <Container> */}
           <Col>
           <MenuBar user={user} />
           <Row className="main-view justify-content-md-center">
@@ -288,18 +288,18 @@ export class MainView extends React.Component {
           </Row>
           
           </Col>
-        </Container>
+        {/* </Container> */}
       </Router>
     );
   }
 }
 
-MainView.propTypes = {
-  movies: PropTypes.arrayOf(
-    PropTypes.shape({
-      Title: PropTypes.string.isRequired,
-      Description: PropTypes.string.isRequired,
-      ImagePath: PropTypes.string.isRequired,
-    }).isRequired
-  ),
-};
+// MainView.propTypes = {
+//   movies: PropTypes.arrayOf(
+//     PropTypes.shape({
+//       Title: PropTypes.string.isRequired,
+//       Description: PropTypes.string.isRequired,
+//       ImagePath: PropTypes.string.isRequired,
+//     }).isRequired
+//   ),
+// };
