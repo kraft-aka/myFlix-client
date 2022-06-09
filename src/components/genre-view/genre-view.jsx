@@ -17,7 +17,7 @@ export class GenreView extends React.Component {
           <p>{genre.Description}</p>
         </Card>
         <Container className="genre-view">
-          <Button className="btn" variant="success" type="submit" onClick={()=> onBackClick()}>Go back</Button>
+          <Button className="btn ml-3" variant="outline-success" type="submit" onClick={()=> onBackClick()}>Go back</Button>
           <Link to= {`/`}>
             <Button className="btn" variant="success" type="submit">Back to Home</Button>  
           </Link> 

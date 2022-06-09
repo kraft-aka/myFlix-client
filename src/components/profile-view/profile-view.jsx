@@ -91,8 +91,9 @@ export function ProfileView(props) {
         <Col sm={8} className="h4 text-main">
           <Card>
             <Card.Body>
-              <Card.Title>Username: <span>{user.Username}</span></Card.Title> 
-              <Card.Text></Card.Text>
+              <Card.Title></Card.Title> 
+              <Card.Text className="user-name--text">Username: <span>{user.Username}</span></Card.Text>
+              <Card.Text className="user-name--text">Username: <span>{user.Username}</span></Card.Text>
             </Card.Body>
 
           </Card>
