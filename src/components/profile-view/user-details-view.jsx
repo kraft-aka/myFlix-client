@@ -97,7 +97,7 @@ export function UserUpdate (props) {
                   <p>Set new Birthday</p>
                 </Form.Group>
                 <div className="d-flex justify-content-md-center">
-                <Button variant="outline-primary mt-3" type="submit" onClick={editProfile} >
+                <Button variant="outline-primary mt-3 mr-3" type="submit" onClick={editProfile} >
                   Update
                 </Button>
                 <Link to={`/`}>

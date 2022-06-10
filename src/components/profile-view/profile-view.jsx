@@ -84,10 +84,10 @@ export function ProfileView(props) {
       </Row> */}
 
       <Row className="d-flex justify-content-md-center mt-4 mb-2">
-        <Col sm={8} className="h4 text-main">
+        <Col sm={8}>
           <Card>
             <Card.Body>
-              <Card.Title className="profile-title--text">User Info</Card.Title>
+              <Card.Title className="profile-title--text" >User Info</Card.Title>
               <Card.Text className="h5 user-name--text">
                 Name: <span className="profile-span ml-3">{user.Username}</span>
               </Card.Text>
@@ -96,13 +96,13 @@ export function ProfileView(props) {
               </Card.Text>
             </Card.Body>
             <Row className="d-flex justify-content-md-center mb-2">
-              <Button variant="outline-warning" onClick={handleDelete}>
+              <Button className="profile-btn mr-3" variant="outline-warning" onClick={handleDelete}>
                 Delete Profile
               </Button>
               <Link to={`/`}>
                 <Button
-                  className="profile-btn"
-                  variant="outline-success ml-3"
+                  className="profile-btn  ml-3"
+                  variant="outline-success"
                   type="submit"
                 >
                   Back to Home
@@ -114,7 +114,7 @@ export function ProfileView(props) {
       </Row>
       <Row className="d-flex justify-content-md-center">
         <Col sm={8} className="h4 text-main">
-          <h5>Favorite Movies</h5>
+          <h5 className="text-main ml-4" style={{fontWeight: 'bold'}}>Favorite Movies</h5>
           <Row>
             <FavoriteMovies
               movies={movies}

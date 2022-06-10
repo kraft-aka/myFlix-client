@@ -80,21 +80,12 @@ export class MainView extends React.Component {
   render() {
     const { movies, user } = this.state;
 
-    // if (!user)
-    //   return (
-    //     <Row>
-    //       <Col>
-    //         <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />
-    //       </Col>
-    //     </Row>
-    //   );
-
-    // if (movies.length === 0) return <div className="main-view" />;
+    
 
     return (
       <Router>
         {/* <Container> */}
-          <Col>
+        <Col md={12}>
           <MenuBar user={user} />
           <Row className="main-view justify-content-md-center">
             <Route
@@ -107,15 +98,7 @@ export class MainView extends React.Component {
                       <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />
                     </Col>
                   );
-                // if (!user)
-                //   return (
-                //     <Col>
-                //       <LoginView
-                //         movies={movies}
-                //         onLoggedIn={(user) => this.onLoggedIn(user)}
-                //       />
-                //     </Col>
-                //   );
+                
                 if (movies.length === 0) return <div className="main-view" />;
 
                 return movies.map((m) => (
@@ -155,70 +138,22 @@ export class MainView extends React.Component {
                 );
               }}
             />
-            {/* <Route
-              path="/movies/director/:id"
-              render={({ match, history }) => {
-                if (!user)
-                  return (
-                    <Col>
-                      <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />
-                    </Col>
-                  );
-                return (
-                  <Col>
-                    <DirectorView
-                      movie={movies.find((m) => m._id === match.params.id)}
-                      onBackClick={() => history.goBack()}
-                    />
-                  </Col>
-                );
-              }}
-            /> */}
-            {/* <Link to={`/users/${user}`}>{user}</Link> */}
-            {/* <Route
+  
+            <Route
               path={`/users/${user}`}
-              render={({ history }) => {
-                if (!user) return;
-                <Redirect to="/" />;
-                return (
-                  <Col>
-                    <ProfileView
-                      user={user}
-                      onBackClick={() => history.goBack()}
-                    />
-                  </Col>
-                );
-
+              render={({ match, history }) => {
+                console.log(user, movies);
                 if (!user) return <Redirect to="/" />;
+                if (movies.length === 0) return <div className="main-view" />;
                 return (
                   <Col>
                     <ProfileView
+                      history={history}
                       movies={movies}
                       user={user}
                       onBackClick={() => history.goBack()}
                     />
                   </Col>
-                );
-              }}
-            /> */}
-            <Route
-              path={`/users/${user}`} 
-              render={({  match, history }) => {
-                console.log(user, movies)
-                if (!user)
-                  return (
-                    <Redirect to="/"/>
-                  );
-                if (movies.length === 0) return <div className="main-view" />;
-                return ( <Col>
-                <ProfileView
-                    history={history}
-                    movies={movies}
-                    user={user}
-                    onBackClick={()=> history.goBack()}
-                  />
-                </Col>
-                  
                 );
               }}
             />
@@ -286,8 +221,7 @@ export class MainView extends React.Component {
               }}
             />
           </Row>
-          
-          </Col>
+        </Col>
         {/* </Container> */}
       </Router>
     );

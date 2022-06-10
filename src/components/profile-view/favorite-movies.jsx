@@ -9,18 +9,20 @@ import { Link } from "react-router-dom";
 export function FavoriteMovies (props) {
 
   const { movies, favoriteMovies, loggedUser, token } = props;
+  const [ isLoading, setIsLoading ] = useState(false);
 
   
   // create var holding an ID for each movie
-  const id = (favoriteMovies.map(m=> m._id));
+  const FavId = (favoriteMovies.map(m=> m._id));
   
   
 
   // create a favorite movies array
-  const favoriteMoviesArray = (favoriteMovies.filter(m=> id.includes(m._id)));
+  const favoriteMoviesArray = (favoriteMovies.filter(m=> FavId.includes(m._id)));
   console.log(favoriteMoviesArray);
 
   const handleDeleteMovie = (movieId) => {
+    setIsLoading(true)
     axios.delete(`https://movie-api-1112.herokuapp.com/users/${loggedUser}/movies/${movieId}`, {
       headers: { Authorization: `Bearer ${token}` }, 
     }).then(()=> {
@@ -28,6 +30,7 @@ export function FavoriteMovies (props) {
       // localStorage.clear();
       alert(`${movieId} has been removed from Favorite Movies`);
       window.open(`/users/${loggedUser}`, '_self');
+      setIsLoading(false);
     }).catch((error)=> console.log(error));
   }
     
@@ -35,7 +38,7 @@ export function FavoriteMovies (props) {
   return (
     <Container className="fav-movie--container mt-3">
     { favoriteMoviesArray.length === 0 ? (
-      <p>Your Favorite Movies List is empty.</p>
+      <p className="text-center">Your Favorite Movies List is empty.</p>
     ) : (
       favoriteMoviesArray.map(movieId => {
         const movie = movies.find(m=> m._id ===movieId)

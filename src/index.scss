@@ -10,12 +10,12 @@ $light-color: #fff;
 .container {
   max-width: 100% !important;
 }
-//* {
-//  box-sizing: border-box;
-//}
+* {
+ box-sizing: border-box;
+}
 
 body {
-  background-color: $dark-color !important;
+  background-color: $primary-color !important;
   font-family: 'Kanit', sans-serif !important;
   
 }

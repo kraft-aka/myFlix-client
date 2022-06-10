@@ -4,7 +4,10 @@ import { Button, Card, Badge, Container } from "react-bootstrap";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import "./movie-card.scss";
+
+
 export class MovieCard extends React.Component {
+  
   handleAddMovie(movieId) {
     const loggedUser = localStorage.getItem('user');
     const token = localStorage.getItem('token');
@@ -42,12 +45,14 @@ export class MovieCard extends React.Component {
           </Card.Body>
           <Container className="d-flex justify-content">
             <Link to={`/movies/${movie._id}`}>
-            <Button className="movie-card--btn mr-3 mb-3" variant="outline-success">Open</Button>
+            <Button className="movie-card--btn mr-3 mb-3" variant="outline-success" 
+            style={{width:'100px'}} >Open</Button>
           </Link>
           <Button
               className="movie-card--btn ml-3 mb-3"
               variant="outline-info"
               onClick={() => this.handleAddMovie(movie._id)}
+              style={{width:'100px'}}
             >
               Add
             </Button>
