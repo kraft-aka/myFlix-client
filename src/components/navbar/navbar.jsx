@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 import {
   Navbar,
@@ -12,6 +12,7 @@ import "./navbar.scss";
 
 export function MenuBar(props) {
   const { user,movie,movies } = props;
+  const [searchMovie, setSearchMovie] =useState('');
 
   const onLoggedOut = () => {
     console.log("onLoggedOut");
@@ -31,12 +32,12 @@ export function MenuBar(props) {
   };
 
   // filter movies in searchbar ----not finished yet
-  const searchMovie = (e) => {
-    const movieTitle = e.target.value;
-    const filterMovie = movies.filter(m => {
-      m.Title.toLowerCase().includes(movieTitle);
-    })
-    console.log(movies); 
+  const filterMovie = (e) => {
+    // const movieTitle = e.target.value;
+    // const filterMovie = movies.filter(m => {
+    //   m.Title.toLowerCase().includes(movieTitle);
+    // })
+    console.log(e.target.value); 
   }
 
   return (
@@ -68,7 +69,7 @@ export function MenuBar(props) {
                 placeholder="Search"
                 className="me-2 ml-2 mr-4"
                 aria-label="Search"
-                onInputChange={()=>searchMovie(movie.Title)}
+                onChange={(e)=>filterMovie(e.target.value)}
               />
               <Button className="navbar-btn mr-2" variant="outline-success">Search</Button>
             </Form>

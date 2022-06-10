@@ -10,6 +10,7 @@ import {
   Button,
   Form,
   FormGroup,
+  Spinner,
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { FavoriteMovies } from "./favorite-movies";
@@ -20,7 +21,7 @@ export function ProfileView(props) {
   const [user, setUser] = useState("");
   const [movies, setMovies] = useState(props.movies);
   const [favoriteMovies, setFavoriteMovies] = useState([]);
-  const [isLoading, setIsLoading]=useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const loggedUser = localStorage.getItem("user");
   const token = localStorage.getItem("token");
@@ -47,13 +48,13 @@ export function ProfileView(props) {
       })
       .then((response) => {
         console.log(response);
-        setIsLoading(true);
+        setIsLoading(false);
         // assign the result to the state
         setMovies(response.data);
       })
       .catch((error) => {
         console.log(error);
-        setIsLoading(false)
+        setIsLoading(true);
       });
   };
 
@@ -70,27 +71,34 @@ export function ProfileView(props) {
       })
       .then(() => {
         alert(`${loggedUser}'s profile has been deleted!`);
+        setIsLoading(false);
         localStorage.clear();
         window.open("/register", "_self");
       })
       .catch((error) => console.log(error));
+    setIsLoading(true);
   };
 
   return (
     <Container fluid>
-      {/* <Row className="d-flex justify-content-md-center mt-3">
-        <Col sm={6} lg={4}>
-          <h2 className="text-main text-center mt-3 mb-3">
-            {loggedUser.toUpperCase()}'s Profile
-          </h2>
-        </Col>
-      </Row> */}
-
+      <Row className="d-flex-justify content-center">
+        {isLoading ? (
+          <h4 className="d-flex justify-conten-center">
+            Loading...
+            <Spinner
+              className="d-flex justify-conten-center m-5"
+              animation="border"
+              role="status"
+              variant="success"
+            ></Spinner>
+          </h4>
+        ) : null}
+      </Row>
       <Row className="d-flex justify-content-md-center mt-4 mb-2">
         <Col sm={8}>
           <Card>
             <Card.Body>
-              <Card.Title className="profile-title--text" >User Info</Card.Title>
+              <Card.Title className="profile-title--text">User Info</Card.Title>
               <Card.Text className="h5 user-name--text">
                 Name: <span className="profile-span ml-3">{user.Username}</span>
               </Card.Text>
@@ -99,7 +107,11 @@ export function ProfileView(props) {
               </Card.Text>
             </Card.Body>
             <Row className="d-flex justify-content-md-center mb-2">
-              <Button className="profile-btn mr-3" variant="outline-warning" onClick={handleDelete}>
+              <Button
+                className="profile-btn mr-3"
+                variant="outline-warning"
+                onClick={handleDelete}
+              >
                 Delete Profile
               </Button>
               <Link to={`/`}>
@@ -117,7 +129,9 @@ export function ProfileView(props) {
       </Row>
       <Row className="d-flex justify-content-md-center">
         <Col sm={8} className="h4 text-main">
-          <h5 className="text-main ml-4" style={{fontWeight: 'bold'}}>Favorite Movies</h5>
+          <h5 className="text-main ml-4" style={{ fontWeight: "bold" }}>
+            Favorite Movies
+          </h5>
           <Row>
             <FavoriteMovies
               movies={movies}

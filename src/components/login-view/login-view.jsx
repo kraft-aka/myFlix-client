@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import axios from "axios";
@@ -8,7 +8,9 @@ import { Form,
   CardGroup,
   Container,
   Col,
-  Row, } from "react-bootstrap";
+  Row,
+  Spinner
+} from "react-bootstrap";
 
 import "./login-view.scss";
 import { RegistartionView } from "../registration-view/registration-view";
@@ -19,6 +21,8 @@ export function LoginView(props) {
 
   const [usernameErr, setUsernameErr] = useState("");
   const [passwordErr, setPasswordErr] = useState("");
+
+  const [isLoading, setIsLoading] = useState(true);
 
   // validate user inputs
   const validate = () => {
@@ -40,6 +44,10 @@ export function LoginView(props) {
     return isReq;
   };
 
+  useEffect(()=> {
+    setIsLoading(false)
+  }, [])
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const isReq = validate();
@@ -51,17 +59,32 @@ export function LoginView(props) {
           Password: password,
         })
         .then((response) => {
+          setIsLoading(false)
           const data = response.data;
           props.onLoggedIn(data);
         })
         .catch((e) => {
           console.log("no such user");
+          setIsLoading(true)
         });
     }
   };
 
   return (
     <Container className="main-cont color-overlay d-flex justify-content-center align-items-center mt-3">
+      <Row className="d-flex-justify content-center">
+        {isLoading ? (
+          <h4 className="d-flex justify-conten-center">
+            Loading...
+            <Spinner
+              className="d-flex justify-conten-center m-5"
+              animation="border"
+              role="status"
+              variant="success"
+            ></Spinner>
+          </h4>
+        ) : null}
+      </Row>
       <Row>
         <Col>
           <CardGroup >

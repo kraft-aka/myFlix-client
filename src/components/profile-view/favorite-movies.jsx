@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 
-import { Container, Card, Button, Col, Spinner } from "react-bootstrap";
+import { Container, Card, Button, Col, Spinner, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 export function FavoriteMovies(props) {
@@ -32,19 +32,30 @@ export function FavoriteMovies(props) {
       )
       .then(() => {
         console.log("Movie deleted");
-        // localStorage.clear();
         alert(`${movieId} has been removed from Favorite Movies`);
         window.open(`/users/${loggedUser}`, "_self");
         setIsLoading(true);
       })
       .catch((error) => console.log(error));
+      setIsLoading(false)
   };
 
   return (
     
     <Container className="fav-movie--container mt-3">
-      { isLoading ? <div className="d-flex justify-content center">
-      <Spinner animation="border" role="status" variant="success" ></Spinner></div> : null}
+      <Row className="d-flex-justify content-center">
+        {isLoading ? (
+          <h4 className="d-flex justify-conten-center">
+            Loading...
+            <Spinner
+              className="d-flex justify-conten-center m-5"
+              animation="border"
+              role="status"
+              variant="success"
+            ></Spinner>
+          </h4>
+        ) : null}
+      </Row>
 
       {favoriteMoviesArray.length === 0 ? (
         <p className="text-center">Your Favorite Movies List is empty.</p>
