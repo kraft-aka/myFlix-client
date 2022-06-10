@@ -20,6 +20,7 @@ export function ProfileView(props) {
   const [user, setUser] = useState("");
   const [movies, setMovies] = useState(props.movies);
   const [favoriteMovies, setFavoriteMovies] = useState([]);
+  const [isLoading, setIsLoading]=useState(false);
 
   const loggedUser = localStorage.getItem("user");
   const token = localStorage.getItem("token");
@@ -46,11 +47,13 @@ export function ProfileView(props) {
       })
       .then((response) => {
         console.log(response);
+        setIsLoading(true);
         // assign the result to the state
         setMovies(response.data);
       })
       .catch((error) => {
         console.log(error);
+        setIsLoading(false)
       });
   };
 
