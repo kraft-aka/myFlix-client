@@ -41,7 +41,7 @@ export function MenuBar(props) {
     >
       <Container className="fluid">
         <Navbar.Brand className="navbar-logo" href="/">
-          MYFlIXCinema
+          MYFLIXCinema
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">

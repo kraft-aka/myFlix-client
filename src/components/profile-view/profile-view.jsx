@@ -14,17 +14,15 @@ import {
 import { Link } from "react-router-dom";
 import { FavoriteMovies } from "./favorite-movies";
 
-import './profile-view.scss';
+import "./profile-view.scss";
 
 export function ProfileView(props) {
   const [user, setUser] = useState("");
   const [movies, setMovies] = useState(props.movies);
   const [favoriteMovies, setFavoriteMovies] = useState([]);
-  
 
   const loggedUser = localStorage.getItem("user");
   const token = localStorage.getItem("token");
-
 
   // Get a logged user
   const getUser = () => {
@@ -75,8 +73,6 @@ export function ProfileView(props) {
       .catch((error) => console.log(error));
   };
 
-    
-
   return (
     <Container fluid>
       {/* <Row className="d-flex justify-content-md-center mt-3">
@@ -87,34 +83,47 @@ export function ProfileView(props) {
         </Col>
       </Row> */}
 
-      <Row className="d-flex justify-content-md-center mt-5 mb-2">
+      <Row className="d-flex justify-content-md-center mt-4 mb-2">
         <Col sm={8} className="h4 text-main">
           <Card>
             <Card.Body>
-              <Card.Title>User Info</Card.Title> 
-              <Card.Text className="h5 user-name--text">Username: <span>{user.Username}</span></Card.Text>
-              <Card.Text className="h5 user-name--text">E-Mail: <span>{user.Email}</span></Card.Text>
+              <Card.Title className="profile-title--text">User Info</Card.Title>
+              <Card.Text className="h5 user-name--text">
+                Name: <span className="profile-span ml-3">{user.Username}</span>
+              </Card.Text>
+              <Card.Text className="h5 user-email--text">
+                E-Mail: <span className="profile-span ml-3">{user.Email}</span>
+              </Card.Text>
             </Card.Body>
-          </Card>   
+            <Row className="d-flex justify-content-md-center mb-2">
+              <Button variant="outline-warning" onClick={handleDelete}>
+                Delete Profile
+              </Button>
+              <Link to={`/`}>
+                <Button
+                  className="profile-btn"
+                  variant="outline-success ml-3"
+                  type="submit"
+                >
+                  Back to Home
+                </Button>
+              </Link>
+            </Row>
+          </Card>
         </Col>
       </Row>
-      <Row className="d-flex justify-content-md-center mt-3 mb-2">
+      <Row className="d-flex justify-content-md-center">
         <Col sm={8} className="h4 text-main">
-              <h5>Favorite Movies</h5> 
-              <Row>
-                <FavoriteMovies movies={movies} favoriteMovies={favoriteMovies} loggedUser={loggedUser} token={token}/>
-              </Row>
+          <h5>Favorite Movies</h5>
+          <Row>
+            <FavoriteMovies
+              movies={movies}
+              favoriteMovies={favoriteMovies}
+              loggedUser={loggedUser}
+              token={token}
+            />
+          </Row>
         </Col>
-      </Row>
-      <Row className="d-flex justify-content-md-center mt-3 mb-2">
-        <Button variant="outline-warning" onClick={handleDelete}>
-          Delete Profile
-        </Button>
-        <Link to={`/`}>
-          <Button className="btn" variant="outline-success ml-3" type="submit">
-            Back to Home
-          </Button>
-        </Link>
       </Row>
     </Container>
   );

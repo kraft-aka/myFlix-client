@@ -15,7 +15,7 @@ export class MovieView extends React.Component {
   render() {
     const { movie, onBackClick } = this.props;
     return (
-      <Container className="movie-container mt-5">
+      <Container className="movie-container">
         <Card
           className="shadow-sm bg-white rounded"
           style={{
@@ -33,8 +33,8 @@ export class MovieView extends React.Component {
           <Card.Body>
             <Card.Title className="text-center">Title:</Card.Title>
             <Card.Text
-              className="h2 text-main text-center m-3 "
-              style={{ color: "#333" }}
+              className="h2 card-movie--title text-center m-3 "
+              style={{ color: "#333"}}
             >
               {movie.Title}
             </Card.Text>

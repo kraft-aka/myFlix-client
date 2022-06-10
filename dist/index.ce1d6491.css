@@ -4,7 +4,7 @@
 
 body {
   background-color: #5e6472 !important;
-  font-family: Montserrat, sans-serif !important;
+  font-family: Kanit, sans-serif !important;
 }
 
 .main-cont {
@@ -65,7 +65,9 @@ h1, h2, h3, h4, h5, p {
   color: #0d1b2a;
 }
 
-
+.card-movie--title {
+  font-weight: 700 !important;
+}
 
 .navbar-logo {
   font-size: 24px;
