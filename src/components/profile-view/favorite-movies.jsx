@@ -1,12 +1,17 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 
-import { Container, Card, Button, Col } from "react-bootstrap";
+import { Container, Card, Button, Col, Spinner } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 export function FavoriteMovies(props) {
   const { movies, favoriteMovies, loggedUser, token } = props;
   const [isLoading, setIsLoading] = useState(true);
+
+
+  useEffect(()=> {
+    setIsLoading(false);
+  }, []);
 
   // create var holding an ID for each movie
   const FavId = favoriteMovies.map((m) => m._id);
@@ -30,13 +35,17 @@ export function FavoriteMovies(props) {
         // localStorage.clear();
         alert(`${movieId} has been removed from Favorite Movies`);
         window.open(`/users/${loggedUser}`, "_self");
-        setIsLoading(false);
+        setIsLoading(true);
       })
       .catch((error) => console.log(error));
   };
 
   return (
+    
     <Container className="fav-movie--container mt-3">
+      { isLoading ? <div className="d-flex justify-content center">
+      <Spinner animation="border" role="status" variant="success" ></Spinner></div> : null}
+
       {favoriteMoviesArray.length === 0 ? (
         <p className="text-center">Your Favorite Movies List is empty.</p>
       ) : (

@@ -85,7 +85,7 @@ export class MainView extends React.Component {
     return (
       <Router>
         {/* <Container> */}
-        <Col md={12}>
+        <Col md={12} style={{padding: 0}}>
           <MenuBar user={user} />
           <Row className="main-view justify-content-md-center">
             <Route
