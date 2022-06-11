@@ -11,8 +11,8 @@ import {
 import "./navbar.scss";
 
 export function MenuBar(props) {
-  const { user,movie,movies } = props;
-  const [searchMovie, setSearchMovie] =useState('');
+  const { user, movies } = props;
+  const [filter, setFilter] =useState('');
 
   const onLoggedOut = () => {
     console.log("onLoggedOut");
@@ -32,13 +32,17 @@ export function MenuBar(props) {
   };
 
   // filter movies in searchbar ----not finished yet
-  const filterMovie = (e) => {
-    // const movieTitle = e.target.value;
-    // const filterMovie = movies.filter(m => {
-    //   m.Title.toLowerCase().includes(movieTitle);
-    // })
-    console.log(e.target.value); 
+  const searchMovie = (e) => {
+    setFilter(e.target.value.toLowerCase());
   }
+
+  const filterMovie = movies.filter(m => {
+     m.Title.toLowerCase() === searchMovie  
+  });
+  console.log(movies)
+
+
+  
 
   return (
     <Navbar
@@ -69,7 +73,8 @@ export function MenuBar(props) {
                 placeholder="Search"
                 className="me-2 ml-2 mr-4"
                 aria-label="Search"
-                onChange={(e)=>filterMovie(e.target.value)}
+                value={filter}
+                onChange={searchMovie.bind(this)}
               />
               <Button className="navbar-btn mr-2" variant="outline-success">Search</Button>
             </Form>

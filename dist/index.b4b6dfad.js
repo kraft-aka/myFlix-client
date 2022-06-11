@@ -27050,7 +27050,8 @@ class MainView extends (0, _reactDefault.default).Component {
                 },
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navbar.MenuBar), {
-                        user: user1
+                        user: user1,
+                        movies: movies
                     }, void 0, false, {
                         fileName: "src/components/main-view/main-view.jsx",
                         lineNumber: 89,
@@ -40855,8 +40856,8 @@ var _navbarScss = require("./navbar.scss");
 var _s = $RefreshSig$();
 function MenuBar(props) {
     _s();
-    const { user , movie , movies  } = props;
-    const [searchMovie, setSearchMovie] = (0, _react.useState)("");
+    const { user , movies  } = props;
+    const [filter, setFilter] = (0, _react.useState)("");
     const onLoggedOut = ()=>{
         console.log("onLoggedOut");
         localStorage.clear();
@@ -40869,13 +40870,13 @@ function MenuBar(props) {
         return token;
     };
     // filter movies in searchbar ----not finished yet
-    const filterMovie = (e)=>{
-        // const movieTitle = e.target.value;
-        // const filterMovie = movies.filter(m => {
-        //   m.Title.toLowerCase().includes(movieTitle);
-        // })
-        console.log(e.target.value);
+    const searchMovie = (e)=>{
+        setFilter(e.target.value.toLowerCase());
     };
+    const filterMovie = movies.filter((m)=>{
+        m.Title.toLowerCase();
+    });
+    console.log(movies);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Navbar), {
         className: "main-view--navbar",
         sticky: "top",
@@ -40894,14 +40895,14 @@ function MenuBar(props) {
                     children: "MYFLIXCinema"
                 }, void 0, false, {
                     fileName: "src/components/navbar/navbar.jsx",
-                    lineNumber: 53,
+                    lineNumber: 57,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Navbar).Toggle, {
                     "aria-controls": "responsive-navbar-nav"
                 }, void 0, false, {
                     fileName: "src/components/navbar/navbar.jsx",
-                    lineNumber: 56,
+                    lineNumber: 60,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Navbar).Collapse, {
@@ -40914,7 +40915,7 @@ function MenuBar(props) {
                                 children: "My Profile"
                             }, void 0, false, {
                                 fileName: "src/components/navbar/navbar.jsx",
-                                lineNumber: 60,
+                                lineNumber: 64,
                                 columnNumber: 15
                             }, this),
                             isAuth() && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav).Link, {
@@ -40922,7 +40923,7 @@ function MenuBar(props) {
                                 children: "Update-Profile"
                             }, void 0, false, {
                                 fileName: "src/components/navbar/navbar.jsx",
-                                lineNumber: 63,
+                                lineNumber: 67,
                                 columnNumber: 15
                             }, this),
                             isAuth() && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form), {
@@ -40933,10 +40934,11 @@ function MenuBar(props) {
                                         placeholder: "Search",
                                         className: "me-2 ml-2 mr-4",
                                         "aria-label": "Search",
-                                        onChange: (e)=>filterMovie(e.target.value)
+                                        value: filter,
+                                        onChange: searchMovie.bind(this)
                                     }, void 0, false, {
                                         fileName: "src/components/navbar/navbar.jsx",
-                                        lineNumber: 67,
+                                        lineNumber: 71,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
@@ -40945,13 +40947,13 @@ function MenuBar(props) {
                                         children: "Search"
                                     }, void 0, false, {
                                         fileName: "src/components/navbar/navbar.jsx",
-                                        lineNumber: 74,
+                                        lineNumber: 79,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/navbar/navbar.jsx",
-                                lineNumber: 66,
+                                lineNumber: 70,
                                 columnNumber: 15
                             }, this),
                             isAuth() && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
@@ -40960,7 +40962,7 @@ function MenuBar(props) {
                                 children: "Logout"
                             }, void 0, false, {
                                 fileName: "src/components/navbar/navbar.jsx",
-                                lineNumber: 78,
+                                lineNumber: 83,
                                 columnNumber: 15
                             }, this),
                             !isAuth() && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav).Link, {
@@ -40968,7 +40970,7 @@ function MenuBar(props) {
                                 children: "Sign-In"
                             }, void 0, false, {
                                 fileName: "src/components/navbar/navbar.jsx",
-                                lineNumber: 82,
+                                lineNumber: 87,
                                 columnNumber: 27
                             }, this),
                             !isAuth() && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav).Link, {
@@ -40976,33 +40978,33 @@ function MenuBar(props) {
                                 children: "Sign-Up"
                             }, void 0, false, {
                                 fileName: "src/components/navbar/navbar.jsx",
-                                lineNumber: 83,
+                                lineNumber: 88,
                                 columnNumber: 27
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/navbar/navbar.jsx",
-                        lineNumber: 58,
+                        lineNumber: 62,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "src/components/navbar/navbar.jsx",
-                    lineNumber: 57,
+                    lineNumber: 61,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "src/components/navbar/navbar.jsx",
-            lineNumber: 52,
+            lineNumber: 56,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "src/components/navbar/navbar.jsx",
-        lineNumber: 44,
+        lineNumber: 48,
         columnNumber: 5
     }, this);
 }
-_s(MenuBar, "xrNTm8C+zTmQvNbGyNS1qAVQHIc=");
+_s(MenuBar, "cllJ8tv7lWu5CRRMgsiTyzyV2No=");
 _c = MenuBar;
 var _c;
 $RefreshReg$(_c, "MenuBar");
