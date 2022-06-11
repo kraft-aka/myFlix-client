@@ -31,7 +31,7 @@ export class MovieCard extends React.Component {
       <Container className="d-flex mt-4">
         <Card
           className="shadow-sm bg-white rounded d-flex justify-content center mb-2 mt-2"
-          style={{ height: "800px" }}
+          style={{ height: "850px" }}
         >
           <Card.Img variant="top" width={"10rem"} src={movie.ImagePath} />
           <Badge bg="light" text="dark" className="movie-card--badge" variant="info">
@@ -45,14 +45,14 @@ export class MovieCard extends React.Component {
           </Card.Body>
           <Container className="d-flex justify-content">
             <Link to={`/movies/${movie._id}`}>
-            <Button className="movie-card--btn mr-3 mb-3" variant="outline-success" 
-            style={{width:'100px'}} >Open</Button>
+            <Button className="movie-card--btn mr-3" variant="outline-success" 
+            style={{width:'100px', marginBottom: '10px'}} >Open</Button>
           </Link>
           <Button
-              className="movie-card--btn ml-3 mb-3"
+              className="movie-card--btn ml-3"
               variant="outline-info"
               onClick={() => this.handleAddMovie(movie._id)}
-              style={{width:'100px'}}
+              style={{width:'100px', marginBottom:'10px'}}
             >
               Add
             </Button>

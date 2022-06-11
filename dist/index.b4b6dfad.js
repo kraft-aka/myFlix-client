@@ -40487,7 +40487,7 @@ class MovieCard extends (0, _reactDefault.default).Component {
             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card), {
                 className: "shadow-sm bg-white rounded d-flex justify-content center mb-2 mt-2",
                 style: {
-                    height: "800px"
+                    height: "850px"
                 },
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Img, {
@@ -40541,10 +40541,11 @@ class MovieCard extends (0, _reactDefault.default).Component {
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
                                 to: `/movies/${movie._id}`,
                                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
-                                    className: "movie-card--btn mr-3 mb-3",
+                                    className: "movie-card--btn mr-3",
                                     variant: "outline-success",
                                     style: {
-                                        width: "100px"
+                                        width: "100px",
+                                        marginBottom: "10px"
                                     },
                                     children: "Open"
                                 }, void 0, false, {
@@ -40558,11 +40559,12 @@ class MovieCard extends (0, _reactDefault.default).Component {
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
-                                className: "movie-card--btn ml-3 mb-3",
+                                className: "movie-card--btn ml-3",
                                 variant: "outline-info",
                                 onClick: ()=>this.handleAddMovie(movie._id),
                                 style: {
-                                    width: "100px"
+                                    width: "100px",
+                                    marginBottom: "10px"
                                 },
                                 children: "Add"
                             }, void 0, false, {
