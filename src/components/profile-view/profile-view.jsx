@@ -70,8 +70,8 @@ export function ProfileView(props) {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then(() => {
-        alert(`${loggedUser}'s profile has been deleted!`);
         setIsLoading(false);
+        alert(`${loggedUser}'s profile has been deleted!`);
         localStorage.clear();
         window.open("/register", "_self");
       })
@@ -83,10 +83,10 @@ export function ProfileView(props) {
     <Container fluid>
       <Row className="d-flex-justify content-center">
         {isLoading ? (
-          <h4 className="d-flex justify-conten-center">
+          <h4 className="d-flex justify-content-center m-2" >
             Loading...
             <Spinner
-              className="d-flex justify-conten-center m-5"
+              className="d-flex justify-content-center m-5"
               animation="border"
               role="status"
               variant="success"

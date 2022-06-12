@@ -8,8 +8,7 @@ export function FavoriteMovies(props) {
   const { movies, favoriteMovies, loggedUser, token } = props;
   const [isLoading, setIsLoading] = useState(true);
 
-
-  useEffect(()=> {
+  useEffect(() => {
     setIsLoading(false);
   }, []);
 
@@ -31,32 +30,18 @@ export function FavoriteMovies(props) {
         }
       )
       .then(() => {
+        setIsLoading(false);
         console.log("Movie deleted");
         alert(`${movieId} has been removed from Favorite Movies`);
         window.open(`/users/${loggedUser}`, "_self");
-        setIsLoading(true);
       })
       .catch((error) => console.log(error));
-      setIsLoading(false)
+    setIsLoading(true);
   };
 
   return (
-    
-    <Container className="fav-movie--container mt-3">
-      <Row className="d-flex-justify content-center">
-        {isLoading ? (
-          <h4 className="d-flex justify-conten-center">
-            Loading...
-            <Spinner
-              className="d-flex justify-conten-center m-5"
-              animation="border"
-              role="status"
-              variant="success"
-            ></Spinner>
-          </h4>
-        ) : null}
-      </Row>
 
+    <Container className="fav-movie--container mt-3">
       {favoriteMoviesArray.length === 0 ? (
         <p className="text-center">Your Favorite Movies List is empty.</p>
       ) : (
@@ -66,6 +51,19 @@ export function FavoriteMovies(props) {
           return (
             <Col xs={12} md={3} lg={3} key={movie._id}>
               {/* <pre>{JSON.stringify(movie,null,2)}</pre> */}
+              <Row className="d-flex-justify content-center">
+                {isLoading ? (
+                  <h4 className="d-flex justify-content-center m-2">
+                    Loading...
+                    <Spinner
+                      className="d-flex justify-content-center m-2"
+                      animation="border"
+                      role="status"
+                      variant="success"
+                    ></Spinner>
+                  </h4>
+                ) : null}
+              </Row>
               <Card
                 className="fav-movie--card "
                 style={{

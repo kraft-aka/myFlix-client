@@ -20,7 +20,7 @@ import { GenreView } from "../genre-view/genre-view";
 import { DirectorView } from "../director-view/director-view";
 import { UserUpdate } from "../profile-view/user-details-view";
 
-import { Col, Row, Button, Container } from "react-bootstrap";
+import { Col, Row, Button, Container, Spinner } from "react-bootstrap";
 
 import "./main-view.scss";
 
@@ -32,6 +32,7 @@ export class MainView extends React.Component {
       // list of movies,will be fetched from API
       movies: [],
       user: null,
+      loading: true,
     };
   }
 
@@ -44,6 +45,7 @@ export class MainView extends React.Component {
       .then((response) => {
         // assign the result to the state
         this.setState({
+          loading: false,
           movies: response.data,
         });
       })
@@ -80,13 +82,27 @@ export class MainView extends React.Component {
   render() {
     const { movies, user } = this.state;
 
-    
-
     return (
       <Router>
         {/* <Container> */}
-        <Col md={12} style={{padding: 0}}>
-          <MenuBar user={user} movies={movies}/>
+        <Col md={12} style={{ padding: 0 }}>
+          <MenuBar user={user} movies={movies} />
+          <Col sm={12} md={8}>
+            <Row className="d-flex-justify content-center">
+              {this.state.loading ? (
+                <h4 className="d-flex justify-content-center m-2">
+                  Loading...
+                  <Spinner
+                    className="d-flex justify-content-center m-2"
+                    animation="border"
+                    role="status"
+                    variant="success"
+                  ></Spinner>
+                </h4>
+              ) : null}
+            </Row>
+          </Col>
+
           <Row className="main-view justify-content-md-center">
             <Route
               exact
@@ -98,7 +114,7 @@ export class MainView extends React.Component {
                       <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />
                     </Col>
                   );
-                
+
                 if (movies.length === 0) return <div className="main-view" />;
 
                 return movies.map((m) => (
@@ -138,7 +154,7 @@ export class MainView extends React.Component {
                 );
               }}
             />
-  
+
             <Route
               path={`/users/${user}`}
               render={({ match, history }) => {

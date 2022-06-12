@@ -27000,7 +27000,8 @@ class MainView extends (0, _reactDefault.default).Component {
         this.state = {
             // list of movies,will be fetched from API
             movies: [],
-            user: null
+            user: null,
+            loading: true
         };
     }
     // getMovies method
@@ -27012,6 +27013,7 @@ class MainView extends (0, _reactDefault.default).Component {
         }).then((response)=>{
             // assign the result to the state
             this.setState({
+                loading: false,
                 movies: response.data
             });
         }).catch(function(error) {
@@ -27057,6 +27059,41 @@ class MainView extends (0, _reactDefault.default).Component {
                         lineNumber: 89,
                         columnNumber: 11
                     }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
+                        sm: 12,
+                        md: 8,
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
+                            className: "d-flex-justify content-center",
+                            children: this.state.loading ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
+                                className: "d-flex justify-content-center m-2",
+                                children: [
+                                    "Loading...",
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Spinner), {
+                                        className: "d-flex justify-content-center m-2",
+                                        animation: "border",
+                                        role: "status",
+                                        variant: "success"
+                                    }, void 0, false, {
+                                        fileName: "src/components/main-view/main-view.jsx",
+                                        lineNumber: 95,
+                                        columnNumber: 19
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/components/main-view/main-view.jsx",
+                                lineNumber: 93,
+                                columnNumber: 17
+                            }, this) : null
+                        }, void 0, false, {
+                            fileName: "src/components/main-view/main-view.jsx",
+                            lineNumber: 91,
+                            columnNumber: 13
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "src/components/main-view/main-view.jsx",
+                        lineNumber: 90,
+                        columnNumber: 11
+                    }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
                         className: "main-view justify-content-md-center",
                         children: [
@@ -27082,7 +27119,7 @@ class MainView extends (0, _reactDefault.default).Component {
                                 }
                             }, void 0, false, {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 91,
+                                lineNumber: 107,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -27099,7 +27136,7 @@ class MainView extends (0, _reactDefault.default).Component {
                                 }
                             }, void 0, false, {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 111,
+                                lineNumber: 127,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -27120,7 +27157,7 @@ class MainView extends (0, _reactDefault.default).Component {
                                 }
                             }, void 0, false, {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 122,
+                                lineNumber: 138,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -27144,7 +27181,7 @@ class MainView extends (0, _reactDefault.default).Component {
                                 }
                             }, void 0, false, {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 142,
+                                lineNumber: 158,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -27162,7 +27199,7 @@ class MainView extends (0, _reactDefault.default).Component {
                                 }
                             }, void 0, false, {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 161,
+                                lineNumber: 177,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -27183,7 +27220,7 @@ class MainView extends (0, _reactDefault.default).Component {
                                 }
                             }, void 0, false, {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 176,
+                                lineNumber: 192,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -27207,13 +27244,13 @@ class MainView extends (0, _reactDefault.default).Component {
                                 }
                             }, void 0, false, {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 199,
+                                lineNumber: 215,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 90,
+                        lineNumber: 106,
                         columnNumber: 11
                     }, this)
                 ]
@@ -39784,8 +39821,8 @@ function ProfileView(props) {
                 Authorization: `Bearer ${token}`
             }
         }).then(()=>{
-            alert(`${loggedUser}'s profile has been deleted!`);
             setIsLoading(false);
+            alert(`${loggedUser}'s profile has been deleted!`);
             localStorage.clear();
             window.open("/register", "_self");
         }).catch((error)=>console.log(error));
@@ -39797,11 +39834,11 @@ function ProfileView(props) {
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
                 className: "d-flex-justify content-center",
                 children: isLoading ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
-                    className: "d-flex justify-conten-center",
+                    className: "d-flex justify-content-center m-2",
                     children: [
                         "Loading...",
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Spinner), {
-                            className: "d-flex justify-conten-center m-5",
+                            className: "d-flex justify-content-center m-5",
                             animation: "border",
                             role: "status",
                             variant: "success"
@@ -40028,57 +40065,57 @@ function FavoriteMovies(props) {
                 Authorization: `Bearer ${token}`
             }
         }).then(()=>{
+            setIsLoading(false);
             console.log("Movie deleted");
             alert(`${movieId} has been removed from Favorite Movies`);
             window.open(`/users/${loggedUser}`, "_self");
-            setIsLoading(true);
         }).catch((error)=>console.log(error));
-        setIsLoading(false);
+        setIsLoading(true);
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Container), {
         className: "fav-movie--container mt-3",
-        children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
-                className: "d-flex-justify content-center",
-                children: isLoading ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
-                    className: "d-flex justify-conten-center",
-                    children: [
-                        "Loading...",
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Spinner), {
-                            className: "d-flex justify-conten-center m-5",
-                            animation: "border",
-                            role: "status",
-                            variant: "success"
-                        }, void 0, false, {
+        children: favoriteMoviesArray.length === 0 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+            className: "text-center",
+            children: "Your Favorite Movies List is empty."
+        }, void 0, false, {
+            fileName: "src/components/profile-view/favorite-movies.jsx",
+            lineNumber: 46,
+            columnNumber: 9
+        }, this) : favoriteMoviesArray.map((movieId)=>{
+            const movie = movies.find((m)=>m._id === movieId);
+            return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
+                xs: 12,
+                md: 3,
+                lg: 3,
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
+                        className: "d-flex-justify content-center",
+                        children: isLoading ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
+                            className: "d-flex justify-content-center m-2",
+                            children: [
+                                "Loading...",
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Spinner), {
+                                    className: "d-flex justify-content-center m-2",
+                                    animation: "border",
+                                    role: "status",
+                                    variant: "success"
+                                }, void 0, false, {
+                                    fileName: "src/components/profile-view/favorite-movies.jsx",
+                                    lineNumber: 58,
+                                    columnNumber: 21
+                                }, this)
+                            ]
+                        }, void 0, true, {
                             fileName: "src/components/profile-view/favorite-movies.jsx",
-                            lineNumber: 50,
-                            columnNumber: 13
-                        }, this)
-                    ]
-                }, void 0, true, {
-                    fileName: "src/components/profile-view/favorite-movies.jsx",
-                    lineNumber: 48,
-                    columnNumber: 11
-                }, this) : null
-            }, void 0, false, {
-                fileName: "src/components/profile-view/favorite-movies.jsx",
-                lineNumber: 46,
-                columnNumber: 7
-            }, this),
-            favoriteMoviesArray.length === 0 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                className: "text-center",
-                children: "Your Favorite Movies List is empty."
-            }, void 0, false, {
-                fileName: "src/components/profile-view/favorite-movies.jsx",
-                lineNumber: 61,
-                columnNumber: 9
-            }, this) : favoriteMoviesArray.map((movieId)=>{
-                const movie = movies.find((m)=>m._id === movieId);
-                return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
-                    xs: 12,
-                    md: 3,
-                    lg: 3,
-                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card), {
+                            lineNumber: 56,
+                            columnNumber: 19
+                        }, this) : null
+                    }, void 0, false, {
+                        fileName: "src/components/profile-view/favorite-movies.jsx",
+                        lineNumber: 54,
+                        columnNumber: 15
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card), {
                         className: "fav-movie--card ",
                         style: {
                             height: "30vw",
@@ -40095,7 +40132,7 @@ function FavoriteMovies(props) {
                                 }
                             }, void 0, false, {
                                 fileName: "src/components/profile-view/favorite-movies.jsx",
-                                lineNumber: 77,
+                                lineNumber: 75,
                                 columnNumber: 17
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Body, {
@@ -40104,12 +40141,12 @@ function FavoriteMovies(props) {
                                     children: movie.Title
                                 }, void 0, false, {
                                     fileName: "src/components/profile-view/favorite-movies.jsx",
-                                    lineNumber: 83,
+                                    lineNumber: 81,
                                     columnNumber: 19
                                 }, this)
                             }, void 0, false, {
                                 fileName: "src/components/profile-view/favorite-movies.jsx",
-                                lineNumber: 82,
+                                lineNumber: 80,
                                 columnNumber: 17
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Container), {
@@ -40123,12 +40160,12 @@ function FavoriteMovies(props) {
                                             children: "Open"
                                         }, void 0, false, {
                                             fileName: "src/components/profile-view/favorite-movies.jsx",
-                                            lineNumber: 87,
+                                            lineNumber: 85,
                                             columnNumber: 21
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "src/components/profile-view/favorite-movies.jsx",
-                                        lineNumber: 86,
+                                        lineNumber: 84,
                                         columnNumber: 19
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
@@ -40138,31 +40175,31 @@ function FavoriteMovies(props) {
                                         children: "Remove"
                                     }, void 0, false, {
                                         fileName: "src/components/profile-view/favorite-movies.jsx",
-                                        lineNumber: 94,
+                                        lineNumber: 92,
                                         columnNumber: 19
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/profile-view/favorite-movies.jsx",
-                                lineNumber: 85,
+                                lineNumber: 83,
                                 columnNumber: 17
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/profile-view/favorite-movies.jsx",
-                        lineNumber: 69,
+                        lineNumber: 67,
                         columnNumber: 15
                     }, this)
-                }, movie._id, false, {
-                    fileName: "src/components/profile-view/favorite-movies.jsx",
-                    lineNumber: 67,
-                    columnNumber: 13
-                }, this);
-            })
-        ]
-    }, void 0, true, {
+                ]
+            }, movie._id, true, {
+                fileName: "src/components/profile-view/favorite-movies.jsx",
+                lineNumber: 52,
+                columnNumber: 13
+            }, this);
+        })
+    }, void 0, false, {
         fileName: "src/components/profile-view/favorite-movies.jsx",
-        lineNumber: 45,
+        lineNumber: 44,
         columnNumber: 5
     }, this);
 }
