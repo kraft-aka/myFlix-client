@@ -34,7 +34,7 @@ export class MovieView extends React.Component {
             <Card.Title className="text-center">Title:</Card.Title>
             <Card.Text
               className="h2 card-movie--title text-center m-3 "
-              style={{ color: "#333"}}
+              style={{ color: "#333" }}
             >
               {movie.Title}
             </Card.Text>

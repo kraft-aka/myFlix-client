@@ -40,8 +40,20 @@ export function FavoriteMovies(props) {
   };
 
   return (
-
     <Container className="fav-movie--container mt-3">
+      <Row className="d-flex-justify content-center">
+        {isLoading ? (
+          <h4 className="d-flex justify-content-center m-2">
+            Loading...
+            <Spinner
+              className="d-flex justify-content-center m-2"
+              animation="border"
+              role="status"
+              variant="success"
+            ></Spinner>
+          </h4>
+        ) : null}
+      </Row>
       {favoriteMoviesArray.length === 0 ? (
         <p className="text-center">Your Favorite Movies List is empty.</p>
       ) : (
@@ -51,19 +63,6 @@ export function FavoriteMovies(props) {
           return (
             <Col xs={12} md={3} lg={3} key={movie._id}>
               {/* <pre>{JSON.stringify(movie,null,2)}</pre> */}
-              <Row className="d-flex-justify content-center">
-                {isLoading ? (
-                  <h4 className="d-flex justify-content-center m-2">
-                    Loading...
-                    <Spinner
-                      className="d-flex justify-content-center m-2"
-                      animation="border"
-                      role="status"
-                      variant="success"
-                    ></Spinner>
-                  </h4>
-                ) : null}
-              </Row>
               <Card
                 className="fav-movie--card "
                 style={{

@@ -5,12 +5,10 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import "./movie-card.scss";
 
-
 export class MovieCard extends React.Component {
-  
   handleAddMovie(movieId) {
-    const loggedUser = localStorage.getItem('user');
-    const token = localStorage.getItem('token');
+    const loggedUser = localStorage.getItem("user");
+    const token = localStorage.getItem("token");
     axios
       .post(
         `https://movie-api-1112.herokuapp.com/users/${loggedUser}/movies/${movieId}`,
@@ -34,29 +32,41 @@ export class MovieCard extends React.Component {
           style={{ height: "850px" }}
         >
           <Card.Img variant="top" width={"10rem"} src={movie.ImagePath} />
-          <Badge bg="light" text="dark" className="movie-card--badge" variant="info">
+          <Badge
+            bg="light"
+            text="dark"
+            className="movie-card--badge"
+            variant="info"
+          >
             {movie.Genre.Name}
           </Badge>
           <Card.Body className="text-center">
-            <Card.Title className="movie-card--title text-main">{movie.Title}</Card.Title>
+            <Card.Title className="movie-card--title text-main">
+              {movie.Title}
+            </Card.Title>
             <Card.Text className="movie-description">
               {movie.Description}
             </Card.Text>
           </Card.Body>
           <Container className="d-flex justify-content">
             <Link to={`/movies/${movie._id}`}>
-            <Button className="movie-card--btn mr-3" variant="outline-success" 
-            style={{width:'100px', marginBottom: '10px'}} >Open</Button>
-          </Link>
-          <Button
+              <Button
+                className="movie-card--btn mr-3"
+                variant="outline-success"
+                style={{ width: "100px", marginBottom: "10px" }}
+              >
+                Open
+              </Button>
+            </Link>
+            <Button
               className="movie-card--btn ml-3"
               variant="outline-info"
               onClick={() => this.handleAddMovie(movie._id)}
-              style={{width:'100px', marginBottom:'10px'}}
+              style={{ width: "100px", marginBottom: "10px" }}
             >
               Add
             </Button>
-            </Container>
+          </Container>
         </Card>
       </Container>
     );

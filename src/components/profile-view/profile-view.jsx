@@ -83,7 +83,7 @@ export function ProfileView(props) {
     <Container fluid>
       <Row className="d-flex-justify content-center">
         {isLoading ? (
-          <h4 className="d-flex justify-content-center m-2" >
+          <h4 className="d-flex justify-content-center m-2">
             Loading...
             <Spinner
               className="d-flex justify-content-center m-5"

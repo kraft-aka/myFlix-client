@@ -2,14 +2,15 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import axios from "axios";
-import { Form,
+import {
+  Form,
   Button,
   Card,
   CardGroup,
   Container,
   Col,
   Row,
-  Spinner
+  Spinner,
 } from "react-bootstrap";
 
 import "./login-view.scss";
@@ -45,9 +46,9 @@ export function LoginView(props) {
     return isReq;
   };
 
-  useEffect(()=> {
-    setIsLoading(false)
-  }, [])
+  useEffect(() => {
+    setIsLoading(false);
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -60,13 +61,13 @@ export function LoginView(props) {
           Password: password,
         })
         .then((response) => {
-          setIsLoading(false)
+          setIsLoading(false);
           const data = response.data;
           props.onLoggedIn(data);
         })
         .catch((e) => {
           console.log("no such user");
-          setIsLoading(true)
+          setIsLoading(true);
         });
     }
   };
@@ -88,43 +89,56 @@ export function LoginView(props) {
       </Row>
       <Row>
         <Col>
-          <CardGroup >
+          <CardGroup>
             <Card>
-              <Card.Body className="card-body--login" style={{width:'30rem'}}>
-              <Card.Title className="text-main ml-3">Please Log In</Card.Title>
-              <Form className="rounded p-4 p-sm-3">
-                <Form.Group className="mb-3">
-                  <Form.Label>Username:</Form.Label>
-                  <Form.Control
-                    type="text"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                    placeholder="Enter a username"
-                  />{ usernameErr && <p className="text-warning">{usernameErr}</p>}
-                </Form.Group>
+              <Card.Body
+                className="card-body--login"
+                style={{ width: "30rem" }}
+              >
+                <Card.Title className="text-main ml-3">
+                  Please Log In
+                </Card.Title>
+                <Form className="rounded p-4 p-sm-3">
+                  <Form.Group className="mb-3">
+                    <Form.Label>Username:</Form.Label>
+                    <Form.Control
+                      type="text"
+                      value={username}
+                      onChange={(e) => setUsername(e.target.value)}
+                      placeholder="Enter a username"
+                    />
+                    {usernameErr && (
+                      <p className="text-warning">{usernameErr}</p>
+                    )}
+                  </Form.Group>
 
-                <Form.Group className="mb-3">
-                  <Form.Label>Password:</Form.Label>
-                  <Form.Control
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                    minLength="8"
-                    placeholder="Password must be 8 or more characters"
-                  /> { passwordErr && <p className="text-warning">{ passwordErr}</p>}
-                </Form.Group>
+                  <Form.Group className="mb-3">
+                    <Form.Label>Password:</Form.Label>
+                    <Form.Control
+                      type="password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      required
+                      minLength="8"
+                      placeholder="Password must be 8 or more characters"
+                    />{" "}
+                    {passwordErr && (
+                      <p className="text-warning">{passwordErr}</p>
+                    )}
+                  </Form.Group>
 
-                <Button variant="outline-primary mt-3 mb-3" type="submit" onClick={handleSubmit}>
-                  SIGN IN
-                </Button>
-                <p className="text-center">
-           Don't have an account?{" "}
-         </p>
-        <Link to= "/register">
-           <Button variant="outline-primary">SIGN UP</Button>
-         </Link>
-              </Form>
+                  <Button
+                    variant="outline-primary mt-3 mb-3"
+                    type="submit"
+                    onClick={handleSubmit}
+                  >
+                    SIGN IN
+                  </Button>
+                  <p className="text-center">Don't have an account? </p>
+                  <Link to="/register">
+                    <Button variant="outline-primary">SIGN UP</Button>
+                  </Link>
+                </Form>
               </Card.Body>
             </Card>
           </CardGroup>
@@ -133,4 +147,4 @@ export function LoginView(props) {
       </Row>
     </Container>
   );
- }
+}

@@ -12,7 +12,7 @@ import "./navbar.scss";
 
 export function MenuBar(props) {
   const { user, movies } = props;
-  const [filter, setFilter] =useState('');
+  const [filter, setFilter] = useState("");
 
   const onLoggedOut = () => {
     console.log("onLoggedOut");
@@ -34,15 +34,12 @@ export function MenuBar(props) {
   // filter movies in searchbar ----not finished yet
   const searchMovie = (e) => {
     setFilter(e.target.value.toLowerCase());
-  }
+  };
 
-  const filterMovie = movies.filter(m => {
-     m.Title.toLowerCase() === searchMovie  
+  const filterMovie = movies.filter((m) => {
+    m.Title.toLowerCase().includes(searchMovie);
   });
-  console.log(movies)
-
-
-  
+  console.log(filterMovie);
 
   return (
     <Navbar
@@ -68,16 +65,18 @@ export function MenuBar(props) {
             )}
             {isAuth() && (
               <Form className="d-flex">
-              <FormControl
-                type="search"
-                placeholder="Search"
-                className="me-2 ml-2 mr-4"
-                aria-label="Search"
-                value={filter}
-                onChange={searchMovie.bind(this)}
-              />
-              <Button className="navbar-btn mr-2" variant="outline-success">Search</Button>
-            </Form>
+                <FormControl
+                  type="search"
+                  placeholder="Search"
+                  className="me-2 ml-2 mr-4"
+                  aria-label="Search"
+                  value={filter}
+                  onChange={searchMovie.bind(this)}
+                />
+                <Button className="navbar-btn mr-2" variant="outline-success">
+                  Search
+                </Button>
+              </Form>
             )}
             {isAuth() && (
               <Button variant="link" onClick={onLoggedOut}>
@@ -85,7 +84,7 @@ export function MenuBar(props) {
               </Button>
             )}
             {!isAuth() && <Nav.Link href="/">Sign-In</Nav.Link>}
-            {!isAuth() && <Nav.Link href="/register">Sign-Up</Nav.Link>}           
+            {!isAuth() && <Nav.Link href="/register">Sign-Up</Nav.Link>}
           </Nav>
         </Navbar.Collapse>
       </Container>
