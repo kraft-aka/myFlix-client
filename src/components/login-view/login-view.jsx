@@ -14,6 +14,7 @@ import { Form,
 
 import "./login-view.scss";
 import { RegistartionView } from "../registration-view/registration-view";
+import { FooterView } from "../footer-view/footer-view";
 
 export function LoginView(props) {
   const [username, setUsername] = useState("");
@@ -127,6 +128,7 @@ export function LoginView(props) {
               </Card.Body>
             </Card>
           </CardGroup>
+          <FooterView />
         </Col>
       </Row>
     </Container>

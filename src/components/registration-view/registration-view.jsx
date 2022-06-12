@@ -1,5 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { FooterView } from "../footer-view/footer-view";
+
 import PropTypes from 'prop-types';
 
 import {
@@ -137,6 +139,7 @@ export function RegistartionView(props) {
               </Card.Body>
             </Card>
           </CardGroup>
+          <FooterView />
         </Col>
       </Row>
     </Container>
