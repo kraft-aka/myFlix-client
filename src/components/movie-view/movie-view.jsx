@@ -1,39 +1,84 @@
 import React from "react";
+import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
+import { Card, Button, Container } from "react-bootstrap";
+import "./movie-view.scss";
 
 export class MovieView extends React.Component {
-
+  keypressCallback = (e) => console.log(e.key);
+  componentDidMount() {
+    document.addEventListener("keypress", this.keypressCallback);
+  }
+  componentWillUnmount() {
+    document.removeEventListener("keypress", this.keypressCallback);
+  }
   render() {
     const { movie, onBackClick } = this.props;
-
     return (
-      <div className="movie-view">
-        <div className="movie-poster">
-          <img src={movie.ImagePath} />
-        </div>
-        <div className="movie-title">
-          <span className="label">Title: </span>
-          <span className="value">{movie.Title}</span>
-        </div>
-        <div className="movie-description">
-          <span className="label">Description: </span>
-          <span className="value">{movie.Description}</span>
-        </div>
-        <div className="movie-genre">
-          <span className="label">Genre: </span>
-          <span className="value">{movie.Genre}</span>
-        </div>
-        <div className="movie-director">
-          <span className="label">Director: </span>
-          <span className="value">{movie.Director}</span>
-        </div>
-        <button
-          onClick={() => {
-            onBackClick(null);
+      <Container className="movie-container">
+        <Card
+          className="shadow-sm bg-white rounded"
+          style={{
+            width: "60rem",
+            display: "flex",
+            flexDirection: "row",
+            padding: "10px",
           }}
         >
-          Back
-        </button>
-      </div>
+          <Card.Img
+            className="card-img"
+            src={movie.ImagePath}
+            style={{ width: "100%", height: "500px" }}
+          />
+          <Card.Body>
+            <Card.Title className="text-center">Title:</Card.Title>
+            <Card.Text
+              className="h2 card-movie--title text-center m-3 "
+              style={{ color: "#333" }}
+            >
+              {movie.Title}
+            </Card.Text>
+            <Card.Title className="text-center">Description: </Card.Title>
+            <Card.Text className="text-center">{movie.Description}</Card.Text>
+            <Card.Title className="text-center">Genre: </Card.Title>
+            <Card.Text className="text-center">{movie.Genre.Name}</Card.Text>
+            <Card.Title className="text-center">Director: </Card.Title>
+            <Card.Text className="text-center">{movie.Director.Name}</Card.Text>
+            <Card.Title className="text-center">Release Year: </Card.Title>
+            <Card.Text className="text-center">{movie.ReleaseYear}</Card.Text>
+            <div className="container d-flex justify-content space-around">
+              <Link to={`/directors/${movie.Director.Name}`}>
+                <Button variant="outline-info ml-3 mr-3">Director</Button>
+              </Link>
+              <Link to={`/genres/${movie.Genre.Name}`}>
+                <Button variant="outline-info  mr-3">Genre</Button>
+              </Link>
+              <Button
+                variant="outline-success"
+                style={{ width: "80%" }}
+                onClick={() => {
+                  onBackClick(null);
+                }}
+              >
+                Back
+              </Button>
+            </div>
+          </Card.Body>
+        </Card>
+      </Container>
     );
   }
 }
+MovieView.propTypes = {
+  movie: PropTypes.shape({
+    Title: PropTypes.string.isRequired,
+    Description: PropTypes.string.isRequired,
+    ImagePath: PropTypes.string.isRequired,
+    Genre: PropTypes.shape({
+      Name: PropTypes.string,
+    }),
+    Director: PropTypes.shape({
+      Name: PropTypes.string,
+    }),
+  }).isRequired,
+};

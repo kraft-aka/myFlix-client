@@ -1,0 +1,26 @@
+$font-color: #0d1b2a;
+
+.card:hover {
+  box-shadow: 5px 1px 20px 1px rgba(0,0,0,0.254) !important;
+}
+
+.card-body {
+  padding: 1.5rem 1.5rem!important;
+  flex-wrap: wrap;
+}
+
+.movie-description {
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 70ch;
+}
+
+h1, h2 , h3 ,h4 , h5 , p {
+  color: $font-color !important;
+}
+
+.card.badge {
+  color: $font-color;
+}
