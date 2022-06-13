@@ -7,7 +7,6 @@ import {
   BrowserRouter as Router,
   Route,
   Redirect,
-  Link,
 } from "react-router-dom";
 
 import { setMovies } from "../../actions/actions";
@@ -17,7 +16,6 @@ import MoviesList from '../movies-list/movies-list';
 import { RegistartionView } from "../registration-view/registration-view";
 import { ProfileView } from "../profile-view/profile-view";
 import { LoginView } from "../login-view/login-view";
-//import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 import { MenuBar } from "../navbar/navbar";
 import { GenreView } from "../genre-view/genre-view";
@@ -33,8 +31,6 @@ class MainView extends React.Component {
   constructor() {
     super();
     this.state = {
-      // list of movies,will be fetched from API
-      //movies: [],
       user: null,
     };
   }
@@ -85,7 +81,6 @@ class MainView extends React.Component {
 
     return (
       <Router>
-        {/* <Container> */}
         <Col md={12} style={{ padding: 0 }}>
           <MenuBar user={user} movies={movies} />
           {/* <Col sm={12} md={8}>
@@ -117,13 +112,7 @@ class MainView extends React.Component {
                   );
 
                 if (movies.length === 0) return <div className="main-view" />;
-
-                // return movies.map((m) => (
-                //   <Col md={3} key={m._id}>
-                //     <MovieCard movie={m} />
-                //   </Col>
-              
-                //));
+                
                 return <MoviesList movies={movies}/>
               }}
             />
@@ -241,7 +230,6 @@ class MainView extends React.Component {
             />
           </Row>
         </Col>
-        {/* </Container> */}
       </Router>
     );
   }

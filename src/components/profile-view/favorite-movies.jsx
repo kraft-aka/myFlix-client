@@ -79,7 +79,7 @@ export function FavoriteMovies(props) {
                 <Card.Body>
                   <Card.Title className="text-center">{movie.Title}</Card.Title>
                 </Card.Body>
-                <Container className="d-flex justify-content space-around">
+                <Container className="d-flex justify-content-center">
                   <Link to={`/movies/${movie._id}`}>
                     <Button
                       className="movie-btn mr-3 mb-3"
