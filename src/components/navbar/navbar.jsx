@@ -12,7 +12,6 @@ import "./navbar.scss";
 
 export function MenuBar(props) {
   const { user, movies } = props;
-  
 
   const onLoggedOut = () => {
     console.log("onLoggedOut");
@@ -31,7 +30,6 @@ export function MenuBar(props) {
     return token;
   };
 
-  
   return (
     <Navbar
       className="main-view--navbar"

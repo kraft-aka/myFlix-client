@@ -1,17 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-import {
-  Container,
-  Row,
-  Col,
-  Card,
-  CardGroup,
-  Button,
-  Form,
-  FormGroup,
-  Spinner,
-} from "react-bootstrap";
+import { Container, Row, Col, Card, Button, Spinner } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { FavoriteMovies } from "./favorite-movies";
 

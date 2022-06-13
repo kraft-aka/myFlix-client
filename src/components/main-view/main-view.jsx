@@ -3,14 +3,10 @@ import axios from "axios";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
-import {
-  BrowserRouter as Router,
-  Route,
-  Redirect,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 
 import { setMovies } from "../../actions/actions";
-import MoviesList from '../movies-list/movies-list';
+import MoviesList from "../movies-list/movies-list";
 
 // import views to the main-view
 import { RegistartionView } from "../registration-view/registration-view";
@@ -22,7 +18,7 @@ import { GenreView } from "../genre-view/genre-view";
 import { DirectorView } from "../director-view/director-view";
 import { UserUpdate } from "../profile-view/user-details-view";
 
-import { Col, Row, Spinner } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 
 import "./main-view.scss";
 
@@ -83,21 +79,6 @@ class MainView extends React.Component {
       <Router>
         <Col md={12} style={{ padding: 0 }}>
           <MenuBar user={user} movies={movies} />
-          {/* <Col sm={12} md={8}>
-            <Row className="d-flex-justify content-center">
-              {this.state.loading ? (
-                <h4 className="d-flex justify-content-center m-2">
-                  Loading...
-                  <Spinner
-                    className="d-flex justify-content-center m-2"
-                    animation="border"
-                    role="status"
-                    variant="success"
-                  ></Spinner>
-                </h4>
-              ) : null}
-            </Row>
-          </Col> */}
 
           <Row className="main-view justify-content-md-center">
             <Route
@@ -112,8 +93,8 @@ class MainView extends React.Component {
                   );
 
                 if (movies.length === 0) return <div className="main-view" />;
-                
-                return <MoviesList movies={movies}/>
+
+                return <MoviesList movies={movies} />;
               }}
             />
             <Route
@@ -235,9 +216,9 @@ class MainView extends React.Component {
   }
 }
 
-let mapStateProps = state => {
-  return { movies: state.movies}
-}
+let mapStateProps = (state) => {
+  return { movies: state.movies };
+};
 // MainView.propTypes = {
 //   movies: PropTypes.arrayOf(
 //     PropTypes.shape({
@@ -248,4 +229,4 @@ let mapStateProps = state => {
 //   ),
 // };
 
-export default connect(mapStateProps, {setMovies})(MainView);
+export default connect(mapStateProps, { setMovies })(MainView);

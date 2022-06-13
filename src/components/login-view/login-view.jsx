@@ -14,7 +14,6 @@ import {
 } from "react-bootstrap";
 
 import "./login-view.scss";
-import { RegistartionView } from "../registration-view/registration-view";
 import { FooterView } from "../footer-view/footer-view";
 
 export function LoginView(props) {

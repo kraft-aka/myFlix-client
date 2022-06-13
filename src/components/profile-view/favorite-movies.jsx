@@ -1,8 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { ScrollMenu, VisibilityContext } from "react-horizontal-scrolling-menu";
 
-import { Container, Card, Button, Col, Spinner, Row } from "react-bootstrap";
+import { Container, Card, Button, Col, Spinner } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 export function FavoriteMovies(props) {
@@ -37,25 +36,23 @@ export function FavoriteMovies(props) {
         window.open(`/users/${loggedUser}`, "_self");
       })
       .catch((error) => console.log(error));
-    setIsLoading(true);
+    setIsLoading(false);
   };
 
   return (
     <Container className="fav-movie--container mt-3">
-      <Row className="d-flex-justify content-center">
-        {isLoading ? (
-          <h4 className="d-flex justify-content-center m-2">
-            Loading...
-            <Spinner
-              className="d-flex justify-content-center m-2"
-              animation="border"
-              role="status"
-              variant="success"
-            ></Spinner>
-          </h4>
-        ) : null}
-      </Row>
-      
+      {isLoading ? (
+        <h4 className="d-flex justify-content-center m-2">
+          Loading...
+          <Spinner
+            className="d-flex justify-content-center ml-2"
+            animation="border"
+            role="status"
+            variant="success"
+          ></Spinner>
+        </h4>
+      ) : null}
+
       {favoriteMoviesArray.length === 0 ? (
         <p className="text-center">Your Favorite Movies List is empty.</p>
       ) : (
