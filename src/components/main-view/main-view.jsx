@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
 import {
@@ -9,30 +10,32 @@ import {
   Link,
 } from "react-router-dom";
 
+import { setMovies } from "../../actions/actions";
+import MoviesList from '../movies-list/movies-list';
+
 // import views to the main-view
 import { RegistartionView } from "../registration-view/registration-view";
 import { ProfileView } from "../profile-view/profile-view";
 import { LoginView } from "../login-view/login-view";
-import { MovieCard } from "../movie-card/movie-card";
+//import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 import { MenuBar } from "../navbar/navbar";
 import { GenreView } from "../genre-view/genre-view";
 import { DirectorView } from "../director-view/director-view";
 import { UserUpdate } from "../profile-view/user-details-view";
 
-import { Col, Row, Button, Container, Spinner } from "react-bootstrap";
+import { Col, Row, Spinner } from "react-bootstrap";
 
 import "./main-view.scss";
 
 // MainView init
-export class MainView extends React.Component {
+class MainView extends React.Component {
   constructor() {
     super();
     this.state = {
       // list of movies,will be fetched from API
-      movies: [],
+      //movies: [],
       user: null,
-      loading: true,
     };
   }
 
@@ -44,10 +47,7 @@ export class MainView extends React.Component {
       })
       .then((response) => {
         // assign the result to the state
-        this.setState({
-          loading: false,
-          movies: response.data,
-        });
+        this.props.setMovies(response.data);
       })
       .catch(function (error) {
         console.log(error);
@@ -80,14 +80,15 @@ export class MainView extends React.Component {
   }
 
   render() {
-    const { movies, user } = this.state;
+    let { movies } = this.props;
+    let { user } = this.state;
 
     return (
       <Router>
         {/* <Container> */}
         <Col md={12} style={{ padding: 0 }}>
           <MenuBar user={user} movies={movies} />
-          <Col sm={12} md={8}>
+          {/* <Col sm={12} md={8}>
             <Row className="d-flex-justify content-center">
               {this.state.loading ? (
                 <h4 className="d-flex justify-content-center m-2">
@@ -101,7 +102,7 @@ export class MainView extends React.Component {
                 </h4>
               ) : null}
             </Row>
-          </Col>
+          </Col> */}
 
           <Row className="main-view justify-content-md-center">
             <Route
@@ -117,11 +118,13 @@ export class MainView extends React.Component {
 
                 if (movies.length === 0) return <div className="main-view" />;
 
-                return movies.map((m) => (
-                  <Col md={3} key={m._id}>
-                    <MovieCard movie={m} />
-                  </Col>
-                ));
+                // return movies.map((m) => (
+                //   <Col md={3} key={m._id}>
+                //     <MovieCard movie={m} />
+                //   </Col>
+              
+                //));
+                return <MoviesList movies={movies}/>
               }}
             />
             <Route
@@ -244,6 +247,9 @@ export class MainView extends React.Component {
   }
 }
 
+let mapStateProps = state => {
+  return { movies: state.movies}
+}
 // MainView.propTypes = {
 //   movies: PropTypes.arrayOf(
 //     PropTypes.shape({
@@ -253,3 +259,5 @@ export class MainView extends React.Component {
 //     }).isRequired
 //   ),
 // };
+
+export default connect(mapStateProps, {setMovies})(MainView);

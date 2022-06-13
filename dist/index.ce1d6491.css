@@ -44,6 +44,30 @@ body {
   box-shadow: 5px 5px 5px #0003;
 }
 
+.card-movie--title {
+  font-weight: 700 !important;
+}
+
+.navbar-logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.card-title {
+  color: #0d1b2a !important;
+  font-size: 18px !important;
+  font-weight: 700 !important;
+}
+
+.movie-description {
+  color: #0d1b2a;
+}
+
+.movie-container {
+  min-height: 80vh;
+  position: relative;
+}
+
 .card:hover {
   box-shadow: 5px 1px 20px 1px #00000041 !important;
 }
@@ -67,30 +91,6 @@ h1, h2, h3, h4, h5, p {
 
 .card.badge {
   color: #0d1b2a;
-}
-
-.card-movie--title {
-  font-weight: 700 !important;
-}
-
-.navbar-logo {
-  font-size: 24px;
-  font-weight: bold;
-}
-
-.card-title {
-  color: #0d1b2a !important;
-  font-size: 18px !important;
-  font-weight: 700 !important;
-}
-
-.movie-description {
-  color: #0d1b2a;
-}
-
-.movie-container {
-  min-height: 80vh;
-  position: relative;
 }
 
 /*# sourceMappingURL=index.ce1d6491.css.map */
