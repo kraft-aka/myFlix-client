@@ -49,12 +49,11 @@ export function ProfileView(props) {
       .then((response) => {
         console.log(response);
         setIsLoading(false);
-        // assign the result to the state
         setMovies(response.data);
       })
       .catch((error) => {
         console.log(error);
-        setIsLoading(true);
+        setIsLoading(false);
       });
   };
 
@@ -81,19 +80,18 @@ export function ProfileView(props) {
 
   return (
     <Container fluid>
-      <Row className="d-flex-justify content-center">
-        {isLoading ? (
-          <h4 className="d-flex justify-content-center m-2">
-            Loading...
-            <Spinner
-              className="d-flex justify-content-center m-5"
-              animation="border"
-              role="status"
-              variant="success"
-            ></Spinner>
-          </h4>
-        ) : null}
-      </Row>
+      {isLoading ? (
+        <h4 className="d-flex justify-content-center m-2">
+          <p>Loading...</p>
+          <Spinner
+            className="ml-2"
+            animation="border"
+            role="status"
+            variant="success"
+          ></Spinner>
+        </h4>
+      ) : null}
+
       <Row className="d-flex justify-content-md-center mt-4 mb-2">
         <Col sm={8}>
           <Card>

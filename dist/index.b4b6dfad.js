@@ -41336,11 +41336,10 @@ function ProfileView(props) {
         }).then((response)=>{
             console.log(response);
             setIsLoading(false);
-            // assign the result to the state
             setMovies(response.data);
         }).catch((error)=>{
             console.log(error);
-            setIsLoading(true);
+            setIsLoading(false);
         });
     };
     (0, _react.useEffect)(()=>{
@@ -41364,33 +41363,32 @@ function ProfileView(props) {
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Container), {
         fluid: true,
         children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
-                className: "d-flex-justify content-center",
-                children: isLoading ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
-                    className: "d-flex justify-content-center m-2",
-                    children: [
-                        "Loading...",
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Spinner), {
-                            className: "d-flex justify-content-center m-5",
-                            animation: "border",
-                            role: "status",
-                            variant: "success"
-                        }, void 0, false, {
-                            fileName: "src/components/profile-view/profile-view.jsx",
-                            lineNumber: 88,
-                            columnNumber: 13
-                        }, this)
-                    ]
-                }, void 0, true, {
-                    fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 86,
-                    columnNumber: 11
-                }, this) : null
-            }, void 0, false, {
+            isLoading ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
+                className: "d-flex justify-content-center m-2",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                        children: "Loading..."
+                    }, void 0, false, {
+                        fileName: "src/components/profile-view/profile-view.jsx",
+                        lineNumber: 85,
+                        columnNumber: 11
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Spinner), {
+                        className: "ml-2",
+                        animation: "border",
+                        role: "status",
+                        variant: "success"
+                    }, void 0, false, {
+                        fileName: "src/components/profile-view/profile-view.jsx",
+                        lineNumber: 86,
+                        columnNumber: 11
+                    }, this)
+                ]
+            }, void 0, true, {
                 fileName: "src/components/profile-view/profile-view.jsx",
                 lineNumber: 84,
-                columnNumber: 7
-            }, this),
+                columnNumber: 9
+            }, this) : null,
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
                 className: "d-flex justify-content-md-center mt-4 mb-2",
                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
@@ -41404,7 +41402,7 @@ function ProfileView(props) {
                                         children: "User Info"
                                     }, void 0, false, {
                                         fileName: "src/components/profile-view/profile-view.jsx",
-                                        lineNumber: 101,
+                                        lineNumber: 99,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Text, {
@@ -41416,13 +41414,13 @@ function ProfileView(props) {
                                                 children: user.Username
                                             }, void 0, false, {
                                                 fileName: "src/components/profile-view/profile-view.jsx",
-                                                lineNumber: 103,
+                                                lineNumber: 101,
                                                 columnNumber: 23
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "src/components/profile-view/profile-view.jsx",
-                                        lineNumber: 102,
+                                        lineNumber: 100,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Text, {
@@ -41434,19 +41432,19 @@ function ProfileView(props) {
                                                 children: user.Email
                                             }, void 0, false, {
                                                 fileName: "src/components/profile-view/profile-view.jsx",
-                                                lineNumber: 106,
+                                                lineNumber: 104,
                                                 columnNumber: 25
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "src/components/profile-view/profile-view.jsx",
-                                        lineNumber: 105,
+                                        lineNumber: 103,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/profile-view/profile-view.jsx",
-                                lineNumber: 100,
+                                lineNumber: 98,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
@@ -41459,7 +41457,7 @@ function ProfileView(props) {
                                         children: "Delete Profile"
                                     }, void 0, false, {
                                         fileName: "src/components/profile-view/profile-view.jsx",
-                                        lineNumber: 110,
+                                        lineNumber: 108,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
@@ -41471,34 +41469,34 @@ function ProfileView(props) {
                                             children: "Back to Home"
                                         }, void 0, false, {
                                             fileName: "src/components/profile-view/profile-view.jsx",
-                                            lineNumber: 118,
+                                            lineNumber: 116,
                                             columnNumber: 17
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "src/components/profile-view/profile-view.jsx",
-                                        lineNumber: 117,
+                                        lineNumber: 115,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/profile-view/profile-view.jsx",
-                                lineNumber: 109,
+                                lineNumber: 107,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/profile-view/profile-view.jsx",
-                        lineNumber: 99,
+                        lineNumber: 97,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 98,
+                    lineNumber: 96,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "src/components/profile-view/profile-view.jsx",
-                lineNumber: 97,
+                lineNumber: 95,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
@@ -41515,7 +41513,7 @@ function ProfileView(props) {
                             children: "Favorite Movies"
                         }, void 0, false, {
                             fileName: "src/components/profile-view/profile-view.jsx",
-                            lineNumber: 132,
+                            lineNumber: 130,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
@@ -41526,29 +41524,29 @@ function ProfileView(props) {
                                 token: token
                             }, void 0, false, {
                                 fileName: "src/components/profile-view/profile-view.jsx",
-                                lineNumber: 136,
+                                lineNumber: 134,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "src/components/profile-view/profile-view.jsx",
-                            lineNumber: 135,
+                            lineNumber: 133,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 131,
+                    lineNumber: 129,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "src/components/profile-view/profile-view.jsx",
-                lineNumber: 130,
+                lineNumber: 128,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/components/profile-view/profile-view.jsx",
-        lineNumber: 83,
+        lineNumber: 82,
         columnNumber: 5
     }, this);
 }
@@ -41577,6 +41575,7 @@ var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
+var _reactHorizontalScrollingMenu = require("react-horizontal-scrolling-menu");
 var _reactBootstrap = require("react-bootstrap");
 var _reactRouterDom = require("react-router-dom");
 var _s = $RefreshSig$();
@@ -41621,18 +41620,18 @@ function FavoriteMovies(props) {
                             variant: "success"
                         }, void 0, false, {
                             fileName: "src/components/profile-view/favorite-movies.jsx",
-                            lineNumber: 48,
+                            lineNumber: 49,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "src/components/profile-view/favorite-movies.jsx",
-                    lineNumber: 46,
+                    lineNumber: 47,
                     columnNumber: 11
                 }, this) : null
             }, void 0, false, {
                 fileName: "src/components/profile-view/favorite-movies.jsx",
-                lineNumber: 44,
+                lineNumber: 45,
                 columnNumber: 7
             }, this),
             favoriteMoviesArray.length === 0 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -41640,7 +41639,7 @@ function FavoriteMovies(props) {
                 children: "Your Favorite Movies List is empty."
             }, void 0, false, {
                 fileName: "src/components/profile-view/favorite-movies.jsx",
-                lineNumber: 58,
+                lineNumber: 60,
                 columnNumber: 9
             }, this) : favoriteMoviesArray.map((movieId)=>{
                 const movie = movies.find((m)=>m._id === movieId);
@@ -41665,7 +41664,7 @@ function FavoriteMovies(props) {
                                 }
                             }, void 0, false, {
                                 fileName: "src/components/profile-view/favorite-movies.jsx",
-                                lineNumber: 74,
+                                lineNumber: 76,
                                 columnNumber: 17
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Body, {
@@ -41674,12 +41673,12 @@ function FavoriteMovies(props) {
                                     children: movie.Title
                                 }, void 0, false, {
                                     fileName: "src/components/profile-view/favorite-movies.jsx",
-                                    lineNumber: 80,
+                                    lineNumber: 82,
                                     columnNumber: 19
                                 }, this)
                             }, void 0, false, {
                                 fileName: "src/components/profile-view/favorite-movies.jsx",
-                                lineNumber: 79,
+                                lineNumber: 81,
                                 columnNumber: 17
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Container), {
@@ -41693,12 +41692,12 @@ function FavoriteMovies(props) {
                                             children: "Open"
                                         }, void 0, false, {
                                             fileName: "src/components/profile-view/favorite-movies.jsx",
-                                            lineNumber: 84,
+                                            lineNumber: 86,
                                             columnNumber: 21
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "src/components/profile-view/favorite-movies.jsx",
-                                        lineNumber: 83,
+                                        lineNumber: 85,
                                         columnNumber: 19
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
@@ -41708,31 +41707,31 @@ function FavoriteMovies(props) {
                                         children: "Remove"
                                     }, void 0, false, {
                                         fileName: "src/components/profile-view/favorite-movies.jsx",
-                                        lineNumber: 91,
+                                        lineNumber: 93,
                                         columnNumber: 19
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/profile-view/favorite-movies.jsx",
-                                lineNumber: 82,
+                                lineNumber: 84,
                                 columnNumber: 17
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/profile-view/favorite-movies.jsx",
-                        lineNumber: 66,
+                        lineNumber: 68,
                         columnNumber: 15
                     }, this)
                 }, movie._id, false, {
                     fileName: "src/components/profile-view/favorite-movies.jsx",
-                    lineNumber: 64,
+                    lineNumber: 66,
                     columnNumber: 13
                 }, this);
             })
         ]
     }, void 0, true, {
         fileName: "src/components/profile-view/favorite-movies.jsx",
-        lineNumber: 43,
+        lineNumber: 44,
         columnNumber: 5
     }, this);
 }
@@ -41746,7 +41745,560 @@ $RefreshReg$(_c, "FavoriteMovies");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","axios":"jo6P5","react":"21dqq","react-bootstrap":"3AD9A","react-router-dom":"cHIiW","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"eyKYH":[function() {},{}],"9YtA0":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","axios":"jo6P5","react":"21dqq","react-bootstrap":"3AD9A","react-router-dom":"cHIiW","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-horizontal-scrolling-menu":"hfWss"}],"hfWss":[function(require,module,exports) {
+var global = arguments[3];
+!function(e, t) {
+    t(exports, require("react"));
+}(this, function(e1, t1) {
+    "use strict";
+    function n1(e) {
+        return e && "object" == typeof e && "default" in e ? e : {
+            default: e
+        };
+    }
+    var r1 = n1(t1);
+    !function(e, t) {
+        void 0 === t && (t = {});
+        var n = t.insertAt;
+        if (e && "undefined" != typeof document) {
+            var r = document.head || document.getElementsByTagName("head")[0], o = document.createElement("style");
+            o.type = "text/css", "top" === n && r.firstChild ? r.insertBefore(o, r.firstChild) : r.appendChild(o), o.styleSheet ? o.styleSheet.cssText = e : o.appendChild(document.createTextNode(e));
+        }
+    }(".react-horizontal-scrolling-menu--wrapper {\n  display: flex;\n}\n\n.react-horizontal-scrolling-menu--scroll-container {\n  display: flex;\n  height: max-content;\n  overflow-y: hidden;\n  position: relative;\n  width: 100%;\n}\n\n:export {\n  wrapper: react-horizontal-scrolling-menu--wrapper;\n  container: react-horizontal-scrolling-menu--scroll-container;\n}\n");
+    const o1 = "react-horizontal-scrolling-menu", i1 = "-separator", l1 = `${o1}--separator`, a1 = `${o1}--item`, s1 = `${o1}--scroll-container`, u1 = `${o1}--wrapper`, d1 = "itemId", c1 = "data-key", f1 = "data-index";
+    var v1 = Object.freeze({
+        __proto__: null,
+        rootClassName: o1,
+        separatorString: i1,
+        separatorClassName: l1,
+        itemClassName: a1,
+        scrollContainerClassName: s1,
+        wrapperClassName: u1,
+        id: d1,
+        dataKeyAttribute: c1,
+        dataIndexAttribute: f1
+    });
+    function m1({ className: e = "" , children: t , onScroll: n = ()=>{} , scrollRef: o  }) {
+        const i = r1.default.useMemo(()=>`${s1} ${e}`, [
+            e
+        ]);
+        return r1.default.createElement("div", {
+            className: i,
+            onScroll: n,
+            ref: o
+        }, t);
+    }
+    var h1 = r1.default.memo(function({ className: e , id: t , index: n , refs: o  }) {
+        const i = r1.default.useRef(null);
+        return o[n] = i, r1.default.createElement("div", Object.assign({
+            className: e
+        }, {
+            [c1]: t,
+            [f1]: n
+        }, {
+            ref: i
+        }));
+    });
+    var p1, g1 = r1.default.memo(function({ children: e , className: t , id: n , index: o , refs: i  }) {
+        const l = r1.default.useRef(null);
+        return i[String(o)] = l, r1.default.createElement("div", Object.assign({
+            className: t
+        }, {
+            [c1]: n,
+            [f1]: o
+        }, {
+            ref: l
+        }), e);
+    });
+    function b1({ children: e2 , itemClassName: t2 = "" , refs: n , separatorClassName: o2 = ""  }) {
+        const s2 = r1.default.Children.toArray(e2).filter(Boolean), u = s2.length, c = r1.default.useMemo(()=>`${a1} ${t2}`, [
+            t2
+        ]), f = r1.default.useMemo(()=>`${l1} ${o2}`, [
+            o2
+        ]);
+        return r1.default.createElement(r1.default.Fragment, null, s2.map((e, t)=>{
+            var o, l;
+            const a = null === (l = null === (o = e) || void 0 === o ? void 0 : o.props) || void 0 === l ? void 0 : l[d1], s = a + i1, v = t + 1 === u;
+            return [
+                r1.default.createElement(g1, {
+                    className: c,
+                    id: a,
+                    key: "menuItem__" + a,
+                    refs: n,
+                    index: t
+                }, e),
+                !v && r1.default.createElement(h1, {
+                    className: f,
+                    id: s,
+                    refs: n,
+                    key: s,
+                    index: t + .1
+                })
+            ];
+        }));
+    }
+    function y1(e) {
+        return "object" == typeof e && null != e && 1 === e.nodeType;
+    }
+    function w1(e, t) {
+        return (!t || "hidden" !== e) && "visible" !== e && "clip" !== e;
+    }
+    function x1(e3, t3) {
+        if (e3.clientHeight < e3.scrollHeight || e3.clientWidth < e3.scrollWidth) {
+            var n = getComputedStyle(e3, null);
+            return w1(n.overflowY, t3) || w1(n.overflowX, t3) || function(e4) {
+                var t = function(e) {
+                    if (!e.ownerDocument || !e.ownerDocument.defaultView) return null;
+                    try {
+                        return e.ownerDocument.defaultView.frameElement;
+                    } catch (e5) {
+                        return null;
+                    }
+                }(e4);
+                return !!t && (t.clientHeight < e4.scrollHeight || t.clientWidth < e4.scrollWidth);
+            }(e3);
+        }
+        return !1;
+    }
+    function I1(e, t, n, r, o, i, l, a) {
+        return i < e && l > t || i > e && l < t ? 0 : i <= e && a <= n || l >= t && a >= n ? i - e - r : l > t && a < n || i < e && a > n ? l - t + o : 0;
+    }
+    function E1(e6, t) {
+        var n = window, r = t.scrollMode, o = t.block, i = t.inline, l = t.boundary, a = t.skipOverflowHiddenElements, s = "function" == typeof l ? l : function(e) {
+            return e !== l;
+        };
+        if (!y1(e6)) throw new TypeError("Invalid target");
+        for(var u = document.scrollingElement || document.documentElement, d = [], c = e6; y1(c) && s(c);){
+            if ((c = c.parentElement) === u) {
+                d.push(c);
+                break;
+            }
+            null != c && c === document.body && x1(c) && !x1(document.documentElement) || null != c && x1(c, a) && d.push(c);
+        }
+        for(var f = n.visualViewport ? n.visualViewport.width : innerWidth, v = n.visualViewport ? n.visualViewport.height : innerHeight, m = window.scrollX || pageXOffset, h = window.scrollY || pageYOffset, p = e6.getBoundingClientRect(), g = p.height, b = p.width, w = p.top, E = p.right, C = p.bottom, M = p.left, N = "start" === o || "nearest" === o ? w : "end" === o ? C : w + g / 2, S = "center" === i ? M + b / 2 : "end" === i ? E : M, k = [], O = 0; O < d.length; O++){
+            var A = d[O], T = A.getBoundingClientRect(), j = T.height, W = T.width, R = T.top, V = T.right, $ = T.bottom, B = T.left;
+            if ("if-needed" === r && w >= 0 && M >= 0 && C <= v && E <= f && w >= R && C <= $ && M >= B && E <= V) return k;
+            var L = getComputedStyle(A), H = parseInt(L.borderLeftWidth, 10), D = parseInt(L.borderTopWidth, 10), P = parseInt(L.borderRightWidth, 10), _ = parseInt(L.borderBottomWidth, 10), z = 0, X = 0, Y = "offsetWidth" in A ? A.offsetWidth - A.clientWidth - H - P : 0, q = "offsetHeight" in A ? A.offsetHeight - A.clientHeight - D - _ : 0;
+            if (u === A) z = "start" === o ? N : "end" === o ? N - v : "nearest" === o ? I1(h, h + v, v, D, _, h + N, h + N + g, g) : N - v / 2, X = "start" === i ? S : "center" === i ? S - f / 2 : "end" === i ? S - f : I1(m, m + f, f, H, P, m + S, m + S + b, b), z = Math.max(0, z + h), X = Math.max(0, X + m);
+            else {
+                z = "start" === o ? N - R - D : "end" === o ? N - $ + _ + q : "nearest" === o ? I1(R, $, j, D, _ + q, N, N + g, g) : N - (R + j / 2) + q / 2, X = "start" === i ? S - B - H : "center" === i ? S - (B + W / 2) + Y / 2 : "end" === i ? S - V + P + Y : I1(B, V, W, H, P + Y, S, S + b, b);
+                var F = A.scrollLeft, J = A.scrollTop;
+                N += J - (z = Math.max(0, Math.min(J + z, A.scrollHeight - j + q))), S += F - (X = Math.max(0, Math.min(F + X, A.scrollWidth - W + Y)));
+            }
+            k.push({
+                el: A,
+                top: z,
+                left: X
+            });
+        }
+        return k;
+    }
+    function C1(e) {
+        return e === Object(e) && 0 !== Object.keys(e).length;
+    }
+    function M1(e7, t4) {
+        var n2 = e7.isConnected || e7.ownerDocument.documentElement.contains(e7);
+        if (C1(t4) && "function" == typeof t4.behavior) return t4.behavior(n2 ? E1(e7, t4) : []);
+        if (n2) {
+            var r2 = function(e) {
+                return !1 === e ? {
+                    block: "end",
+                    inline: "nearest"
+                } : C1(e) ? e : {
+                    block: "start",
+                    inline: "nearest"
+                };
+            }(t4);
+            return function(e8, t) {
+                void 0 === t && (t = "auto");
+                var n = "scrollBehavior" in document.body.style;
+                e8.forEach(function(e) {
+                    var r = e.el, o = e.top, i = e.left;
+                    r.scroll && n ? r.scroll({
+                        top: o,
+                        left: i,
+                        behavior: t
+                    }) : (r.scrollTop = o, r.scrollLeft = i);
+                });
+            }(E1(e7, r2), r2.behavior);
+        }
+    }
+    var N1 = function() {
+        return p1 || (p1 = "performance" in window ? performance.now.bind(performance) : Date.now), p1();
+    };
+    function S1(e) {
+        var t = N1(), n = Math.min((t - e.startTime) / e.duration, 1), r = e.ease(n), o = e.startX + (e.x - e.startX) * r, i = e.startY + (e.y - e.startY) * r;
+        e.method(o, i), o !== e.x || i !== e.y ? requestAnimationFrame(function() {
+            return S1(e);
+        }) : e.cb();
+    }
+    function k1(e9, t5, n3, r, o, i) {
+        var l, a, s, u;
+        void 0 === r && (r = 600), void 0 === o && (o = function(e) {
+            return 1 + --e * e * e * e * e;
+        }), l = e9, a = e9.scrollLeft, s = e9.scrollTop, u = function(t, n) {
+            e9.scrollLeft = Math.ceil(t), e9.scrollTop = Math.ceil(n);
+        }, S1({
+            scrollable: l,
+            method: u,
+            startTime: N1(),
+            startX: a,
+            startY: s,
+            x: t5,
+            y: n3,
+            duration: r,
+            ease: o,
+            cb: i
+        });
+    }
+    var O1 = function(e10, t6) {
+        var n = t6 || {};
+        return function(e) {
+            return e && !e.behavior || "smooth" === e.behavior;
+        }(n) ? M1(e10, {
+            block: n.block,
+            inline: n.inline,
+            scrollMode: n.scrollMode,
+            boundary: n.boundary,
+            behavior: function(e11) {
+                return Promise.all(e11.reduce(function(e12, t) {
+                    var r = t.el, o = t.left, i = t.top, l = r.scrollLeft, a = r.scrollTop;
+                    return l === o && a === i ? e12 : [].concat(e12, [
+                        new Promise(function(e) {
+                            return k1(r, o, i, n.duration, n.ease, function() {
+                                return e({
+                                    el: r,
+                                    left: [
+                                        l,
+                                        o
+                                    ],
+                                    top: [
+                                        a,
+                                        i
+                                    ]
+                                });
+                            });
+                        })
+                    ]);
+                }, []));
+            }
+        }) : Promise.resolve(M1(e10, t6));
+    };
+    function A1(e, t, n, r, o) {
+        var i, l;
+        const a = (null === (l = null === (i = e) || void 0 === i ? void 0 : i.entry) || void 0 === l ? void 0 : l.target) || e, s = t || "smooth";
+        return a && O1(a, Object.assign({
+            behavior: s,
+            inline: n || "end",
+            block: r || "nearest",
+            duration: 500
+        }, o));
+    }
+    const T1 = (e)=>document.querySelector(`[data-key='${e}']`), j1 = (e)=>document.querySelector(`[data-index='${e}']`);
+    function W1(e) {
+        return r1.default.isValidElement(e) && e || "function" == typeof e && r1.default.createElement(e, null) || null;
+    }
+    const R1 = (e13)=>e13.filter((e)=>!new RegExp(".*-separator$").test(e)), V1 = "undefined" != typeof window ? r1.default.useLayoutEffect : r1.default.useEffect;
+    function $1({ items: e14 , itemsChanged: t7 , refs: n4 , options: o3  }) {
+        const i2 = r1.default.useRef(), [l, a] = r1.default.useState([]), s = r1.default.useRef(+setTimeout(()=>{}, 0)), u = r1.default.useCallback((t8)=>{
+            e14.set(function(e15, t) {
+                return [
+                    ...e15
+                ].map((e)=>{
+                    var n, r;
+                    const o = e.target, i = (null === (n = null == o ? void 0 : o.dataset) || void 0 === n ? void 0 : n.key) || "";
+                    return [
+                        i,
+                        {
+                            index: String((null === (r = null == o ? void 0 : o.dataset) || void 0 === r ? void 0 : r.index) || ""),
+                            key: i,
+                            entry: e,
+                            visible: e.intersectionRatio >= t.ratio
+                        }
+                    ];
+                });
+            }(t8, o3)), global.clearTimeout(s.current), s.current = +setTimeout(()=>global.requestAnimationFrame(()=>{
+                    a((t)=>{
+                        const n = e14.getVisible().map((e)=>e[1].key);
+                        return JSON.stringify(t) !== JSON.stringify(n) ? n : t;
+                    });
+                }), o3.throttle);
+        }, [
+            e14,
+            o3
+        ]);
+        return V1(()=>{
+            const e16 = ((e17)=>Object.values(e17).map((e)=>e.current).filter(Boolean))(n4), t = i2.current || new IntersectionObserver(u, o3);
+            return i2.current = t, e16.forEach((e)=>t.observe(e)), ()=>{
+                clearTimeout(s.current), t.disconnect(), i2.current = void 0;
+            };
+        }, [
+            u,
+            t7,
+            o3,
+            n4
+        ]), {
+            visibleItems: l
+        };
+    }
+    function B1(e18, t9) {
+        const [n5, o4] = r1.default.useState(""), i = r1.default.useMemo(()=>{
+            var t10;
+            return t10 = e18, r1.default.Children.toArray(t10).map((e)=>{
+                var t, n;
+                return null === (n = null === (t = e) || void 0 === t ? void 0 : t.props) || void 0 === n ? void 0 : n[d1];
+            }).filter(Boolean);
+        }, [
+            e18
+        ]);
+        return r1.default.useEffect(()=>{
+            const e19 = i.filter(Boolean).join("");
+            t9.toItemsWithoutSeparators().filter((e)=>!i.includes(e)).forEach((e)=>{
+                var n, r;
+                const o = (null === (n = t9.last()) || void 0 === n ? void 0 : n.key) === e && (null === (r = t9.prev(e)) || void 0 === r ? void 0 : r.key) || "";
+                t9.delete(o), t9.delete(`${e}-separator`), t9.delete(e);
+            }), o4(e19);
+        }, [
+            i,
+            t9
+        ]), n5;
+    }
+    class L1 extends Map {
+        toArr() {
+            return this.sort([
+                ...this
+            ]);
+        }
+        toItems() {
+            return this.toArr().map(([e])=>e);
+        }
+        toItemsWithoutSeparators() {
+            return R1(this.toItems());
+        }
+        toItemsKeys() {
+            return this.toItems();
+        }
+        sort(e20) {
+            return e20.sort(([, e], [, t])=>+e.index - +t.index);
+        }
+        set(e21, t11) {
+            return Array.isArray(e21) ? this.sort(e21).forEach(([e, t])=>{
+                super.set(e, t);
+            }) : super.set(e21, t11), this;
+        }
+        first() {
+            var e;
+            return null === (e = this.toArr()[0]) || void 0 === e ? void 0 : e[1];
+        }
+        last() {
+            var e, t;
+            return null === (t = null === (e = this.toArr().slice(-1)) || void 0 === e ? void 0 : e[0]) || void 0 === t ? void 0 : t[1];
+        }
+        filter(e) {
+            return this.toArr().filter(e);
+        }
+        find(e) {
+            return this.toArr().find(e);
+        }
+        findIndex(e) {
+            return this.toArr().findIndex(e);
+        }
+        prev(e) {
+            var t12;
+            const n6 = this.toArr(), r = n6.findIndex(([t, n])=>t === e || n === e);
+            return -1 !== r ? null === (t12 = n6[r - 1]) || void 0 === t12 ? void 0 : t12[1] : void 0;
+        }
+        next(e) {
+            var t13;
+            const n7 = this.toArr(), r = n7.findIndex(([t, n])=>t === e || n === e);
+            return -1 !== r ? null === (t13 = n7[r + 1]) || void 0 === t13 ? void 0 : t13[1] : void 0;
+        }
+        getVisible() {
+            return this.filter((e)=>e[1].visible);
+        }
+    }
+    const H1 = {
+        ratio: .9,
+        rootMargin: "5px",
+        threshold: [
+            .05,
+            .5,
+            .75,
+            .95
+        ],
+        throttle: 100
+    };
+    const D1 = r1.default.createContext({}), P1 = (e22)=>e22.reduce((e, t)=>e.concat(t).concat(`${t}-separator`), []).slice(0, -1);
+    e1.ScrollMenu = function({ Arrows: e23 , LeftArrow: t14 , RightArrow: n8 , children: o5 , transitionDuration: i3 = 500 , transitionEase: l2 , transitionBehavior: a2 , onInit: s3 = ()=>{} , onUpdate: d2 = ()=>{} , onMouseDown: c2 , onMouseUp: f , onMouseMove: v , onScroll: h = ()=>{} , onWheel: p = ()=>{} , options: g = H1 , scrollContainerClassName: y = "" , itemClassName: w = "" , separatorClassName: x = "" , wrapperClassName: I = "" , apiRef: E = {
+        current: {}
+    }  }) {
+        const C = W1(t14), M = W1(n8), N = W1(e23), S = r1.default.useRef(null), [k] = r1.default.useState({}), O = r1.default.useMemo(()=>Object.assign(Object.assign(Object.assign({}, H1), g), {
+                root: S.current
+            }), [
+            g,
+            S.current
+        ]), V = r1.default.useRef(new L1).current, P = B1(o5, V), { visibleItems: _  } = $1({
+            items: V,
+            itemsChanged: P,
+            options: O,
+            refs: k
+        }), z = !!_.length, X = r1.default.useMemo(()=>(function(e24, t15 = [], n9, r4) {
+                var o6, i4;
+                const l3 = R1(t15), a3 = !!(null === (o6 = e24.first()) || void 0 === o6 ? void 0 : o6.visible), s4 = !!(null === (i4 = e24.last()) || void 0 === i4 ? void 0 : i4.visible), u = (t)=>{
+                    var n;
+                    return null === (n = e24.find((e)=>e[1].key === String(t))) || void 0 === n ? void 0 : n[1];
+                }, d = ()=>{
+                    var t, n;
+                    return e24.prev(null === (n = null === (t = e24.getVisible()) || void 0 === t ? void 0 : t[0]) || void 0 === n ? void 0 : n[1]);
+                }, c = ()=>{
+                    var t, n, r, o;
+                    return e24.next(null === (o = null === (r = null === (n = null === (t = e24.getVisible()) || void 0 === t ? void 0 : t.slice) || void 0 === n ? void 0 : n.call(t, -1)) || void 0 === r ? void 0 : r[0]) || void 0 === o ? void 0 : o[1]);
+                };
+                return {
+                    getItemById: u,
+                    getItemElementById: T1,
+                    getItemByIndex: (t)=>{
+                        var n;
+                        return null === (n = e24.find((e)=>String(e[1].index) === String(t))) || void 0 === n ? void 0 : n[1];
+                    },
+                    getItemElementByIndex: j1,
+                    getNextItem: c,
+                    getPrevItem: d,
+                    isFirstItemVisible: a3,
+                    isItemVisible: (e)=>t15.includes(e),
+                    isLastItem: (t)=>e24.last() === u(t),
+                    isLastItemVisible: s4,
+                    scrollNext: (e, t, o, { duration: i , ease: l , boundary: a = null == n9 ? void 0 : n9.current  } = {})=>{
+                        const s = null != e ? e : null == r4 ? void 0 : r4.behavior;
+                        return A1(c(), s, t || "start", o || "nearest", {
+                            boundary: a,
+                            duration: null != i ? i : null == r4 ? void 0 : r4.duration,
+                            ease: null != l ? l : null == r4 ? void 0 : r4.ease
+                        });
+                    },
+                    scrollPrev: (e, t, o, { duration: i , ease: l , boundary: a = null == n9 ? void 0 : n9.current  } = {})=>{
+                        const s = null != e ? e : null == r4 ? void 0 : r4.behavior;
+                        return A1(d(), s, t || "end", o || "nearest", {
+                            boundary: a,
+                            duration: null != i ? i : null == r4 ? void 0 : r4.duration,
+                            ease: null != l ? l : null == r4 ? void 0 : r4.ease
+                        });
+                    },
+                    scrollToItem: (e, t, o, i, l)=>{
+                        var a, s;
+                        return A1(e, null != t ? t : null == r4 ? void 0 : r4.behavior, o, i, Object.assign(Object.assign({
+                            boundary: null == n9 ? void 0 : n9.current
+                        }, l), {
+                            duration: null !== (a = null == l ? void 0 : l.duration) && void 0 !== a ? a : null == r4 ? void 0 : r4.duration,
+                            ease: null !== (s = null == l ? void 0 : l.ease) && void 0 !== s ? s : null == r4 ? void 0 : r4.ease
+                        }));
+                    },
+                    visibleItems: t15,
+                    visibleItemsWithoutSeparators: l3
+                };
+            })(V, _, S, {
+                duration: i3,
+                ease: l2,
+                behavior: a2
+            }), [
+            V,
+            _,
+            P
+        ]), Y = r1.default.useCallback(()=>Object.assign(Object.assign({}, X), {
+                initComplete: z,
+                items: V,
+                visibleItems: _,
+                scrollContainer: S
+            }), [
+            X,
+            z,
+            V,
+            _,
+            S
+        ]), [q, F] = r1.default.useState(Y);
+        !function({ cb: e = ()=>{} , condition: t , hash: n  }) {
+            r1.default.useEffect(()=>{
+                t && e();
+            }, [
+                n,
+                t
+            ]);
+        }({
+            cb: ()=>d2(q),
+            condition: function({ cb: e , condition: t  }) {
+                const [n, o] = r1.default.useState(!1);
+                return r1.default.useEffect(()=>{
+                    t && !n && (o(!0), e());
+                }, [
+                    t,
+                    n
+                ]), n;
+            }({
+                cb: ()=>s3(q),
+                condition: z
+            }),
+            hash: JSON.stringify(_.concat(String(null == q ? void 0 : q.isFirstItemVisible)).concat(String(null == q ? void 0 : q.isLastItemVisible)))
+        }), r1.default.useEffect(()=>F(Y()), [
+            Y
+        ]), E.current = q;
+        const J = r1.default.useCallback((e)=>h(q, e), [
+            h,
+            q
+        ]), U = r1.default.useCallback((e)=>p(q, e), [
+            p,
+            q
+        ]), K = r1.default.useMemo(()=>`${u1} ${I}`, [
+            I
+        ]);
+        return r1.default.createElement("div", {
+            className: K,
+            onWheel: U,
+            onMouseDown: null == c2 ? void 0 : c2(q),
+            onMouseUp: null == f ? void 0 : f(q),
+            onMouseMove: null == v ? void 0 : v(q)
+        }, r1.default.createElement(D1.Provider, {
+            value: q
+        }, N, C, r1.default.createElement(m1, {
+            className: y,
+            onScroll: J,
+            scrollRef: S
+        }, r1.default.createElement(b1, {
+            refs: k,
+            itemClassName: w,
+            separatorClassName: x
+        }, o5)), M));
+    }, e1.VisibilityContext = D1, e1.constants = v1, e1.getItemsPos = (e25)=>{
+        var t16;
+        const n10 = ((e26)=>e26.filter((e, t, n)=>{
+                const r = 0 === t, o = t === n.length - 1, l = new RegExp(i1).test(e);
+                return !((r || o) && l);
+            }))(e25), r5 = n10[Math.floor(n10.length / 2)];
+        return {
+            first: null == n10 ? void 0 : n10[0],
+            center: r5,
+            last: null === (t16 = n10.slice(-1)) || void 0 === t16 ? void 0 : t16[0]
+        };
+    }, e1.slidingWindow = function(e27, t17) {
+        const n11 = R1(e27), r6 = R1(t17);
+        return {
+            prev: ()=>P1(function(e28, t) {
+                    const n = e28.findIndex((e)=>e === (null == t ? void 0 : t[0])), r = t.length, o = n - r, i = o < 0, l = i ? 0 : o, a = e28.slice(l, i ? r : n);
+                    return a.length === r ? a : e28.slice(n, r);
+                }(n11, r6)),
+            next: ()=>P1(function(e29, t) {
+                    const n12 = e29.findIndex((e)=>{
+                        var n;
+                        return e === (null === (n = t.slice(-1)) || void 0 === n ? void 0 : n[0]);
+                    }), r = t.length, o = n12 + r + 1, i = o > e29.length - 1, l = i ? e29.length - 1 : o, a = e29.slice(i ? l - r + 1 : n12 + 1, l);
+                    return a.length === r ? a : e29.slice(e29.length - r, e29.length + r);
+                }(n11, r6))
+        };
+    }, Object.defineProperty(e1, "__esModule", {
+        value: !0
+    });
+});
+
+},{"react":"21dqq"}],"eyKYH":[function() {},{}],"9YtA0":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$9fee = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;

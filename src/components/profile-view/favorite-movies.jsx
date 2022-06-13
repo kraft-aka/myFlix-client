@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+import { ScrollMenu, VisibilityContext } from "react-horizontal-scrolling-menu";
 
 import { Container, Card, Button, Col, Spinner, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
@@ -54,6 +55,7 @@ export function FavoriteMovies(props) {
           </h4>
         ) : null}
       </Row>
+      
       {favoriteMoviesArray.length === 0 ? (
         <p className="text-center">Your Favorite Movies List is empty.</p>
       ) : (
