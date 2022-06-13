@@ -43046,7 +43046,8 @@ class MovieCard extends (0, _reactDefault.default).Component {
             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card), {
                 className: "shadow-sm bg-white rounded d-flex justify-content center mb-2 mt-2",
                 style: {
-                    height: "850px"
+                    height: "750px",
+                    width: "350px"
                 },
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Img, {
