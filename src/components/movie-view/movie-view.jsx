@@ -29,6 +29,7 @@ export class MovieView extends React.Component {
             className="card-img"
             src={movie.ImagePath}
             style={{ width: "100%", height: "500px" }}
+            crossOrigin="anonymous"
           />
           <Card.Body>
             <Card.Title className="text-center">Title:</Card.Title>

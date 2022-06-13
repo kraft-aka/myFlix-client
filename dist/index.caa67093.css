@@ -1,0 +1,88 @@
+.container {
+  max-width: 100% !important;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #aed9e0 !important;
+  font-family: "Kanit", sans-serif !important;
+}
+.card:hover {
+  box-shadow: 5px 1px 20px 1px rgba(0, 0, 0, 0.254) !important;
+}
+
+.card-body {
+  padding: 1.5rem 1.5rem !important;
+  flex-wrap: wrap;
+}
+
+.movie-description {
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 70ch;
+}
+
+h1, h2, h3, h4, h5, p {
+  color: #0d1b2a !important;
+}
+
+.card.badge {
+  color: #0d1b2a;
+}
+.main-cont {
+  min-height: 80vh;
+  position: relative;
+}
+
+.card-body--register {
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+.form-label {
+  font-weight: 700;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body {
+  margin: 0 !important;
+  max-width: 100% !important;
+  color: #fff;
+}
+.text-warning {
+  color: #bf0808;
+}
+
+.card-body--login {
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+}
+.card-movie--title {
+  font-weight: 700 !important;
+}
+.navbar-logo {
+  font-weight: bold;
+  font-size: 24px;
+}
+.card-title {
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  color: #0d1b2a !important;
+}
+
+.movie-description {
+  color: #0d1b2a;
+}
+
+.movie-container {
+  min-height: 80vh;
+  position: relative;
+}
+/*# sourceMappingURL=index.caa67093.css.map */

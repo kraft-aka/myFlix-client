@@ -31,7 +31,7 @@ export class MovieCard extends React.Component {
           className="shadow-sm bg-white rounded d-flex justify-content center mb-2 mt-2"
           style={{ height: "750px", width: "350px" }}
         >
-          <Card.Img variant="top" width={"10rem"} src={movie.ImagePath} />
+          <Card.Img variant="top" width={"10rem"} src={movie.ImagePath} crossOrigin="anonymous" />
           <Badge
             bg="light"
             text="dark"

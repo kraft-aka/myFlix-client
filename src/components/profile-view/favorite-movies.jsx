@@ -74,6 +74,7 @@ export function FavoriteMovies(props) {
                   variant="top"
                   src={movie.ImagePath}
                   style={{ width: "100%", height: "auto" }}
+                  crossOrigin="anonymous"
                 />
                 <Card.Body>
                   <Card.Title className="text-center">{movie.Title}</Card.Title>
