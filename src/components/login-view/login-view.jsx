@@ -75,7 +75,7 @@ export function LoginView(props) {
     <Container className="main-cont color-overlay d-flex justify-content-center align-items-center mt-3">
       <Row className="d-flex-justify content-center">
         {isLoading ? (
-          <h4 className="d-flex justify-conten-center">
+          <h4>
             Loading...
             <Spinner
               className="d-flex justify-conten-center m-5"
@@ -88,6 +88,7 @@ export function LoginView(props) {
       </Row>
       <Row>
         <Col>
+          <h4 className="text-center m-3" style={{fontWeight: '700'}}>- WELCOME TO MYFLIXCinema -</h4>
           <CardGroup>
             <Card>
               <Card.Body
