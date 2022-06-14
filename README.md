@@ -53,17 +53,17 @@ The application must be a single-page application (SPA)
 
 ## Dependencies
 
--Axios
--Bootstrap
--Proptypes
--Parcel
--Process
--React
--React-Bootstrap
--React-DOM
--React-Router-DOM
--React-Redux
--Redux
+- Axios
+- Bootstrap
+- Proptypes
+- Parcel
+- Process
+- React
+- React-Bootstrap
+- React-DOM
+- React-Router-DOM
+- React-Redux
+- Redux
 
 
 
