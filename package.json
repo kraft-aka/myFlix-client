@@ -2,7 +2,7 @@
   "name": "myflix-client",
   "version": "1.0.0",
   "description": "This is a client-side of myFlix App",
-  "main": "src/index.js",
+ 
   "source": "src/index.html",
   "scripts": {
     "start": "parcel",
