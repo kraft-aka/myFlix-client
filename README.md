@@ -65,7 +65,9 @@ The application must be a single-page application (SPA)
 - React-Redux
 - Redux
 
+## Link
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/a259d629-a413-42ff-885c-b5a3fe2ff954/deploy-status)](https://app.netlify.com/sites/myflix-cinema-react/deploys)
 
 
 
